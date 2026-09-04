@@ -1,0 +1,31 @@
+/* Mobile Field App — standalone app frame.
+   Desktop: the app runs inside a device frame. Phone/narrow viewport: full screen, no bezel. */
+html, body { height: 100%; }
+body.mobile-app { margin: 0; background: #E9EDF0; overflow: hidden; }
+#stage { height: 100%; display: flex; align-items: center; justify-content: center; }
+#stage .phone { box-shadow: 0 30px 70px rgba(20,29,34,.28), 0 0 0 1px rgba(0,0,0,.7), inset 0 0 0 2px #2A3034; }
+.demo-menu { position: fixed; right: 20px; bottom: 20px; z-index: 100; display: flex; flex-direction: column; align-items: flex-end; gap: 10px; }
+.demo-menu .dm-btn { display: inline-flex; align-items: center; gap: 8px; height: 40px; padding: 0 14px; border-radius: 999px; border: 1px solid var(--border); background: var(--surface); color: var(--text); font: inherit; font-size: 13px; font-weight: 500; box-shadow: var(--shadow-float); cursor: pointer; }
+.demo-menu .dm-btn .ic { width: 16px; height: 16px; color: var(--text-2); }
+.demo-menu .dm-list { width: 280px; max-height: 60vh; overflow: auto; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; box-shadow: var(--shadow-modal); padding: 6px; display: flex; flex-direction: column; gap: 1px; }
+.demo-menu .dm-list .eyebrow { padding: 10px 10px 4px; }
+.demo-menu .dm-list a { display: flex; align-items: center; gap: 10px; padding: 7px 10px; border-radius: 8px; font-size: 13px; font-weight: 500; color: var(--text); }
+.demo-menu .dm-list a small { margin-left: auto; font-size: 11px; color: var(--text-3); font-weight: 400; }
+.demo-menu .dm-list a .ic { width: 16px; height: 16px; color: var(--text-3); }
+.demo-menu .dm-list a:hover { background: var(--bg); }
+.demo-menu .dm-list a.active { background: var(--accent-bg); color: var(--pageo-deep); }
+.app-note { position: fixed; left: 20px; bottom: 20px; z-index: 100; font-size: 12px; color: var(--text-2); display: flex; flex-direction: column; gap: 2px; }
+.app-note b { color: var(--text); font-weight: 600; }
+@media (max-width: 560px), (max-height: 900px) and (max-width: 900px) {
+  body.mobile-app { background: var(--bg); }
+  #stage { align-items: stretch; justify-content: stretch; }
+  #stage .phone { width: 100%; height: 100%; border-radius: 0; padding: 0; box-shadow: none; background: var(--bg); }
+  #stage .screen { border-radius: 0; }
+  #stage .notch { display: none; }
+  #stage .m-status { display: none; }
+  #stage .home-bar { display: none; }
+  #stage .m-nav { padding-bottom: 12px; height: 76px; }
+  .app-note { display: none; }
+  .demo-menu { right: 12px; bottom: 96px; }
+  .demo-menu .dm-btn { height: 34px; font-size: 12px; padding: 0 12px; }
+}
