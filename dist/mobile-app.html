@@ -932,9 +932,9 @@ table { border-collapse: collapse; width: 100%; }
 .m-top { padding: 6px 20px 10px; }
 .m-top .m-title { font-size: 24px; letter-spacing: -.02em; }
 .m-top .back { border-radius: 14px; width: 42px; height: 42px; }
-.m-body { padding: 4px 16px 28px; gap: 14px; }
+.m-body { padding: 4px 16px 24px; gap: 12px; }
 .m-greeting { display: flex; flex-direction: column; gap: 2px; padding: 2px 4px 4px; }
-.m-greeting .m-h1 { font-size: 28px; font-weight: 700; }
+.m-greeting .m-h1 { font-size: 26px; font-weight: 700; }
 .m-card { border-radius: 20px; border: 0; box-shadow: 0 6px 20px rgba(20,29,34,.06); padding: 18px; gap: 12px; }
 .m-card.tinted { background: #E4F3FA; box-shadow: none; }
 .m-card.ok { background: #E7F5EE; box-shadow: none; }
@@ -962,7 +962,7 @@ table { border-collapse: collapse; width: 100%; }
 .m-section a { font-weight: 600; }
 
 /* Hero */
-.m-hero { position: relative; overflow: hidden; border-radius: 24px; padding: 20px; color: #fff; display: flex; flex-direction: column; gap: 12px; background: linear-gradient(135deg, #1D9FD0 0%, #0E7BA8 55%, #085C80 100%); box-shadow: 0 14px 30px rgba(8,105,143,.28); }
+.m-hero { position: relative; overflow: hidden; border-radius: 22px; padding: 18px; color: #fff; display: flex; flex-direction: column; gap: 10px; background: linear-gradient(135deg, #1D9FD0 0%, #0E7BA8 55%, #085C80 100%); box-shadow: 0 14px 30px rgba(8,105,143,.28); }
 .m-hero::before { content: ""; position: absolute; right: -60px; top: -70px; width: 220px; height: 220px; border-radius: 50%; background: rgba(255,255,255,.10); }
 .m-hero::after { content: ""; position: absolute; right: 30px; bottom: -90px; width: 170px; height: 170px; border-radius: 50%; background: rgba(255,255,255,.07); }
 .m-hero > * { position: relative; z-index: 1; }
@@ -972,7 +972,7 @@ table { border-collapse: collapse; width: 100%; }
 .m-hero.dark { background: linear-gradient(135deg, #2C3439 0%, #171A1C 70%); box-shadow: 0 14px 30px rgba(23,26,28,.30); }
 .m-hero.violet { background: linear-gradient(135deg, #8E80EE 0%, #6B5BD2 60%, #4E40B0 100%); box-shadow: 0 14px 30px rgba(107,91,210,.28); }
 .m-hero .eyebrow { color: rgba(255,255,255,.72); }
-.m-hero-title { font-size: 22px; font-weight: 700; letter-spacing: -.02em; line-height: 1.2; }
+.m-hero-title { font-size: 20px; font-weight: 700; letter-spacing: -.02em; line-height: 1.2; }
 .m-hero-sub { font-size: 14px; color: rgba(255,255,255,.82); }
 .m-hero .m-tracking { background: rgba(255,255,255,.18); color: #fff; backdrop-filter: blur(6px); }
 .m-hero .m-tracking .dot { background: #8CF0BF; } .m-hero .m-tracking .dot.pulse::after { border-color: #8CF0BF; }
@@ -1148,16 +1148,46 @@ body.mobile-app { margin: 0; background: #E9EDF0; overflow: hidden; }
 .app-note { position: fixed; left: 20px; bottom: 20px; z-index: 100; font-size: 12px; color: var(--text-2); display: flex; flex-direction: column; gap: 2px; }
 .app-note b { color: var(--text); font-weight: 600; }
 @media (max-width: 560px), (max-height: 900px) and (max-width: 900px) {
+  html, body { height: 100%; }
   body.mobile-app { background: var(--bg); }
-  #stage { align-items: stretch; justify-content: stretch; }
+  #stage, #stage.mobile { padding: 0; height: 100dvh; min-height: 0; align-items: stretch; justify-content: stretch; display: flex; }
   #stage .phone { width: 100%; height: 100%; border-radius: 0; padding: 0; box-shadow: none; background: var(--bg); }
   #stage .screen { border-radius: 0; }
-  #stage .notch { display: none; }
-  #stage .m-status { display: none; }
-  #stage .home-bar { display: none; }
-  #stage .m-nav { padding-bottom: 12px; height: 76px; }
+  #stage .notch, #stage .m-status, #stage .home-bar { display: none; }
+  /* compact rhythm on real phones */
+  #stage .m-top { padding: calc(10px + env(safe-area-inset-top, 0px)) 16px 8px; gap: 10px; }
+  #stage .m-top .m-title { font-size: 22px; }
+  #stage .m-top .back { width: 38px; height: 38px; border-radius: 12px; }
+  #stage .brand { width: 84px; }
+  #stage .m-sos-btn { width: 42px; height: 42px; }
+  #stage .m-body { padding: 2px 14px 18px; gap: 12px; }
+  #stage .m-greeting { padding: 0 2px 2px; } #stage .m-greeting .m-h1 { font-size: 24px; }
+  #stage .m-hero { padding: 16px 16px 16px; gap: 10px; border-radius: 20px; }
+  #stage .m-hero-title { font-size: 19px; } #stage .m-hero-sub { font-size: 13px; }
+  #stage .m-hero-stats { gap: 6px; } #stage .m-hero-stats .hs { padding: 8px 10px; border-radius: 12px; } #stage .m-hero-stats .hs b { font-size: 15px; }
+  #stage .m-hero .big { font-size: 34px; }
+  #stage .m-card { padding: 14px; border-radius: 18px; gap: 10px; }
+  #stage .m-card .m-card-title { font-size: 17px; }
+  #stage .m-list .li { min-height: 58px; padding: 10px 14px; font-size: 15px; }
+  #stage .m-list .li .li-icon { width: 42px; height: 42px; border-radius: 13px; }
+  #stage .m-actions { gap: 8px; } #stage .ai { width: 52px; height: 52px; border-radius: 16px; } #stage .ai .ic { width: 23px; height: 23px; } #stage .m-actions a { font-size: 11.5px; gap: 6px; }
+  #stage .m-tiles { gap: 8px; } #stage .m-tiles .tile { padding: 12px 10px; border-radius: 16px; } #stage .m-tiles .tile b { font-size: 20px; }
+  #stage .m-btn { height: 52px; border-radius: 14px; font-size: 15px; } #stage .m-btn.lg { height: 60px; font-size: 17px; }
+  #stage .m-input { height: 52px; border-radius: 14px; }
+  #stage .m-kv { font-size: 14px; gap: 8px 14px; }
+  #stage .m-tracking { padding: 6px 11px; font-size: 11px; }
+  #stage .m-section { padding: 4px 4px 0; }
+  #stage .m-timeline .tl { font-size: 14px; padding-bottom: 12px; }
+  #stage .m-icon-ring { width: 104px; height: 104px; } #stage .m-icon-ring .ic { width: 46px; height: 46px; }
+  #stage .m-h1 { font-size: 24px; } #stage .m-h2 { font-size: 20px; }
+  #stage .m-nav { height: auto; padding: 8px 8px calc(10px + env(safe-area-inset-bottom, 0px)); border-radius: 20px 20px 0 0; }
+  #stage .m-nav a { font-size: 10.5px; gap: 3px; } #stage .m-nav a .ic { width: 24px; height: 24px; }
+  #stage .m-nav a.active .ic { width: 46px; height: 28px; padding: 2px 11px; border-radius: 12px; }
+  #stage .m-sheet { padding: 10px 16px calc(18px + env(safe-area-inset-bottom, 0px)); gap: 10px; }
+  #stage .m-login-top { padding: 22px 20px 60px; margin: -2px -14px 0; }
+  #stage .m-login-card { margin-top: -46px; }
   .app-note { display: none; }
-  .demo-menu { right: 12px; bottom: 96px; }
+  .demo-menu { right: 12px; bottom: calc(84px + env(safe-area-inset-bottom, 0px)); }
   .demo-menu .dm-btn { height: 36px; width: 36px; padding: 0; justify-content: center; border-radius: 50%; }
   .demo-menu .dm-btn span, .demo-menu .dm-btn .ic:last-child { display: none; }
 }
