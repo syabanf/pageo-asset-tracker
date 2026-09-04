@@ -411,7 +411,7 @@
     el.__ol = map;
     const ext3857 = ol.proj.transformExtent(ext, 'EPSG:4326', 'EPSG:3857');
     const size = [el.clientWidth || 800, el.clientHeight || 400];
-    const small = size[1] < 240; if (small) el.setAttribute('data-small', '1');
+    const small = size[1] < 240 || el.hasAttribute('data-small'); if (small) el.setAttribute('data-small', '1');
     const pad = small ? 14 : 36;
     map.getView().fit(ext3857, { size: size, padding: [pad, pad, pad, pad] });
     const seen = { ok: false };

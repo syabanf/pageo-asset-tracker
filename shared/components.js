@@ -168,7 +168,7 @@
     if (o.tl) ui.push('<div class="map-ui tl">' + o.tl + '</div>');
     if (o.bc) ui.push('<div class="map-ui bc">' + o.bc + '</div>');
     if (o.tc) ui.push('<div class="map-ui tc">' + o.tc + '</div>');
-    return '<div class="map' + (o.flush ? ' flush' : '') + (o.cls ? ' ' + o.cls : '') + '" data-map="' + (o.scene || 'coast') + '" style="' + (o.height ? 'height:' + o.height + 'px;' : '') + (o.style || '') + '">' + fences + tracks + markers + popups + ui.join('') + '</div>';
+    return '<div class="map' + (o.flush ? ' flush' : '') + (o.cls ? ' ' + o.cls : '') + '" data-map="' + (o.scene || 'coast') + '"' + (o.height && o.height < 240 ? ' data-small="1"' : '') + ' style="' + (o.height ? 'height:' + o.height + 'px;' : '') + (o.style || '') + '">' + fences + tracks + markers + popups + ui.join('') + '</div>';
   };
 
   /* ---------- mobile ---------- */

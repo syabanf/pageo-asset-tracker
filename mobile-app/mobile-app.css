@@ -23,40 +23,9 @@ body.mobile-app { margin: 0; background: #E9EDF0; overflow: hidden; }
   #stage .phone { width: 100%; height: 100%; border-radius: 0; padding: 0; box-shadow: none; background: var(--bg); }
   #stage .screen { border-radius: 0; }
   #stage .notch, #stage .m-status, #stage .home-bar { display: none; }
-  /* compact rhythm on real phones */
-  #stage .m-top { padding: calc(10px + env(safe-area-inset-top, 0px)) 16px 8px; gap: 10px; }
-  #stage .m-top .m-title { font-size: 22px; }
-  #stage .m-top .back { width: 38px; height: 38px; border-radius: 12px; }
-  #stage .brand { width: 84px; }
-  #stage .m-sos-btn { width: 42px; height: 42px; }
-  #stage .m-body { padding: 2px 14px 18px; gap: 12px; }
-  #stage .m-greeting { padding: 0 2px 2px; } #stage .m-greeting .m-h1 { font-size: 24px; }
-  #stage .m-hero { padding: 16px 16px 16px; gap: 10px; border-radius: 20px; }
-  #stage .m-hero-title { font-size: 19px; } #stage .m-hero-sub { font-size: 13px; }
-  #stage .m-hero-stats { gap: 6px; } #stage .m-hero-stats .hs { padding: 8px 10px; border-radius: 12px; } #stage .m-hero-stats .hs b { font-size: 15px; }
-  #stage .m-hero .big { font-size: 34px; }
-  #stage .m-card { padding: 14px; border-radius: 18px; gap: 10px; }
-  #stage .m-card .m-card-title { font-size: 17px; }
-  #stage .m-list .li { min-height: 58px; padding: 10px 14px; font-size: 15px; }
-  #stage .m-list .li .li-icon { width: 42px; height: 42px; border-radius: 13px; }
-  #stage .m-actions { gap: 8px; } #stage .ai { width: 52px; height: 52px; border-radius: 16px; } #stage .ai .ic { width: 23px; height: 23px; } #stage .m-actions a { font-size: 11.5px; gap: 6px; }
-  #stage .m-tiles { gap: 8px; } #stage .m-tiles .tile { padding: 12px 10px; border-radius: 16px; } #stage .m-tiles .tile b { font-size: 20px; }
-  #stage .m-btn { height: 52px; border-radius: 14px; font-size: 15px; } #stage .m-btn.lg { height: 60px; font-size: 17px; }
-  #stage .m-input { height: 52px; border-radius: 14px; }
-  #stage .m-kv { font-size: 14px; gap: 8px 14px; }
-  #stage .m-tracking { padding: 6px 11px; font-size: 11px; }
-  #stage .m-section { padding: 4px 4px 0; }
-  #stage .m-timeline .tl { font-size: 14px; padding-bottom: 12px; }
-  #stage .m-icon-ring { width: 104px; height: 104px; } #stage .m-icon-ring .ic { width: 46px; height: 46px; }
-  #stage .m-h1 { font-size: 24px; } #stage .m-h2 { font-size: 20px; }
-  #stage .m-nav { height: auto; padding: 8px 8px calc(10px + env(safe-area-inset-bottom, 0px)); border-radius: 20px 20px 0 0; }
-  #stage .m-nav a { font-size: 10.5px; gap: 3px; } #stage .m-nav a .ic { width: 24px; height: 24px; }
-  #stage .m-nav a.active .ic { width: 46px; height: 28px; padding: 2px 11px; border-radius: 12px; }
-  #stage .m-sheet { padding: 10px 16px calc(18px + env(safe-area-inset-bottom, 0px)); gap: 10px; }
-  #stage .m-login-top { padding: 22px 20px 60px; margin: -2px -14px 0; }
-  #stage .m-login-card { margin-top: -46px; }
+  #stage .m-top { padding-top: calc(8px + env(safe-area-inset-top, 0px)); }
+  #stage .m-nav { height: auto; padding: 8px 8px calc(10px + env(safe-area-inset-bottom, 0px)); }
+  #stage .m-sheet { padding-bottom: calc(18px + env(safe-area-inset-bottom, 0px)); }
   .app-note { display: none; }
-  .demo-menu { right: 12px; bottom: calc(84px + env(safe-area-inset-bottom, 0px)); }
-  .demo-menu .dm-btn { height: 36px; width: 36px; padding: 0; justify-content: center; border-radius: 50%; }
-  .demo-menu .dm-btn span, .demo-menu .dm-btn .ic:last-child { display: none; }
+  .demo-menu { display: none; }
 }
