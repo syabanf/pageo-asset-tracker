@@ -2,7 +2,7 @@
 PN.app({
   kind: 'mobile', home: 'login', title: 'PAGEO Field App',
   setup() {
-    document.body.insertAdjacentHTML('beforeend', '<div class="app-note"><b>PAGEO Field App</b><span>Open on a phone for full screen · desktop shows the device frame</span></div><div class="demo-menu"><div class="dm-list hide" id="dm-list"></div><button class="dm-btn" id="dm-btn">' + PN.icon('smartphone') + 'Screens' + PN.icon('chevrondown') + '</button></div>');
+    document.body.insertAdjacentHTML('beforeend', '<div class="app-note"><b>PAGEO Field App</b><span>Open on a phone for full screen · desktop shows the device frame</span></div><div class="demo-menu"><div class="dm-list hide" id="dm-list"></div><button class="dm-btn" id="dm-btn">' + PN.icon('smartphone') + '<span>Screens</span>' + PN.icon('chevrondown') + '</button></div>');
     const list = document.getElementById('dm-list');
     const groups = [['Onboarding', ['login', 'login-error']], ['Home', ['home-location-sharing-off', 'home', 'check-in', 'check-in-confirmed', 'check-in-outside-geofence']], ['Project & equipment', ['project', 'project-team', 'my-assets', 'my-assets-needs-confirmation', 'asset-detail', 'asset-detail-report-issue', 'scan', 'scan-detected', 'scan-not-recognized', 'mobilization', 'mobilization-stages']], ['Map & activity', ['map', 'map-asset-selected', 'activity', 'activity-location-history']], ['Safety', ['muster', 'muster-confirmed', 'muster-offline', 'sos', 'sos-sent', 'sos-confirm-cancel']], ['Offline & profile', ['offline', 'offline-syncing', 'offline-sync-status', 'profile', 'profile-how-tracking-works']]];
     let s = '';

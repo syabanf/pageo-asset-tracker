@@ -27,5 +27,6 @@ body.mobile-app { margin: 0; background: #E9EDF0; overflow: hidden; }
   #stage .m-nav { padding-bottom: 12px; height: 76px; }
   .app-note { display: none; }
   .demo-menu { right: 12px; bottom: 96px; }
-  .demo-menu .dm-btn { height: 34px; font-size: 12px; padding: 0 12px; }
+  .demo-menu .dm-btn { height: 36px; width: 36px; padding: 0; justify-content: center; border-radius: 50%; }
+  .demo-menu .dm-btn span, .demo-menu .dm-btn .ic:last-child { display: none; }
 }

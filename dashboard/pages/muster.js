@@ -154,14 +154,14 @@ PN.page("muster", {
         <div class="mk muster" style="left:46%;top:38%"><span class="sym"><i data-icon="plus"></i></span><span class="lbl">Muster Point A<small>43 / 45</small></span></div>
         <div class="mk muster" style="left:55%;top:47%"><span class="sym"><i data-icon="plus"></i></span><span class="lbl">Muster Point B<small>33 / 39</small></span></div>
 
-        <div class="mk person warn" style="left:43%;top:46%"><span class="sym"><i data-icon="user"></i></span><span class="lbl">Dedi Kurniawan<small>Not confirmed · 15:36</small></span></div>
-        <div class="mk person warn" style="left:52%;top:33%"><span class="sym"><i data-icon="user"></i></span><span class="lbl">Eko Prasetyo<small>Not confirmed · 15:40</small></span></div>
-        <div class="mk person warn" style="left:59%;top:52%"><span class="sym"><i data-icon="user"></i></span><span class="lbl">Wahyu Nugroho<small>Not confirmed · 15:41</small></span></div>
-        <div class="mk person warn" style="left:47%;top:54%"><span class="sym"><i data-icon="user"></i></span><span class="lbl">Slamet Riyadi<small>Not confirmed · 15:39</small></span></div>
-        <div class="mk person warn" style="left:56%;top:40%"><span class="sym"><i data-icon="user"></i></span><span class="lbl">Joko Susilo<small>Not confirmed · 15:38</small></span></div>
-        <div class="mk person off" style="left:41%;top:36%"><span class="sym"><i data-icon="user"></i></span><span class="lbl">Iwan Setiadi<small>Offline · 14:58</small></span></div>
-        <div class="mk person off" style="left:53%;top:57%"><span class="sym"><i data-icon="user"></i></span><span class="lbl">Bambang Hartono<small>Offline · 15:02</small></span></div>
-        <div class="mk person crit" style="left:80%;top:27%"><span class="sym"><i data-icon="user"></i></span><span class="lbl">Rizky Hakim<small>SOS · 15:41 · Restricted Zone</small></span></div>
+        <div class="mk person warn" style="left:38%;top:52%"><span class="sym"><i data-icon="user"></i></span></div>
+        <div class="mk person warn" style="left:52%;top:28%"><span class="sym"><i data-icon="user"></i></span></div>
+        <div class="mk person warn" style="left:64%;top:56%"><span class="sym"><i data-icon="user"></i></span></div>
+        <div class="mk person warn" style="left:45%;top:62%"><span class="sym"><i data-icon="user"></i></span></div>
+        <div class="mk person warn" style="left:60%;top:36%"><span class="sym"><i data-icon="user"></i></span></div>
+        <div class="mk person off" style="left:36%;top:34%"><span class="sym"><i data-icon="user"></i></span></div>
+        <div class="mk person off" style="left:55%;top:66%"><span class="sym"><i data-icon="user"></i></span></div>
+        <div class="mk person crit" style="left:80%;top:27%"><span class="sym"><i data-icon="user"></i></span></div>
 
         <div class="map-ui tr">
           <div class="map-panel" style="min-width:240px">

@@ -7,7 +7,7 @@ PN.page("live-map", {
   crumb: "Global / Operations / Live Map",
   pageCls: "flush",
   render() {
-    return `<div style="display:grid;grid-template-columns:1fr 320px;height:calc(100vh - 56px);min-height:0">
+    return `<div style="display:grid;grid-template-columns:1fr 320px;height:calc(100vh - 64px);min-height:0">
 
     <!-- Map -->
     <div class="map flush" data-map="coast" style="height:100%;min-height:0">

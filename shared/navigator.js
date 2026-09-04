@@ -386,13 +386,14 @@
     island:   [106.58, -5.885, 106.66, -5.835]
   };
   PN.tilesOK = undefined;
-  PN.tileUrl = 'https://{a-d}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}@2x.png';
+  PN.tileUrl = 'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}';
+  PN.tileAttr = 'Esri · HERE · Garmin · © OpenStreetMap contributors';
   (function probeTiles() {
     if (!window.ol) { PN.tilesOK = false; return; }
     const img = new Image();
     img.onload = function () { PN.tilesOK = true; };
     img.onerror = function () { PN.tilesOK = false; document.querySelectorAll('.map[data-ol]').forEach(fallbackToSvg); };
-    img.src = 'https://a.basemaps.cartocdn.com/light_all/10/823/537@2x.png';
+    img.src = 'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/10/537/823';
   })();
   function pctToLonLat(ext, x, y) { return [ext[0] + (x / 100) * (ext[2] - ext[0]), ext[3] - (y / 100) * (ext[3] - ext[1])]; }
   function fallbackToSvg(el) {
@@ -405,12 +406,14 @@
     el.__orig = el.innerHTML;
     el.setAttribute('data-ol', '1');
     const base = document.createElement('div'); base.className = 'ol-base'; el.insertBefore(base, el.firstChild);
-    const source = new ol.source.XYZ({ url: PN.tileUrl, maxZoom: 19, crossOrigin: 'anonymous', attributions: '' });
-    const map = new ol.Map({ target: base, controls: [], layers: [new ol.layer.Tile({ source: source })], view: new ol.View({ center: [0, 0], zoom: 2, maxZoom: 19 }) });
+    const source = new ol.source.XYZ({ url: PN.tileUrl, maxZoom: 16, crossOrigin: 'anonymous', attributions: '' });
+    const map = new ol.Map({ target: base, controls: [], layers: [new ol.layer.Tile({ source: source })], view: new ol.View({ center: [0, 0], zoom: 2, maxZoom: 16 }) });
     el.__ol = map;
     const ext3857 = ol.proj.transformExtent(ext, 'EPSG:4326', 'EPSG:3857');
     const size = [el.clientWidth || 800, el.clientHeight || 400];
-    map.getView().fit(ext3857, { size: size });
+    const small = size[1] < 240; if (small) el.setAttribute('data-small', '1');
+    const pad = small ? 14 : 36;
+    map.getView().fit(ext3857, { size: size, padding: [pad, pad, pad, pad] });
     const seen = { ok: false };
     source.on('tileloadend', function () { seen.ok = true; PN.tilesOK = true; });
     source.on('tileloaderror', function () { if (!seen.ok && PN.tilesOK !== true) { PN.tilesOK = false; fallbackToSvg(el); } });
@@ -425,7 +428,7 @@
       const kind = f.getAttribute('data-kind') || 'zone';
       const ft = new ol.Feature(new ol.geom.Polygon([ring]));
       ft.setStyle(new ol.style.Style({ stroke: new ol.style.Stroke({ color: col[kind], width: 2, lineDash: [8, 6] }), fill: new ol.style.Fill({ color: rgba[kind] }),
-        text: f.getAttribute('data-label') ? new ol.style.Text({ text: f.getAttribute('data-label'), font: '600 12px Inter, sans-serif', fill: new ol.style.Fill({ color: col[kind] }), stroke: new ol.style.Stroke({ color: 'rgba(255,255,255,.9)', width: 3 }), overflow: true }) : undefined }));
+        text: f.getAttribute('data-label') && !small ? new ol.style.Text({ text: f.getAttribute('data-label'), font: '600 12px Inter, sans-serif', fill: new ol.style.Fill({ color: col[kind] }), stroke: new ol.style.Stroke({ color: 'rgba(255,255,255,.9)', width: 3 }), overflow: true }) : undefined }));
       feats.push(ft);
     });
     el.querySelectorAll('[data-track]').forEach(function (t) {
@@ -448,7 +451,7 @@
       const isPopup = m.classList.contains('popup');
       const symH = isPopup ? 0 : ((m.querySelector('.sym') || m).offsetHeight || 24);
       m.style.left = ''; m.style.top = '';
-      map.addOverlay(new ol.Overlay({ element: m, position: ol.proj.fromLonLat(ll), positioning: isPopup ? 'bottom-center' : 'top-center', offset: isPopup ? [0, -22] : [0, -Math.round(symH / 2)], stopEvent: false }));
+      map.addOverlay(new ol.Overlay({ element: m, position: ol.proj.fromLonLat(ll), positioning: isPopup ? 'bottom-center' : 'top-center', offset: isPopup ? [0, -22] : [0, -Math.round(symH / 2)], stopEvent: false, autoPan: isPopup && !m.classList.contains('hide') ? { animation: { duration: 250 }, margin: 16 } : false }));
     });
     // Controls
     el.querySelectorAll('.map-ctl button').forEach(function (b) {
@@ -458,12 +461,15 @@
         const v = map.getView();
         if (l.indexOf('in') === 0 || l.indexOf('zoom in') >= 0) v.animate({ zoom: v.getZoom() + 1, duration: 200 });
         else if (l.indexOf('out') >= 0) v.animate({ zoom: v.getZoom() - 1, duration: 200 });
-        else v.fit(ext3857, { duration: 300, size: [el.clientWidth, el.clientHeight] });
+        else v.fit(ext3857, { duration: 300, size: [el.clientWidth, el.clientHeight], padding: [pad, pad, pad, pad] });
       });
       b.setAttribute('data-bound', '1');
     });
-    el.insertAdjacentHTML('beforeend', '<div class="map-attr">© OpenStreetMap contributors · © CARTO</div>');
-    setTimeout(function () { map.updateSize(); }, 50);
+    el.insertAdjacentHTML('beforeend', '<div class="map-attr">' + PN.tileAttr + '</div>');
+    setTimeout(function () {
+      map.updateSize();
+      map.getOverlays().forEach(function (o) { const e = o.getElement(); if (e && e.classList.contains('popup') && !e.classList.contains('hide') && o.panIntoView) o.panIntoView({ margin: 20, animation: { duration: 250 } }); });
+    }, 160);
   }
   function paintMap(el) {
     if (el.getAttribute('data-ol') || el.querySelector(':scope > svg.map-base')) return;
