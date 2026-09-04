@@ -34,9 +34,9 @@
     extraMenu: (r, draw) => ({ icon: 'map', label: 'View on live map', onClick: () => PN.route('live-map') }),
     after: function (root, draw) {
       root.addEventListener('click', function (e) {
-        const a = e.target.closest('[data-ackid]'); if (a) { PN.store.update('alerts', a.getAttribute('data-ackid'), { acked: true, when: 'acknowledged 15:42' }); PN.toast('Acknowledged · 15:42:31 by Operations Manager'); draw(); return; }
+        const a = e.target.closest('[data-ackid]'); if (a) { PN.store.update('alerts', a.getAttribute('data-ackid'), { acked: true, state: 'acked', when: 'acknowledged 15:42' }); PN.toast('Acknowledged · 15:42:31 by Operations Manager'); draw(); return; }
         const rs = e.target.closest('[data-resolve]'); if (rs) { const id = rs.getAttribute('data-resolve'); PN.modal({ title: 'Resolve alert', body: C.textInput({ name: 'note', label: 'Resolution note', textarea: true, placeholder: 'What was done? This note is kept with the alert history.', required: true }), actions: C.btn('Cancel', 'ghost', null, 'data-close') + C.btn('Resolve', 'primary', 'check', 'data-confirm'), onConfirm: function (ov) { const n = ov.querySelector('[name=note]').value.trim(); if (!n) { ov.querySelector('.field').classList.add('invalid'); return false; } PN.store.remove('alerts', id); PN.toast('Resolved · note saved to alert history'); draw(); } }); return; }
-        if (e.target.closest('#ack-all')) { PN.store.all('alerts').forEach(function (x) { if (!x.acked) PN.store.update('alerts', x.id, { acked: true }); }); PN.toast('All open alerts acknowledged'); draw(); }
+        if (e.target.closest('#ack-all')) { PN.store.all('alerts').forEach(function (x) { if (!x.acked) PN.store.update('alerts', x.id, { acked: true, state: 'acked' }); }); PN.toast('All open alerts acknowledged'); draw(); }
       });
     }
   });
