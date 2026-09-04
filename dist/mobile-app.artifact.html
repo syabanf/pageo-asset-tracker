@@ -919,6 +919,211 @@ table { border-collapse: collapse; width: 100%; }
 .map[data-small] .map-ctl { display: none; }
 .map[data-small] .map-legend { display: none; }
 
+/* ============================================================
+   MOBILE v3 — modern, colorful, field-friendly
+   ============================================================ */
+:root { --m-ocean: #1A9BCB; --m-deep: #0B76A3; --m-green: #22A876; --m-green-2: #15825A; --m-amber: #F0B23A; --m-amber-2: #D89414; --m-violet: #8A7CE8; --m-violet-2: #6B5BD2; --m-teal: #2FC0C9; --m-teal-2: #0FA3B1; --m-red: #E2605E; --m-red-2: #C43D3D; --m-slate: #7F8C95; --m-slate-2: #5C6870; }
+.screen { background: linear-gradient(180deg, #E4F2F9 0px, #F3F5F7 280px); }
+.m-top { padding: 6px 20px 10px; }
+.m-top .m-title { font-size: 24px; letter-spacing: -.02em; }
+.m-top .back { border-radius: 14px; width: 42px; height: 42px; }
+.m-body { padding: 4px 16px 28px; gap: 14px; }
+.m-greeting { display: flex; flex-direction: column; gap: 2px; padding: 2px 4px 4px; }
+.m-greeting .m-h1 { font-size: 28px; font-weight: 700; }
+.m-card { border-radius: 20px; border: 0; box-shadow: 0 6px 20px rgba(20,29,34,.06); padding: 18px; gap: 12px; }
+.m-card.tinted { background: #E4F3FA; box-shadow: none; }
+.m-card.ok { background: #E7F5EE; box-shadow: none; }
+.m-card.crit { background: #FCEEEE; box-shadow: none; }
+.m-card.warn { background: #FCF2DE; box-shadow: none; }
+.m-card .m-card-title { font-size: 19px; }
+.m-list { border-radius: 20px; border: 0; box-shadow: 0 6px 20px rgba(20,29,34,.06); }
+.m-list .li { min-height: 64px; padding: 12px 16px; border-bottom-color: #EEF1F3; }
+.m-list .li .li-icon { width: 46px; height: 46px; border-radius: 15px; }
+.m-list .li .li-icon .ic { width: 22px; height: 22px; }
+.li-icon.ocean, .ai.ocean-soft { background: #E1F1FA; color: var(--m-deep); }
+.li-icon.green { background: #E3F5EC; color: var(--m-green-2); }
+.li-icon.amber { background: #FCF0D8; color: var(--m-amber-2); }
+.li-icon.violet { background: #ECE9FB; color: var(--m-violet-2); }
+.li-icon.teal { background: #DFF6F7; color: var(--m-teal-2); }
+.li-icon.red { background: #FBE6E6; color: var(--m-red-2); }
+.li-icon.slate { background: #EDF0F2; color: var(--m-slate-2); }
+.m-list .li .st { width: 34px; height: 34px; }
+.m-list .li.ok .st { background: linear-gradient(135deg, #2FB37D, #17875D); color: #fff; }
+.m-list .li.warn .st { background: linear-gradient(135deg, #F0B23A, #D89414); color: #fff; }
+.m-list .li.crit .st { background: linear-gradient(135deg, #E2605E, #C43D3D); color: #fff; }
+.m-list .li.pending .st { border: 2px dashed var(--border-2); }
+.m-section { padding: 6px 6px 0; }
+.m-section .eyebrow { font-size: 12px; color: var(--text); letter-spacing: .06em; }
+.m-section a { font-weight: 600; }
+
+/* Hero */
+.m-hero { position: relative; overflow: hidden; border-radius: 24px; padding: 20px; color: #fff; display: flex; flex-direction: column; gap: 12px; background: linear-gradient(135deg, #1D9FD0 0%, #0E7BA8 55%, #085C80 100%); box-shadow: 0 14px 30px rgba(8,105,143,.28); }
+.m-hero::before { content: ""; position: absolute; right: -60px; top: -70px; width: 220px; height: 220px; border-radius: 50%; background: rgba(255,255,255,.10); }
+.m-hero::after { content: ""; position: absolute; right: 30px; bottom: -90px; width: 170px; height: 170px; border-radius: 50%; background: rgba(255,255,255,.07); }
+.m-hero > * { position: relative; z-index: 1; }
+.m-hero.green { background: linear-gradient(135deg, #27B382 0%, #178A5F 55%, #0F6A48 100%); box-shadow: 0 14px 30px rgba(23,135,93,.28); }
+.m-hero.red { background: linear-gradient(135deg, #E8625F 0%, #C43D3D 55%, #9E2C2C 100%); box-shadow: 0 14px 30px rgba(196,61,61,.30); }
+.m-hero.amber { background: linear-gradient(135deg, #F2B84A 0%, #D89414 60%, #B37600 100%); box-shadow: 0 14px 30px rgba(216,148,20,.28); }
+.m-hero.dark { background: linear-gradient(135deg, #2C3439 0%, #171A1C 70%); box-shadow: 0 14px 30px rgba(23,26,28,.30); }
+.m-hero.violet { background: linear-gradient(135deg, #8E80EE 0%, #6B5BD2 60%, #4E40B0 100%); box-shadow: 0 14px 30px rgba(107,91,210,.28); }
+.m-hero .eyebrow { color: rgba(255,255,255,.72); }
+.m-hero-title { font-size: 22px; font-weight: 700; letter-spacing: -.02em; line-height: 1.2; }
+.m-hero-sub { font-size: 14px; color: rgba(255,255,255,.82); }
+.m-hero .m-tracking { background: rgba(255,255,255,.18); color: #fff; backdrop-filter: blur(6px); }
+.m-hero .m-tracking .dot { background: #8CF0BF; } .m-hero .m-tracking .dot.pulse::after { border-color: #8CF0BF; }
+.m-hero .m-tracking.off { background: rgba(255,255,255,.14); color: rgba(255,255,255,.85); } .m-hero .m-tracking.off .dot { background: transparent; border-color: rgba(255,255,255,.7); }
+.m-hero-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 2px; }
+.m-hero-stats .hs { background: rgba(255,255,255,.14); border-radius: 14px; padding: 10px 12px; backdrop-filter: blur(6px); }
+.m-hero-stats .hs b { display: block; font-size: 16px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.m-hero-stats .hs span { display: block; font-size: 11px; letter-spacing: .06em; text-transform: uppercase; opacity: .72; margin-top: 2px; }
+.m-hero-actions { display: flex; gap: 10px; margin-top: 4px; }
+.m-hero .m-btn.white { background: #fff; color: var(--pageo-deep); box-shadow: 0 6px 16px rgba(0,0,0,.18); }
+.m-hero .m-btn.glass { background: rgba(255,255,255,.16); color: #fff; border: 1px solid rgba(255,255,255,.28); }
+.m-hero .m-kv dt { color: rgba(255,255,255,.7); } .m-hero .m-kv dd { color: #fff; }
+.m-hero .avatar { border-color: rgba(255,255,255,.4); }
+.m-hero .m-progress { background: rgba(255,255,255,.22); } .m-hero .m-progress i { background: #fff; }
+.m-hero .big { font-size: 40px; font-weight: 800; letter-spacing: -.03em; line-height: 1; font-variant-numeric: tabular-nums; }
+.m-hero .big small { font-size: 16px; font-weight: 600; opacity: .8; letter-spacing: 0; }
+
+/* Quick actions & tiles */
+.m-actions { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; padding: 2px 0; }
+.m-actions a { display: flex; flex-direction: column; align-items: center; gap: 8px; font-size: 12px; font-weight: 600; color: var(--text); text-align: center; }
+.ai { width: 58px; height: 58px; border-radius: 19px; display: inline-flex; align-items: center; justify-content: center; color: #fff; box-shadow: 0 8px 16px rgba(20,29,34,.14); }
+.ai .ic { width: 25px; height: 25px; }
+.ai.ocean { background: linear-gradient(135deg, var(--m-ocean), var(--m-deep)); }
+.ai.green { background: linear-gradient(135deg, var(--m-green), var(--m-green-2)); }
+.ai.amber { background: linear-gradient(135deg, var(--m-amber), var(--m-amber-2)); }
+.ai.violet { background: linear-gradient(135deg, var(--m-violet), var(--m-violet-2)); }
+.ai.teal { background: linear-gradient(135deg, var(--m-teal), var(--m-teal-2)); }
+.ai.red { background: linear-gradient(135deg, var(--m-red), var(--m-red-2)); }
+.ai.slate { background: linear-gradient(135deg, var(--m-slate), var(--m-slate-2)); }
+.ai.sm { width: 44px; height: 44px; border-radius: 14px; box-shadow: none; } .ai.sm .ic { width: 20px; height: 20px; }
+.m-tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.m-tiles .tile { background: var(--surface); border-radius: 18px; padding: 14px 12px; display: flex; flex-direction: column; gap: 4px; box-shadow: 0 6px 20px rgba(20,29,34,.06); }
+.m-tiles .tile b { font-size: 22px; font-weight: 700; letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
+.m-tiles .tile span { font-size: 12px; color: var(--text-2); }
+.m-tiles .tile .ti { width: 32px; height: 32px; border-radius: 10px; display: inline-flex; align-items: center; justify-content: center; margin-bottom: 4px; background: #E1F1FA; color: var(--m-deep); }
+.m-tiles .tile .ti .ic { width: 16px; height: 16px; }
+.m-tiles .tile.ok .ti { background: #E3F5EC; color: var(--m-green-2); } .m-tiles .tile.ok b { color: var(--s-success); }
+.m-tiles .tile.warn .ti { background: #FCF0D8; color: var(--m-amber-2); } .m-tiles .tile.warn b { color: var(--s-warn); }
+.m-tiles .tile.crit .ti { background: #FBE6E6; color: var(--m-red-2); } .m-tiles .tile.crit b { color: var(--s-crit); }
+.m-tiles .tile.off .ti { background: #EDF0F2; color: var(--m-slate-2); } .m-tiles .tile.off b { color: var(--s-offline); }
+.m-tiles.two { grid-template-columns: repeat(2, 1fr); }
+.m-ringstat { display: flex; align-items: center; gap: 14px; }
+.m-ringstat .ring { --c: var(--m-ocean); }
+.m-ringstat .ring::after { background: var(--surface); }
+
+/* Buttons */
+.m-btn { height: 56px; border-radius: 16px; font-size: 16px; }
+.m-btn.primary { background: linear-gradient(135deg, var(--m-ocean), var(--m-deep)); box-shadow: 0 8px 18px rgba(11,118,163,.30); }
+.m-btn.secondary { background: #E1F1FA; color: var(--pageo-deep); border: 0; }
+.m-btn.success { background: linear-gradient(135deg, var(--m-green), var(--m-green-2)); box-shadow: 0 8px 18px rgba(23,135,93,.28); }
+.m-btn.destructive { background: #FBE6E6; border: 0; color: var(--s-crit); }
+.m-btn.destructive.solid { background: linear-gradient(135deg, var(--m-red), var(--m-red-2)); box-shadow: 0 8px 18px rgba(196,61,61,.28); color: #fff; }
+.m-btn.dark { background: linear-gradient(135deg, #2C3439, #171A1C); box-shadow: 0 8px 18px rgba(23,26,28,.24); }
+.m-btn.lg { height: 66px; border-radius: 20px; font-size: 18px; }
+.m-btn.tertiary { height: 46px; }
+.m-input { border-radius: 16px; height: 56px; border-color: transparent; background: var(--surface); box-shadow: 0 2px 8px rgba(20,29,34,.05); }
+.m-input:focus-within { border-color: var(--accent); box-shadow: 0 0 0 4px var(--accent-ring); }
+.m-field.invalid .m-input { border-color: var(--s-crit); }
+.m-chip { height: 32px; border-radius: 12px; }
+
+/* Nav & chrome */
+.m-nav { height: 92px; background: rgba(255,255,255,.97); backdrop-filter: blur(12px); border-top: 0; box-shadow: 0 -8px 28px rgba(20,29,34,.08); border-radius: 26px 26px 0 0; padding: 10px 12px 26px; }
+.m-nav a { font-size: 11px; }
+.m-nav a .ic { width: 26px; height: 26px; padding: 3px; }
+.m-nav a.active .ic { background: linear-gradient(135deg, var(--m-ocean), var(--m-deep)); color: #fff; border-radius: 14px; width: 52px; height: 32px; padding: 4px 13px; box-shadow: 0 6px 14px rgba(11,118,163,.28); }
+.m-nav a.active { color: var(--pageo-deep); }
+.m-sos-btn { background: linear-gradient(135deg, var(--m-red), var(--m-red-2)); color: #fff; border: 0; box-shadow: 0 6px 14px rgba(196,61,61,.32); width: 46px; height: 46px; }
+.m-sync { border-radius: 12px; padding: 7px 11px; box-shadow: 0 2px 8px rgba(20,29,34,.06); }
+.m-sync.ok { background: #E3F5EC; } .m-sync.busy { background: #E1F1FA; } .m-sync.pending { background: #FCF0D8; }
+.m-tracking { border-radius: 12px; }
+.m-banner { font-size: 14px; padding: 12px 18px; }
+.m-banner.offline { background: linear-gradient(90deg, #2C3439, #171A1C); }
+.m-banner.crit { background: linear-gradient(90deg, #E2605E, #C43D3D); }
+.m-icon-ring { width: 120px; height: 120px; box-shadow: 0 16px 36px rgba(20,29,34,.14); }
+.m-icon-ring .ic { width: 52px; height: 52px; }
+.m-icon-ring.info { background: linear-gradient(135deg, #E1F1FA, #C7E7F5); color: var(--m-deep); }
+.m-icon-ring.ok { background: linear-gradient(135deg, #E3F5EC, #BFE7D3); color: var(--m-green-2); }
+.m-icon-ring.warn { background: linear-gradient(135deg, #FCF0D8, #F7DFA8); color: var(--m-amber-2); }
+.m-icon-ring.crit { background: linear-gradient(135deg, #FBE6E6, #F4C4C4); color: var(--m-red-2); }
+.m-timeline .tl .node .dot { width: 10px; height: 10px; margin-top: 5px; box-shadow: 0 0 0 3px var(--surface), 0 0 0 5px rgba(20,29,34,.05); }
+.m-timeline .tl { font-size: 15px; font-weight: 500; }
+.m-timeline .tl .sub { font-weight: 400; }
+.m-sheet { border-radius: 28px 28px 0 0; box-shadow: 0 -12px 40px rgba(20,29,34,.18); padding: 12px 20px 30px; gap: 14px; }
+.m-big-num { font-size: 46px; font-weight: 800; }
+.m-status-big { font-size: 24px; }
+.sos-hold { width: 220px; height: 220px; }
+.sos-hold .inner { box-shadow: inset 0 -8px 0 rgba(0,0,0,.14), 0 18px 40px rgba(196,61,61,.40); }
+.m-kv { font-size: 15px; } .m-kv dd { font-weight: 600; }
+.m-kv.left dt { color: var(--text-3); }
+.m-avatar-row .avatar { width: 34px; height: 34px; font-size: 11px; box-shadow: 0 2px 6px rgba(20,29,34,.12); }
+.m-login-top { padding: 28px 24px 70px; margin: -4px -16px 0; background: linear-gradient(160deg, #1D9FD0 0%, #0E7BA8 55%, #085C80 100%); color: #fff; display: flex; flex-direction: column; gap: 14px; position: relative; overflow: hidden; }
+.m-login-top::before { content: ""; position: absolute; right: -80px; top: -80px; width: 260px; height: 260px; border-radius: 50%; background: rgba(255,255,255,.10); }
+.m-login-top .logo-mark img { filter: brightness(0) invert(1); }
+.m-login-top .m-h1 { color: #fff; }
+.m-login-top .m-caption { color: rgba(255,255,255,.75); }
+.m-login-card { margin-top: -52px; }
+.m-map .map-attr { display: none; }
+.m-divider { height: 1px; background: #EEF1F3; margin: 2px 0; }
+.m-note { font-size: 13px; color: var(--text-2); text-align: center; padding: 0 12px; }
+
+/* ---------- Dashboard v2: charts, filters, CRUD ---------- */
+.chart { width: 100%; display: flex; flex-direction: column; gap: 10px; }
+.chart .chart-svg { width: 100%; height: auto; display: block; overflow: visible; }
+.donut { display: flex; align-items: center; gap: 20px; }
+.donut .donut-svg { flex: 0 0 auto; }
+.donut-legend { display: flex; flex-direction: column; gap: 6px; flex: 1; min-width: 0; }
+.donut-legend .dl { display: grid; grid-template-columns: 10px 1fr auto auto; gap: 10px; align-items: center; font-size: 13px; padding: 4px 6px; border-radius: 6px; }
+.donut-legend .dl.link { cursor: pointer; } .donut-legend .dl.link:hover { background: var(--bg); }
+.donut-legend .dl i { width: 10px; height: 10px; border-radius: 3px; display: block; }
+.donut-legend .dl .l { color: var(--text-2); }
+.donut-legend .dl b { font-variant-numeric: tabular-nums; }
+.donut-legend .dl small { color: var(--text-3); font-variant-numeric: tabular-nums; min-width: 3ch; text-align: right; }
+.hstack { display: flex; flex-direction: column; gap: 10px; }
+.hstack .hs-row { display: grid; grid-template-columns: 110px 1fr 40px; gap: 12px; align-items: center; font-size: 13px; }
+.hstack .hs-track { display: flex; height: 12px; border-radius: 6px; overflow: hidden; background: var(--pageo-mist); gap: 2px; }
+.hstack .hs-track i { display: block; height: 100%; }
+.hstack .hs-row b { text-align: right; font-variant-numeric: tabular-nums; }
+.kpi.filter { cursor: pointer; transition: border-color .12s, box-shadow .12s, transform .06s; user-select: none; }
+.kpi.filter:hover { border-color: var(--accent); }
+.kpi.filter.active { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-ring); background: #F5FBFE; }
+.kpi.filter.active::after { content: ""; position: absolute; top: 14px; right: 14px; width: 18px; height: 18px; border-radius: 50%; background: var(--accent); background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E"); background-size: 11px; background-repeat: no-repeat; background-position: center; }
+.kpi.filter .kpi-icon { right: 40px; }
+.filter-bar { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; font-size: 13px; color: var(--text-2); min-height: 28px; }
+.fchip { display: inline-flex; align-items: center; gap: 6px; height: 28px; padding: 0 6px 0 10px; border-radius: var(--r-pill); background: var(--accent-bg); color: var(--pageo-deep); font-size: 12px; font-weight: 500; }
+.fchip button { width: 18px; height: 18px; border-radius: 50%; border: 0; background: rgba(8,105,143,.12); color: inherit; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; padding: 0; }
+.fchip button .ic { width: 11px; height: 11px; }
+.filter-bar .clear { background: none; border: 0; color: var(--accent); font-size: 12px; font-weight: 500; cursor: pointer; padding: 4px 6px; }
+.filter-bar .count { margin-left: auto; font-variant-numeric: tabular-nums; }
+.input.has-select { position: relative; padding-right: 10px; }
+.input.has-select select { appearance: none; -webkit-appearance: none; padding-right: 22px; cursor: pointer; }
+.input.has-select .chev { position: absolute; right: 10px; pointer-events: none; }
+.input textarea { border: 0; outline: 0; background: transparent; width: 100%; resize: vertical; min-height: 72px; font: inherit; }
+.form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px 24px; }
+.form-grid .span2 { grid-column: span 2; }
+.form-section { display: flex; flex-direction: column; gap: 16px; }
+.form-section > .eyebrow { padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+.pn-overlay { position: fixed; inset: 0; background: rgba(23,26,28,.45); z-index: 900; display: flex; align-items: center; justify-content: center; padding: 24px; opacity: 0; transition: opacity .16s; }
+.pn-overlay.show { opacity: 1; }
+.pn-overlay .modal { transform: translateY(8px); transition: transform .16s; max-height: 90vh; overflow: auto; }
+.pn-overlay.show .modal { transform: none; }
+.pn-menu { position: fixed; z-index: 950; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; box-shadow: var(--shadow-modal); padding: 6px; min-width: 180px; display: flex; flex-direction: column; gap: 1px; }
+.pn-menu button { display: flex; align-items: center; gap: 10px; padding: 8px 10px; border: 0; background: none; border-radius: 7px; font-size: 13px; font-weight: 500; text-align: left; color: var(--text); cursor: pointer; }
+.pn-menu button .ic { color: var(--text-3); }
+.pn-menu button:hover { background: var(--bg); }
+.pn-menu button.danger { color: var(--s-crit); } .pn-menu button.danger .ic { color: var(--s-crit); }
+.pn-menu .sep { height: 1px; background: var(--border); margin: 4px 0; }
+.table tr.row-new td { animation: rowin 1.2s ease-out; }
+@keyframes rowin { 0% { background: #E4F3FA; } 100% { background: transparent; } }
+.m-login-card { position: relative; z-index: 1; }
+.kpi-mini { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; }
+.kpi-mini .km { border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px; background: var(--surface); cursor: pointer; transition: border-color .12s, box-shadow .12s; }
+.kpi-mini .km:hover { border-color: var(--accent); }
+.kpi-mini .km.active { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-ring); background: #F5FBFE; }
+.kpi-mini .km b { display: block; font-size: 22px; font-weight: 700; letter-spacing: -.02em; font-variant-numeric: tabular-nums; line-height: 1.1; }
+.kpi-mini .km span { font-size: 12px; color: var(--text-2); display: flex; align-items: center; gap: 6px; }
+
 /* Mobile Field App — standalone app frame.
    Desktop: the app runs inside a device frame. Phone/narrow viewport: full screen, no bezel. */
 html, body { height: 100%; }
@@ -1599,7 +1804,7 @@ body.mobile-app { margin: 0; background: #E9EDF0; overflow: hidden; }
       b.addEventListener('click', function () { const n = b.textContent.trim(); if (!/^\d+$/.test(n)) { PN.toast('Loading next page…', 'chevronright'); return; } b.parentElement.querySelectorAll('button').forEach(function (o) { o.classList.remove('active'); }); b.classList.add('active'); PN.toast('Page ' + n, 'list'); });
     });
     // Search inputs filter the first table on the page
-    root.querySelectorAll('.input input[type="search"], .filters .input input, .search input').forEach(function (inp) {
+    root.querySelectorAll('.input input[type="search"]:not([data-custom]), .filters .input input:not([data-custom]), .search input:not([data-custom])').forEach(function (inp) {
       inp.addEventListener('input', function () {
         const q = inp.value.trim().toLowerCase();
         const table = (inp.closest('.page, .screen') || root).querySelector('.table tbody'); if (!table) return;
@@ -1644,6 +1849,7 @@ body.mobile-app { margin: 0; background: #E9EDF0; overflow: hidden; }
   };
   PN.paintMap = paintMap;
   PN.renderIcons = renderIcons;
+  PN.bind = bindBehaviors;
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', function () { if (!window.PN_MANUAL_INIT) PN.init(document.body); });
   else if (!window.PN_MANUAL_INIT) PN.init(document.body);
@@ -1737,7 +1943,7 @@ body.mobile-app { margin: 0; background: #E9EDF0; overflow: hidden; }
   };
   C.kpi = function (o) {
     const lines = (o.lines || []).map(function (l) { return '<span>' + C.dot(l.kind) + '&nbsp;<span class="num">' + l.num + '</span>' + esc(l.text) + '</span>'; }).join('');
-    return '<div class="card kpi' + (o.compact ? ' compact' : '') + (o.alert ? ' alert' : '') + (o.cls ? ' ' + o.cls : '') + '">' +
+    return '<div class="card kpi' + (o.compact ? ' compact' : '') + (o.alert ? ' alert' : '') + (o.cls ? ' ' + o.cls : '') + '"' + (o.attr ? ' ' + o.attr : '') + '>' +
       (o.icon ? '<span class="kpi-icon ' + (o.iconKind || '') + '">' + icon(o.icon) + '</span>' : '') +
       C.eyebrow(o.label) + '<div class="kpi-value">' + o.value + (o.unit ? '<small>' + esc(o.unit) + '</small>' : '') + '</div>' +
       (lines ? '<div class="kpi-lines">' + lines + '</div>' : '') +
@@ -1862,6 +2068,118 @@ body.mobile-app { margin: 0; background: #E9EDF0; overflow: hidden; }
   M.sos = function () { return '<div class="sos-hold"><div class="ring"></div><div class="inner"><b>SOS</b><span>Hold 2 seconds</span></div></div>'; };
 })();
 
+/* ---------- Mobile v3 additions: hero, quick actions, stat tiles, colored list icons ---------- */
+(function () {
+  const C = window.C, M = window.M, esc = C.esc, icon = C.icon;
+  M.hero = function (o) {
+    o = o || {};
+    const stats = o.stats ? '<div class="m-hero-stats">' + o.stats.map(function (s) { return '<div class="hs"><b>' + s[1] + '</b><span>' + esc(s[0]) + '</span></div>'; }).join('') + '</div>' : '';
+    return '<div class="m-hero ' + (o.kind || '') + '">' + (o.top || '') + (o.eyebrow ? '<div class="eyebrow">' + esc(o.eyebrow) + '</div>' : '') + (o.title ? '<div class="m-hero-title">' + esc(o.title) + '</div>' : '') + (o.sub ? '<div class="m-hero-sub">' + o.sub + '</div>' : '') + (o.body || '') + stats + (o.actions ? '<div class="m-hero-actions">' + o.actions + '</div>' : '') + '</div>';
+  };
+  M.actions = function (items) {
+    return '<div class="m-actions">' + items.map(function (a) { return '<a href="' + (a.href || '#') + '"><span class="ai ' + (a.kind || 'ocean') + '">' + icon(a.icon) + '</span><span>' + esc(a.label) + '</span></a>'; }).join('') + '</div>';
+  };
+  M.tiles = function (items) {
+    return '<div class="m-tiles">' + items.map(function (t) { return '<div class="tile' + (t.kind ? ' ' + t.kind : '') + '">' + (t.icon ? '<span class="ti">' + icon(t.icon) + '</span>' : '') + '<b>' + t.value + '</b><span>' + esc(t.label) + '</span></div>'; }).join('') + '</div>';
+  };
+  M.ringStat = function (pct, kind, label, sub) {
+    return '<div class="m-ringstat">' + C.ring(pct, kind, true) + '<div><div class="m-h3">' + label + '</div>' + (sub ? '<div class="m-caption">' + esc(sub) + '</div>' : '') + '</div></div>';
+  };
+  M.avatars = function (list, more) { return '<div class="m-avatar-row">' + list.map(function (a) { return C.avatar(a); }).join('') + (more ? C.avatar('+' + more, 'dark') : '') + '</div>'; };
+  M.greeting = function (title, date) { return '<div class="m-greeting"><div class="m-caption">' + esc(date) + '</div><div class="m-h1">' + title + '</div></div>'; };
+})();
+
+/* ---------- Charts (SVG, no dependencies) · Modal · Popover menu ---------- */
+(function () {
+  const C = window.C, PN = window.PN, esc = C.esc;
+  function niceMax(v) { if (!(v > 0)) return 1; const p = Math.pow(10, Math.floor(Math.log10(v))); const f = v / p; const n = f <= 1 ? 1 : f <= 2 ? 2 : f <= 2.5 ? 2.5 : f <= 5 ? 5 : 10; return n * p; }
+  C.areaChart = function (o) {
+    const series = o.series || [{ values: o.values, color: o.color || '#168FBF', label: o.label }];
+    const n = series[0].values.length, w = o.w || 600, h = o.h || 190, L = 38, R = 14, T = 16, B = 30;
+    const max = niceMax(Math.max.apply(null, series.map(s => Math.max.apply(null, s.values))) * 1.08);
+    const px = i => L + i * (w - L - R) / Math.max(1, n - 1), py = v => T + (h - T - B) * (1 - v / max);
+    let s = '<svg viewBox="0 0 ' + w + ' ' + h + '" class="chart-svg" role="img" aria-label="' + esc(o.label || 'chart') + '">';
+    const steps = 4;
+    for (let i = 0; i <= steps; i++) { const v = max * i / steps, y = py(v); s += '<line x1="' + L + '" x2="' + (w - R) + '" y1="' + y.toFixed(1) + '" y2="' + y.toFixed(1) + '" stroke="#E6EAED" stroke-width="1"/><text x="' + (L - 8) + '" y="' + (y + 4).toFixed(1) + '" text-anchor="end" font-size="11" fill="#667078" font-family="Inter,sans-serif">' + (Number.isInteger(v) ? v : v.toFixed(1)) + '</text>'; }
+    series.forEach(function (sr) {
+      const pts = sr.values.map((v, i) => [px(i), py(v)]);
+      const d = pts.map((p, i) => (i ? 'L' : 'M') + p[0].toFixed(1) + ',' + p[1].toFixed(1)).join(' ');
+      if (sr.area !== false) s += '<path d="' + d + ' L' + pts[pts.length - 1][0].toFixed(1) + ',' + py(0) + ' L' + pts[0][0].toFixed(1) + ',' + py(0) + ' Z" fill="' + sr.color + '" fill-opacity="' + (sr.fillOpacity != null ? sr.fillOpacity : .10) + '"/>';
+      s += '<path d="' + d + '" fill="none" stroke="' + sr.color + '" stroke-width="2.25" stroke-linejoin="round" stroke-linecap="round"' + (sr.dash ? ' stroke-dasharray="5 4"' : '') + '/>';
+      if (o.dots !== false) pts.forEach((p, i) => { if (i === pts.length - 1 || o.allDots) s += '<circle cx="' + p[0].toFixed(1) + '" cy="' + p[1].toFixed(1) + '" r="3.5" fill="#fff" stroke="' + sr.color + '" stroke-width="2"/>'; });
+      if (o.valueLabels) pts.forEach((p, i) => { s += '<text x="' + p[0].toFixed(1) + '" y="' + (p[1] - 8).toFixed(1) + '" text-anchor="middle" font-size="10" fill="#24292D" font-family="Inter,sans-serif">' + sr.values[i] + '</text>'; });
+    });
+    if (o.labels) { const stride = Math.ceil(o.labels.length / (o.maxLabels || 8)); o.labels.forEach((l, i) => { if (i % stride === 0 || i === o.labels.length - 1) s += '<text x="' + px(i).toFixed(1) + '" y="' + (h - 8) + '" text-anchor="middle" font-size="11" fill="#667078" font-family="Inter,sans-serif">' + esc(l) + '</text>'; }); }
+    s += '</svg>';
+    return '<div class="chart">' + s + (series.length > 1 || o.legend ? C.legend(series.map(sr => ({ label: sr.label, color: sr.color }))) : '') + '</div>';
+  };
+  C.barChart = function (o) {
+    const vals = o.values, n = vals.length, w = o.w || 600, h = o.h || 180, L = 36, R = 10, T = 18, B = 28;
+    const max = niceMax(Math.max.apply(null, vals) * 1.1), bw = (w - L - R) / n, gap = Math.min(10, bw * .3);
+    const py = v => T + (h - T - B) * (1 - v / max);
+    let s = '<svg viewBox="0 0 ' + w + ' ' + h + '" class="chart-svg">';
+    for (let i = 0; i <= 4; i++) { const y = py(max * i / 4); s += '<line x1="' + L + '" x2="' + (w - R) + '" y1="' + y.toFixed(1) + '" y2="' + y.toFixed(1) + '" stroke="#E6EAED"/><text x="' + (L - 8) + '" y="' + (y + 4).toFixed(1) + '" text-anchor="end" font-size="11" fill="#667078" font-family="Inter,sans-serif">' + Math.round(max * i / 4) + '</text>'; }
+    vals.forEach((v, i) => { const x = L + i * bw + gap / 2, y = py(v), col = (o.colors && o.colors[i]) || o.color || '#168FBF'; s += '<rect x="' + x.toFixed(1) + '" y="' + y.toFixed(1) + '" width="' + (bw - gap).toFixed(1) + '" height="' + (py(0) - y).toFixed(1) + '" rx="4" fill="' + col + '"/>'; if (o.valueLabels) s += '<text x="' + (x + (bw - gap) / 2).toFixed(1) + '" y="' + (y - 5).toFixed(1) + '" text-anchor="middle" font-size="10" fill="#24292D" font-family="Inter,sans-serif">' + v + '</text>'; if (o.labels) s += '<text x="' + (x + (bw - gap) / 2).toFixed(1) + '" y="' + (h - 8) + '" text-anchor="middle" font-size="11" fill="#667078" font-family="Inter,sans-serif">' + esc(o.labels[i]) + '</text>'; });
+    return '<div class="chart">' + s + '</svg></div>';
+  };
+  C.donut = function (o) {
+    const parts = o.parts, total = parts.reduce((a, p) => a + p.value, 0), size = o.size || 150, th = o.thickness || 20, r = (size - th) / 2, circ = 2 * Math.PI * r;
+    let off = 0, s = '<svg viewBox="0 0 ' + size + ' ' + size + '" class="donut-svg" style="width:' + size + 'px;height:' + size + 'px">';
+    s += '<circle cx="' + size / 2 + '" cy="' + size / 2 + '" r="' + r + '" fill="none" stroke="#EEF2F4" stroke-width="' + th + '"/>';
+    parts.forEach(p => { const len = total ? circ * p.value / total : 0; s += '<circle cx="' + size / 2 + '" cy="' + size / 2 + '" r="' + r + '" fill="none" stroke="' + p.color + '" stroke-width="' + th + '" stroke-dasharray="' + Math.max(0, len - 2).toFixed(2) + ' ' + (circ - Math.max(0, len - 2)).toFixed(2) + '" stroke-dashoffset="' + (-off).toFixed(2) + '" transform="rotate(-90 ' + size / 2 + ' ' + size / 2 + ')" stroke-linecap="butt"/>'; off += len; });
+    s += '<text x="' + size / 2 + '" y="' + (size / 2 - 2) + '" text-anchor="middle" font-size="26" font-weight="700" fill="#1E2327" font-family="Inter,sans-serif">' + (o.center != null ? o.center : total) + '</text><text x="' + size / 2 + '" y="' + (size / 2 + 16) + '" text-anchor="middle" font-size="11" fill="#667078" font-family="Inter,sans-serif">' + esc(o.centerLabel || 'total') + '</text></svg>';
+    const legend = '<div class="donut-legend">' + parts.map(p => '<div class="dl' + (p.href ? ' link' : '') + '"' + (p.href ? ' data-go-href="' + p.href + '"' : '') + '><i style="background:' + p.color + '"></i><span class="l">' + esc(p.label) + '</span><b>' + p.value + '</b><small>' + (total ? Math.round(100 * p.value / total) : 0) + '%</small></div>').join('') + '</div>';
+    return '<div class="donut">' + s + legend + '</div>';
+  };
+  C.hstack = function (rows, o) {
+    o = o || {};
+    const max = o.max || Math.max.apply(null, rows.map(r => r.parts.reduce((a, p) => a + p.value, 0)));
+    return '<div class="hstack">' + rows.map(r => { const tot = r.parts.reduce((a, p) => a + p.value, 0); return '<div class="hs-row"><span class="hs-l">' + esc(r.label) + '</span><div class="hs-track">' + r.parts.map(p => '<i style="width:' + (100 * p.value / max).toFixed(1) + '%;background:' + p.color + '" title="' + esc(p.label) + ' ' + p.value + '"></i>').join('') + '</div><b>' + tot + '</b></div>'; }).join('') + '</div>' + (o.legend ? C.legend(o.legend) : '');
+  };
+  C.selectNative = function (o) {
+    const opts = (o.options || []).map(function (op) { const v = typeof op === 'string' ? op : op[0], l = typeof op === 'string' ? op : op[1]; return '<option value="' + esc(v) + '"' + (o.value === v ? ' selected' : '') + '>' + esc(l) + '</option>'; }).join('');
+    const box = '<div class="input' + (o.sm ? ' sm' : '') + ' has-select"' + (o.style ? ' style="' + o.style + '"' : '') + '>' + (o.icon ? C.icon(o.icon) : '') + '<select name="' + esc(o.name || '') + '"' + (o.attr ? ' ' + o.attr : '') + '>' + (o.placeholder ? '<option value="">' + esc(o.placeholder) + '</option>' : '') + opts + '</select>' + C.icon('chevrondown', 'chev ic-16') + '</div>';
+    return o.label ? '<div class="field"><label>' + esc(o.label) + '</label>' + box + (o.help ? '<div class="help">' + esc(o.help) + '</div>' : '') + '</div>' : box;
+  };
+  C.textInput = function (o) {
+    const box = '<div class="input' + (o.sm ? ' sm' : '') + (o.textarea ? ' textarea' : '') + '">' + (o.icon ? C.icon(o.icon) : '') + (o.textarea ? '<textarea name="' + esc(o.name) + '" rows="3" placeholder="' + esc(o.placeholder || '') + '">' + esc(o.value || '') + '</textarea>' : '<input name="' + esc(o.name) + '" type="' + (o.type || 'text') + '" value="' + esc(o.value || '') + '" placeholder="' + esc(o.placeholder || '') + '"' + (o.required ? ' required' : '') + (o.attr ? ' ' + o.attr : '') + '>') + '</div>';
+    return o.label ? '<div class="field' + (o.error ? ' invalid' : '') + '"><label>' + esc(o.label) + (o.required ? ' <span class="crit">*</span>' : '') + '</label>' + box + (o.help ? '<div class="help">' + esc(o.help) + '</div>' : '') + (o.error ? '<div class="err">' + C.icon('alert', 'ic-14') + esc(o.error) + '</div>' : '') + '</div>' : box;
+  };
+
+  /* Modal + confirm */
+  PN.modal = function (o) {
+    const ov = document.createElement('div'); ov.className = 'pn-overlay';
+    ov.innerHTML = '<div class="modal" role="dialog" aria-modal="true">' + (o.title ? '<div class="row between"><div class="t-h3">' + o.title + '</div><button class="icon-btn" data-close aria-label="Close">' + PN.icon('x') + '</button></div>' : '') + (o.body || '') + (o.actions ? '<div class="row end s8">' + o.actions + '</div>' : '') + '</div>';
+    document.body.appendChild(ov); PN.renderIcons(ov);
+    function close() { ov.classList.remove('show'); setTimeout(function () { ov.remove(); }, 160); }
+    requestAnimationFrame(function () { ov.classList.add('show'); });
+    ov.addEventListener('click', function (e) { if (e.target === ov) close(); });
+    ov.querySelectorAll('[data-close]').forEach(function (b) { b.addEventListener('click', close); });
+    const c = ov.querySelector('[data-confirm]'); if (c && o.onConfirm) c.addEventListener('click', function () { if (o.onConfirm(ov) !== false) close(); });
+    return { close: close, el: ov };
+  };
+  PN.confirm = function (o) {
+    return PN.modal({ title: o.title, body: '<p class="t-body muted">' + o.text + '</p>' + (o.body || ''), actions: C.btn('Cancel', 'ghost', null, 'data-close') + C.btn(o.confirmLabel || 'Delete', o.danger === false ? 'primary' : 'destructive solid', o.icon || (o.danger === false ? 'check' : 'trash'), 'data-confirm'), onConfirm: o.onConfirm });
+  };
+  /* Popover menu anchored to an element */
+  PN.menu = function (anchor, items) {
+    document.querySelectorAll('.pn-menu').forEach(function (m) { m.remove(); });
+    const m = document.createElement('div'); m.className = 'pn-menu';
+    m.innerHTML = items.map(function (it, i) { return it === '-' ? '<div class="sep"></div>' : '<button type="button" class="' + (it.danger ? 'danger' : '') + '" data-i="' + i + '">' + PN.icon(it.icon || 'circle', 'ic-16') + esc(it.label) + '</button>'; }).join('');
+    document.body.appendChild(m);
+    const r = anchor.getBoundingClientRect(); const mw = 180;
+    m.style.top = Math.min(window.innerHeight - m.offsetHeight - 8, r.bottom + 6) + 'px';
+    m.style.left = Math.max(8, Math.min(window.innerWidth - mw - 8, r.right - mw)) + 'px';
+    function close() { m.remove(); document.removeEventListener('click', onDoc, true); }
+    function onDoc(e) { if (!m.contains(e.target)) close(); }
+    setTimeout(function () { document.addEventListener('click', onDoc, true); }, 0);
+    m.querySelectorAll('button[data-i]').forEach(function (b) { b.addEventListener('click', function (e) { e.stopPropagation(); const it = items[+b.getAttribute('data-i')]; close(); if (it.onClick) it.onClick(); else if (it.href && PN.route) PN.route(it.href.replace(/\.html/, '')); }); });
+    return m;
+  };
+  /* Init a freshly rendered fragment (icons + behaviors) */
+  PN.initFragment = function (el) { PN.renderIcons(el); el.querySelectorAll('.map[data-map]').forEach(PN.paintMap); PN.bind(el); };
+})();
+
 /* ============================================================
    PAGEO Navigator — mock operational data (04 Sep 2026, WIB)
    Shared by web + mobile pages. Example data, not real records.
@@ -1953,6 +2271,33 @@ window.DATA = {
 };
 
 /* ============================================================
+   PAGEO Navigator — local data store (CRUD demo)
+   Seeds from DATA, persists to localStorage so edits survive reloads.
+   ============================================================ */
+(function () {
+  const PN = window.PN;
+  const KEY = 'pageo-navigator-store-v1';
+  let db = null;
+  const clone = function (x) { return JSON.parse(JSON.stringify(x)); };
+  function seed() { const D = window.DATA; return { v: 1, people: clone(D.people), assets: clone(D.assets), projects: clone(D.projects), alerts: clone(D.alerts) }; }
+  function load() {
+    if (db) return db;
+    try { const raw = localStorage.getItem(KEY); if (raw) { const parsed = JSON.parse(raw); if (parsed && parsed.v === 1) { db = parsed; return db; } } } catch (e) {}
+    db = seed(); save(); return db;
+  }
+  function save() { try { localStorage.setItem(KEY, JSON.stringify(db)); } catch (e) {} }
+  PN.store = {
+    all: function (c) { return load()[c] || []; },
+    get: function (c, id) { return load()[c].find(function (x) { return x.id === id; }); },
+    add: function (c, item) { load()[c].unshift(item); save(); return item; },
+    update: function (c, id, patch) { const it = PN.store.get(c, id); if (it) Object.assign(it, patch); save(); return it; },
+    remove: function (c, id) { const arr = load()[c]; const i = arr.findIndex(function (x) { return x.id === id; }); if (i >= 0) arr.splice(i, 1); save(); return i >= 0; },
+    reset: function () { db = null; try { localStorage.removeItem(KEY); } catch (e) {} load(); },
+    count: function (c, fn) { return PN.store.all(c).filter(fn || function () { return true; }).length; }
+  };
+})();
+
+/* ============================================================
    PAGEO Navigator — per-app hash router
    PN.app({ kind: 'web' | 'mobile' | 'ds', home: 'overview' })
    Pages register with PN.page(id, { title, nav, crumb, render, after, hidden })
@@ -1968,14 +2313,19 @@ window.DATA = {
     if (!href || /^(https?:|mailto:|tel:)/.test(href) || href === '#') return null;
     if (href.charAt(0) === '#') return href.slice(1) || null;
     if (href.indexOf('/') >= 0) return null;
-    if (/\.html$/.test(href)) return href.replace(/\.html$/, '');
+    if (/\.html(\?.*)?$/.test(href)) return href.replace(/\.html(\?.*)?$/, '$1');
     return null;
   }
 
   PN.route = function (id, opts) {
     opts = opts || {};
+    let qs = ''; const qi = (id || '').indexOf('?');
+    if (qi >= 0) { qs = id.slice(qi + 1); id = id.slice(0, qi); }
+    const params = {}; if (qs) { qs.split('&').forEach(function (kv) { const p = kv.split('='); params[decodeURIComponent(p[0])] = decodeURIComponent(p[1] || ''); }); }
+    PN.params = params;
     if (!PN.pages[id]) id = cfg.home;
     const def = PN.pages[id];
+    const full = id + (qs ? '?' + qs : '');
     const stage = document.getElementById('stage');
     Array.prototype.slice.call(stage.attributes).forEach(function (a) { if (a.name.indexOf('data-') === 0) stage.removeAttribute(a.name); });
     stage.className = cfg.kind;
@@ -1984,14 +2334,14 @@ window.DATA = {
     if (cfg.kind === 'mobile') {
       stage.innerHTML = '<div class="phone" data-mnav="' + (def.nav || 'none') + '" data-time="' + (def.time || '15:42') + '"' + (def.offline ? ' data-offline' : '') + (def.lowbatt ? ' data-lowbatt' : '') + '><div class="screen' + (def.dark ? ' dark' : '') + '">' + def.render() + '</div></div>';
     } else {
-      stage.innerHTML = '<main class="page' + (def.pageCls ? ' ' + def.pageCls : '') + '" id="page">' + def.render() + '</main>';
+      stage.innerHTML = '<main class="page' + (def.pageCls ? ' ' + def.pageCls : '') + '" id="page">' + def.render(params) + '</main>';
     }
-    current = id;
+    current = full;
     PN.init(stage);
     if (def.after) def.after(stage);
     stage.scrollTop = 0;
     document.title = def.title + ' · ' + cfg.title;
-    if (location.hash !== '#' + id) { if (opts.replace) history.replaceState(null, '', '#' + id); else history.pushState(null, '', '#' + id); }
+    if (location.hash !== '#' + full) { if (opts.replace) history.replaceState(null, '', '#' + full); else history.pushState(null, '', '#' + full); }
     if (cfg.onRoute) cfg.onRoute(id, def);
   };
   PN.current = function () { return current; };
@@ -2017,1446 +2367,358 @@ window.DATA = {
   };
 })();
 
-/* Converted from mobile/login.html (state: Default) */
-// converted
-PN.page("login", {
-  title: "Login",
-  icon: "lock",
-  nav: "none",
-  time: "07:48",
-  render() {
-    return `<header class="m-top" style="justify-content:center;padding-top:32px;padding-bottom:0">
-          <div class="logo dark" style="align-items:center;gap:4px">
-            <span class="logo-mark" data-logo style="width:150px;color:var(--pageo-black)"></span>
-            <span class="logo-sub">Navigator</span>
-          </div>
-        </header>
-        <div class="m-body" style="gap:16px;padding-bottom:28px">
-          <div class="grow" style="flex:0 1 48px"></div>
-          <div>
-            <div class="m-h1">Sign in</div>
-            <div class="m-caption" style="margin-top:4px">Employee authentication · PT Pageo Utama</div>
-          </div>
-
-          <div class="m-field">
-            <label for="emp-a">Employee ID</label>
-            <div class="m-input"><i data-icon="user"></i><input id="emp-a" type="text" value="PG-0142" autocomplete="username" spellcheck="false"></div>
-          </div>
-          <div class="m-field">
-            <label for="pw-a">Password</label>
-            <div class="m-input"><i data-icon="lock"></i><input id="pw-a" type="password" value="pageo-2026" autocomplete="current-password"><i data-icon="eye"></i></div>
-          </div>
-
-          <div class="row between" style="padding:2px 2px 4px">
-            <span class="m-label">Remember this device</span>
-            <span class="switch on" role="switch" aria-checked="true" aria-label="Remember this device"></span>
-          </div>
-
-          <a class="m-btn primary" href="home-location-sharing-off.html">Sign in</a>
-          <a class="m-btn tertiary" href="home-location-sharing-off.html"><i data-icon="fingerprint"></i>Use fingerprint</a>
-
-          <div class="grow"></div>
-          <div class="m-caption" style="text-align:center;padding:0 12px">Location is only shared during an active operation.</div>
-        </div>`;
+// handwritten — Login
+(function () {
+  const body = (inner, cls) => '<div class="m-body ' + (cls || '') + '">' + inner + '</div>';
+  function loginScreen(error) {
+    return M.top({ sos: false, title: '' }) + body(
+      '<div class="m-login-top"><span class="logo-mark" data-logo style="width:132px"></span><div><div class="m-h1">Welcome back</div><div class="m-caption">Sign in to start your operation · PT Pageo Utama</div></div></div>' +
+      M.card(
+        M.input({ label: 'Employee ID', value: 'PG-0142', icon: 'user', error: error ? ' ' : '' }) +
+        M.input({ label: 'Password', value: '••••••••••', icon: 'lock', type: 'password', right: C.icon('eye', 'ic-18'), error: error ? 'Employee ID or password is incorrect.' : '' }) +
+        '<label class="row between" style="font-size:15px;font-weight:500">Remember this device' + C.switch(true) + '</label>' +
+        M.btn('Sign in', 'primary', 'login', 'home-location-sharing-off.html') +
+        M.btn('Use fingerprint', 'tertiary', 'fingerprint', 'home-location-sharing-off.html'),
+        'm-login-card') +
+      '<div class="m-note">' + C.icon('shield', 'ic-14') + ' Location is only shared during an active operation.</div>'
+    );
   }
-});
+  PN.page('login', { title: 'Login', icon: 'lock', nav: 'none', time: '07:51', render() { return loginScreen(false); } });
+  PN.page('login-error', { title: 'Login — Error state', icon: 'lock', nav: 'none', time: '07:51', render() { return loginScreen(true); } });
+})();
 
-/* Converted from mobile/login.html (state: Error state) */
-// converted
-PN.page("login-error", {
-  title: "Login — Error state",
-  icon: "lock",
-  nav: "none",
-  time: "07:49",
-  hidden: true,
-  render() {
-    return `<header class="m-top" style="justify-content:center;padding-top:32px;padding-bottom:0">
-          <div class="logo dark" style="align-items:center;gap:4px">
-            <span class="logo-mark" data-logo style="width:150px;color:var(--pageo-black)"></span>
-            <span class="logo-sub">Navigator</span>
-          </div>
-        </header>
-        <div class="m-body" style="gap:16px;padding-bottom:28px">
-          <div class="grow" style="flex:0 1 48px"></div>
-          <div>
-            <div class="m-h1">Sign in</div>
-            <div class="m-caption" style="margin-top:4px">Employee authentication · PT Pageo Utama</div>
-          </div>
-
-          <div class="m-field invalid">
-            <label for="emp-b">Employee ID</label>
-            <div class="m-input"><i data-icon="user"></i><input id="emp-b" type="text" value="PG-0142" autocomplete="username" spellcheck="false"></div>
-          </div>
-          <div class="m-field invalid">
-            <label for="pw-b">Password</label>
-            <div class="m-input"><i data-icon="lock"></i><input id="pw-b" type="password" value="pageo2025" autocomplete="current-password"><i data-icon="eye"></i></div>
-            <div class="err"><i data-icon="alert" class="ic-14" style="display:inline-block;vertical-align:-2px;margin-right:4px"></i>Employee ID or password is incorrect.</div>
-          </div>
-
-          <div class="row between" style="padding:2px 2px 4px">
-            <span class="m-label">Remember this device</span>
-            <span class="switch on" role="switch" aria-checked="true" aria-label="Remember this device"></span>
-          </div>
-
-          <a class="m-btn primary" href="home-location-sharing-off.html">Sign in</a>
-          <a class="m-btn tertiary" href="home-location-sharing-off.html"><i data-icon="fingerprint"></i>Use fingerprint</a>
-
-          <div class="grow"></div>
-          <div class="m-caption" style="text-align:center;padding:0 12px">Location is only shared during an active operation.</div>
-        </div>`;
+// handwritten — Home (tracking on / off) and Offline states
+(function () {
+  const D = window.DATA, me = D.me;
+  const body = (inner, cls) => '<div class="m-body ' + (cls || '') + '">' + inner + '</div>';
+  const actions = M.actions([
+    { icon: 'pin', label: 'Check in', kind: 'ocean', href: 'check-in.html' },
+    { icon: 'scanline', label: 'Scan', kind: 'green', href: 'scan.html' },
+    { icon: 'diamond', label: 'Equipment', kind: 'amber', href: 'my-assets.html' },
+    { icon: 'map', label: 'Map', kind: 'violet', href: 'map.html' }
+  ]);
+  const team = M.card('<div class="row between"><div><div class="m-label">Team on board</div><div class="m-caption">MV Pageo 02 · 12 personnel</div></div>' + M.avatars(['AP', 'RH', 'PA', 'DL'], 8) + '</div>' + M.progress(83, 'ok') + '<div class="row between m-caption"><span><b class="ok">10</b> accounted</span><span><b>2</b> offline</span></div>');
+  function today(items, tag) {
+    return M.section('Today', 'All activity', 'activity.html') + M.card(M.timeline(items.map(function (t, i) { return tag && i < 2 ? Object.assign({ tag: 'Pending sync' }, t) : t; })), '', 'padding:18px 18px 12px');
   }
-});
+  const recent = me.today.slice().reverse().slice(0, 4);
 
-/* Converted from mobile/home.html (state: Location sharing off) */
-// converted
-PN.page("home-location-sharing-off", {
-  title: "Home — Location sharing off",
-  icon: "home",
-  nav: "home",
-  time: "07:51",
-  hidden: true,
-  render() {
-    return `<header class="m-top">
-          <span class="brand" data-logo></span>
-          <span class="grow"></span>
-          <span class="m-sync ok"><i data-icon="checkcircle"></i>Synced</span>
-          <a class="m-sos-btn" href="sos.html" aria-label="Emergency SOS">SOS</a>
-        </header>
-        <div class="m-body">
-          <div>
-            <div class="m-caption">Thursday, 04 September</div>
-            <div class="m-h1">Good morning,<br>Fahmi</div>
-          </div>
+  PN.page('home', { title: 'Home', icon: 'home', nav: 'home', time: '15:42', render() {
+    return M.top({ brand: true, right: M.sync('ok', 'Synced') }) + body(
+      M.greeting('Good afternoon,<br>' + me.first, 'Thursday, 04 September') +
+      M.hero({ eyebrow: 'Current operation', title: me.project, sub: me.role + ' · ' + me.vessel + ' · started ' + me.started, top: M.tracking(true), stats: [['GPS', '± ' + me.acc + ' m'], ['Last sync', 'Now'], ['Battery', me.battery + '%']], actions: M.btn('View project', 'white', 'arrowright', 'project.html') }) +
+      actions + team + today(recent)
+    );
+  } });
 
-          <div class="m-card">
-            <span class="m-tracking off"><span class="dot off"></span>Location sharing off</span>
-            <div>
-              <div class="m-card-title">Your project tracking has not started.</div>
-              <div class="m-caption" style="margin-top:6px">Location is shared only while you are assigned to an operation. Starting shares your position with the Project Alpha operations team.</div>
-            </div>
-            <a class="m-btn primary" href="home.html"><i data-icon="play"></i>Start operation</a>
-            <a class="m-btn tertiary" href="profile-how-tracking-works.html">Learn how tracking works</a>
-          </div>
+  PN.page('home-location-sharing-off', { title: 'Home — Location sharing off', icon: 'home', nav: 'home', time: '07:51', render() {
+    return M.top({ brand: true, right: M.sync('ok', 'Synced') }) + body(
+      M.greeting('Good morning,<br>' + me.first, 'Thursday, 04 September') +
+      M.hero({ kind: 'dark', top: M.tracking(false), title: 'Your operation has not started', sub: 'Location is shared only while you are assigned to an operation. Starting shares your position with the Project Alpha operations team.', actions: M.btn('Start operation', 'white', 'play', 'home.html') + M.btn('How it works', 'glass', 'book', 'profile-how-tracking-works.html') }) +
+      M.card(C.eyebrow('Assigned project') + '<div class="m-card-title">' + me.project + '</div><div class="m-caption">' + me.role + ' · Mobilization 04 Sep · ' + me.vessel + '</div>' + M.kv([['Muster point', me.muster], ['Supervisor', me.supervisor], ['Team', '12 personnel']])) +
+      M.section('Before you start') +
+      M.list([{ state: 'ok', title: 'Mobile permissions', sub: 'Location · Notifications' }, { state: 'ok', title: 'Equipment assigned', sub: '3 items · MBES-03, GPS-14, Radio-021', href: 'my-assets.html', chev: true }, { state: 'warn', title: 'Battery 38%', sub: 'Charge before boarding' }])
+    );
+  } });
 
-          <div class="m-card">
-            <span class="eyebrow">Assigned project</span>
-            <div>
-              <div class="m-card-title">Offshore Survey Alpha</div>
-              <div class="m-caption">Survey Engineer · Mobilization 04 Sep · MV Pageo 02</div>
-            </div>
-            <dl class="m-kv">
-              <dt>Muster point</dt><dd>Point B · Deck 2</dd>
-              <dt>Supervisor</dt><dd>Andi Pratama</dd>
-            </dl>
-          </div>
+  PN.page('offline', { title: 'Offline mode', icon: 'wifioff', nav: 'home', time: '15:42', offline: true, render() {
+    return M.banner('offline', 'Offline', '7 events stored locally') + M.top({ brand: true, right: '<a href="offline-sync-status.html" class="m-sync pending">' + C.icon('alert') + '7 pending</a>' }) + body(
+      M.greeting('Good afternoon,<br>' + me.first, 'Thursday, 04 September') +
+      M.hero({ kind: 'amber', eyebrow: 'Current operation', title: me.project, sub: me.role + ' · ' + me.vessel, top: M.tracking(true), stats: [['GPS', '± ' + me.acc + ' m'], ['Last sync', '14:20'], ['Battery', '58%']], actions: M.btn('Sync status', 'glass', 'refresh', 'offline-sync-status.html') }) +
+      actions +
+      M.card('<div class="row s12"><span class="ai sm amber">' + C.icon('wifioff') + '</span><div><div class="m-label">Will sync when connection is available</div><div class="m-caption">Check-ins, scans and positions are stored on this phone and sent automatically. You can keep working.</div></div></div>', 'warn') +
+      today(recent, true)
+    );
+  } });
 
-          <div class="m-section"><span class="eyebrow">Before you start</span></div>
-          <div class="m-list">
-            <div class="li ok"><span class="st"><i data-icon="check"></i></span><div class="li-body">Mobile permissions<div class="li-sub">Location · Notifications</div></div></div>
-            <div class="li ok"><span class="st"><i data-icon="check"></i></span><div class="li-body">Equipment assigned<div class="li-sub">3 items · MBES-03, GPS-14, Radio-021</div></div></div>
-            <div class="li warn"><span class="st"><i data-icon="warning"></i></span><div class="li-body">Battery 38%<div class="li-sub">Charge before boarding</div></div></div>
-          </div>
-        </div>`;
+  PN.page('offline-syncing', { title: 'Offline — Syncing', icon: 'wifioff', nav: 'home', time: '15:44', render() {
+    return '<div class="m-banner" style="background:linear-gradient(90deg,#1A9BCB,#0B76A3);color:#fff">' + C.icon('refresh') + 'Syncing 7 events…<span class="right">Connected</span></div>' + M.top({ brand: true, right: M.sync('busy', 'Syncing…') }) + body(
+      M.greeting('Good afternoon,<br>' + me.first, 'Thursday, 04 September') +
+      M.hero({ eyebrow: 'Current operation', title: me.project, sub: me.role + ' · ' + me.vessel, top: M.tracking(true), stats: [['GPS', '± ' + me.acc + ' m'], ['Last sync', 'In progress'], ['Battery', '58%']] }) +
+      M.card(C.eyebrow('Sync') + '<div class="row between"><span class="m-label">Sending stored events</span><b class="tnum">3 / 7</b></div>' + M.progress(43) + '<div class="m-caption">Check-ins, scans and positions to Project Alpha. Nothing to do on your side.</div>') +
+      actions + today(recent.slice(0, 3))
+    );
+  } });
+
+  PN.page('offline-sync-status', { title: 'Offline — Sync status', icon: 'wifioff', nav: 'home', time: '15:42', offline: true, render() {
+    return M.top({ back: 'offline.html', title: 'Sync status', right: M.chip('warn', 'Offline', 'wifioff') }) + body(
+      M.tiles([{ label: 'Pending', value: 7, kind: 'warn', icon: 'clock' }, { label: 'Delivered today', value: 128, kind: 'ok', icon: 'checkcircle' }, { label: 'Last sync', value: '14:20', icon: 'refresh' }]) +
+      M.section('Pending events (7)') +
+      M.list([{ icon: 'pin', iconCls: 'ocean', title: 'Check-in', sub: 'Site check-in · MV Pageo 02', right: '14:31' }, { icon: 'nfc', iconCls: 'green', title: 'Scan MBES-03', sub: 'Custody confirmed · RD-M03', right: '14:40' }, { icon: 'navigation', iconCls: 'violet', title: 'Position ×5', sub: '14:45 – 15:42 · ± 7–9 m', right: '15:42' }]) +
+      M.section('Indicator states') +
+      M.list([{ icon: 'checkcircle', iconCls: 'green', title: 'Synced', sub: 'All events delivered' }, { icon: 'refresh', iconCls: 'ocean', title: 'Syncing', sub: 'Connection restored, stored events are being sent' }, { icon: 'alert', iconCls: 'amber', title: 'Offline · 12', sub: 'No connection, count of events waiting to send' }]) +
+      '<div class="m-note">Events are kept on this phone until the server confirms them. SOS and muster use SMS fallback when available.</div>' +
+      M.btn('Retry sync', 'secondary', 'refresh', 'offline-syncing.html')
+    );
+  } });
+})();
+
+// handwritten — Project, Team, Mobilization
+(function () {
+  const D = window.DATA, me = D.me;
+  const body = (inner, cls) => '<div class="m-body ' + (cls || '') + '">' + inner + '</div>';
+  const teamList = [['Andi Pratama', 'Party Chief · Supervisor', 'ok', 'On vessel'], ['Fahmi Syaban', 'Survey Engineer · You', 'ok', 'On vessel'], ['Rizky Hakim', 'Hydrographic Surveyor', 'ok', 'On vessel'], ['Agus Setiawan', 'ROV Pilot', 'ok', 'On vessel'], ['Budi Santoso', 'Vessel Master', 'ok', 'On vessel'], ['Dewi Lestari', 'Data Processor', 'ok', 'On vessel'], ['Hendra Wijaya', 'Geophysicist', 'ok', 'On vessel'], ['Putri Anggraini', 'QHSE Officer', 'info', 'Active'], ['Yoga Prasetyo', 'Survey Technician', 'info', 'Active'], ['Sari Wulandari', 'Medic', 'info', 'Active'], ['Bayu Nugroho', 'Deck Technician', 'off', 'Offline'], ['Dimas Prasetyo', 'Surveyor', 'off', 'Offline']];
+
+  PN.page('project', { title: 'Project', icon: 'clipboard', nav: 'project', time: '15:42', render() {
+    return M.top({ small: 'Project Alpha', title: 'Offshore Survey' }) + body(
+      M.hero({ kind: 'green', eyebrow: 'My status', title: 'On vessel · ' + me.vessel, top: M.tracking(true), stats: [['Boarded', '11:20'], ['Muster', 'B · Deck 2'], ['Day', '1 of 15']], actions: M.btn('Project map', 'white', 'map', 'map.html') + M.btn('Team', 'glass', 'users', 'project-team.html') }) +
+      M.tiles([{ label: 'Personnel', value: '24<small style="font-size:14px;color:var(--text-2)"> / 26</small>', icon: 'users' }, { label: 'Equipment', value: 47, icon: 'diamond', kind: 'ok' }, { label: 'Open alerts', value: 1, icon: 'bell', kind: 'crit' }]) +
+      M.card('<div class="row between"><div><div class="m-label">Team accountability</div><div class="m-caption">10 accounted · 2 offline</div></div>' + M.avatars(['AP', 'FS', 'RH', 'AS'], 8) + '</div>' + M.progress(83, 'ok')) +
+      M.section('My equipment', 'All equipment', 'my-assets.html') +
+      M.list([{ icon: 'diamond', iconCls: 'ocean', title: 'MBES-03', sub: 'Multibeam Echo Sounder · Deployed', href: 'asset-detail.html', chev: true }, { icon: 'navigation', iconCls: 'green', title: 'GPS-14', sub: 'GNSS Receiver · Deployed', href: 'asset-detail.html', chev: true }, { icon: 'radio', iconCls: 'violet', title: 'Radio-021', sub: 'VHF Handheld · Deployed', href: 'asset-detail.html', chev: true }]) +
+      M.section('Mobilization', 'Stages', 'mobilization-stages.html') +
+      '<a href="mobilization.html" class="m-card" style="color:inherit"><div class="row s12"><span class="ai sm amber">' + C.icon('truck') + '</span><div class="grow"><div class="m-label">Equipment checklist · 24 / 26 ready</div><div class="m-caption">Cable Set-07 not detected · Battery Pack-04 pending</div></div>' + M.chip('warn', '1', 'warning') + '</div>' + M.progress(92, 'warn') + '</a>'
+    );
+  } });
+
+  PN.page('project-team', { title: 'Project — Team', icon: 'users', nav: 'project', time: '15:42', render() {
+    return M.top({ back: 'project.html', small: 'Project Alpha', title: 'Team' }) + body(
+      M.tiles([{ label: 'On vessel', value: 7, kind: 'ok', icon: 'ship' }, { label: 'Active', value: 3, icon: 'user' }, { label: 'Offline', value: 2, kind: 'off', icon: 'wifioff' }]) +
+      M.list(teamList.map(function (p) { return { avatar: C.initials(p[0]), title: p[0], sub: p[1], right: M.chip(p[2] === 'ok' ? 'active' : p[2] === 'info' ? 'info' : 'off', p[3]) }; })) +
+      '<div class="m-note">Status is shared by each teammate’s device while the operation is active.</div>'
+    );
+  } });
+
+  PN.page('mobilization', { title: 'Mobilization checklist', icon: 'truck', nav: 'project', time: '10:18', render() {
+    return M.top({ back: 'project.html', small: 'Mobilization', title: 'Project Alpha', right: '<a href="mobilization-stages.html" class="m-chip info">Stages</a>' }) + body(
+      M.hero({ kind: 'amber', eyebrow: 'Equipment checklist', body: '<div class="big">24 <small>/ 26 ready</small></div>' + M.progress(92), stats: [['Ready', '24'], ['Attention', '1'], ['Pending', '1']], sub: 'Vessel receiving · MV Pageo 02 · Port Tanjung Priok' }) +
+      M.section('Items', 'Scanned first') +
+      M.list([{ state: 'ok', title: 'MBES-03', sub: 'Multibeam Echo Sounder', right: '10:18' }, { state: 'ok', title: 'GPS-04', sub: 'GNSS Receiver', right: '10:19' }, { state: 'ok', title: 'Gyro-01', sub: 'Motion Reference Unit', right: '10:21' }, { state: 'ok', title: 'Laptop-14', sub: 'Acquisition Laptop', right: '10:22' }, { state: 'ok', title: 'SVP-07', sub: 'Sound Velocity Profiler', right: '10:24' }, { state: 'warn', title: 'Cable Set-07', sub: 'Not detected at dispatch gate', right: M.chip('warn', 'Attention') }, { state: 'pending', title: 'Battery Pack-04', sub: 'Pending receiving scan', right: '—' }]) +
+      '<div class="m-note">Showing 7 of 26 items · scanned items are listed first</div>' +
+      M.btn('Scan equipment', 'primary', 'scanline', 'scan.html')
+    );
+  } });
+
+  PN.page('mobilization-stages', { title: 'Mobilization — Stages', icon: 'truck', nav: 'project', time: '11:20', render() {
+    return M.top({ back: 'project.html', small: 'Mobilization', title: 'Project Alpha', right: '<a href="mobilization.html" class="m-chip">Checklist</a>' }) + body(
+      M.card(C.eyebrow('Stages · 26 / 28 received') + M.timeline([{ time: '16:40', kind: 'ok', text: 'Prepared', sub: '03 Sep · Warehouse, Jakarta Base · 28 / 28' }, { time: '09:12', kind: 'ok', text: 'Dispatch gate', sub: '04 Sep · 27 / 28 scanned · Cable Set-07 not detected' }, { time: '10:45', kind: 'ok', text: 'Port', sub: '04 Sep · Tanjung Priok · 27 / 28' }, { time: '11:20', kind: 'info', text: 'Vessel receiving · current', sub: 'MV Pageo 02 · 26 / 28 received' }, { time: '—', kind: 'unknown', text: 'Deployed', sub: 'Pending · Offshore site' }])) +
+      M.card('<div class="row s12"><span class="ai sm ocean">' + C.icon('info') + '</span><div><div class="m-label">2 items not yet received on MV Pageo 02</div><div class="m-caption">Cable Set-07 · Battery Pack-04. Receiving can be confirmed now; the outstanding items stay open on the checklist.</div></div></div>', 'tinted') +
+      M.btn('Confirm receiving', 'primary', 'checkcircle', 'mobilization.html') + M.btn('Scan outstanding items', 'tertiary', 'scanline', 'scan.html')
+    );
+  } });
+})();
+
+// handwritten — Map with bottom sheet
+(function () {
+  const D = window.DATA, me = D.me;
+  function mapArea(selected) {
+    return '<div class="m-body" style="padding:0;gap:0"><div class="m-map">' + C.map({ scene: 'offshore', flush: true, legend: false, style: 'height:100%;min-height:0',
+      fences: [{ pts: '22,32 78,30 80,62 24,64', label: 'Offshore Work Area' }],
+      markers: [{ kind: 'vessel', x: 52, y: 46, label: 'MV Pageo 02' }, { kind: 'me', x: 46, y: 50, accuracy: 70, label: 'You · ± 7 m' }, { kind: 'person', x: 40, y: 42, label: 'Andi P.' }, { kind: 'person', x: 62, y: 54, label: 'Rizky H.' }, { kind: 'person', x: 34, y: 58, label: 'Agus S.' }, { kind: 'asset', x: 26, y: 46, label: 'GPS-14' }, { kind: 'asset', x: 50, y: 60, label: 'MBES-03', cls: selected ? 'selected' : '' }, { kind: 'muster', x: 66, y: 40, label: 'Muster B' }],
+      tr: C.mapCtl(), tl: '<span class="map-coords">' + me.lat + ', ' + me.lng + '</span>' }) + '</div>' +
+      (selected
+        ? M.sheet('<div class="row s12"><span class="ai ocean">' + C.icon('diamond') + '</span><div class="grow"><div class="m-h3">MBES-03</div><div class="m-caption">Multibeam Echo Sounder · Project Alpha</div></div>' + M.chip('info', 'Deployed') + '</div>' + M.kv([['Custody', 'You'], ['Last seen', '3 min ago · RD-11'], ['Location', 'MV Pageo 02 · Deck']]) + M.btnRow([M.btn('Close', 'secondary', 'x', 'map.html'), M.btn('Open asset', 'primary', 'arrowright', 'asset-detail.html')]))
+        : M.sheet('<div class="row between">' + C.eyebrow('Your position') + M.chip('active', 'Updated now') + '</div><div class="m-h2 tnum">' + me.lat + ', ' + me.lng + '</div><div class="m-caption">Accuracy ± ' + me.acc + ' m · GPS good · inside Offshore Work Area</div><div class="row s8 wrap">' + M.chip('info', 'Project Alpha', 'clipboard') + M.chip('', 'MV Pageo 02', 'ship') + M.chip('active', 'Work area', 'pin') + '</div>' + M.btn('Share position with supervisor', 'primary', 'navigation'))) +
+      '</div>';
   }
-});
+  PN.page('map', { title: 'Map', icon: 'map', nav: 'map', time: '15:42', render() { return M.top({ title: 'Map', right: M.chip('active', 'Live · 12 s') }) + mapArea(false); } });
+  PN.page('map-asset-selected', { title: 'Map — Asset selected', icon: 'map', nav: 'map', time: '15:42', render() { return M.top({ title: 'Map', right: M.chip('active', 'Live · 12 s') }) + mapArea(true); } });
+})();
 
-/* Converted from mobile/home.html (state: Tracking active) */
-// converted
-PN.page("home", {
-  title: "Home",
-  icon: "home",
-  nav: "home",
-  time: "15:42",
-  render() {
-    return `<header class="m-top">
-          <span class="brand" data-logo></span>
-          <span class="grow"></span>
-          <span class="m-sync ok"><i data-icon="checkcircle"></i>Synced</span>
-          <a class="m-sos-btn" href="sos.html" aria-label="Emergency SOS">SOS</a>
-        </header>
-        <div class="m-body">
-          <div>
-            <div class="m-caption">Thursday, 04 September</div>
-            <div class="m-h1">Good afternoon,<br>Fahmi</div>
-          </div>
+// handwritten — My equipment, asset detail, report issue
+(function () {
+  const D = window.DATA, me = D.me;
+  const body = (inner, cls) => '<div class="m-body ' + (cls || '') + '">' + inner + '</div>';
+  const items = [{ icon: 'diamond', iconCls: 'ocean', title: 'MBES-03', sub: 'Multibeam Echo Sounder · Deployed', href: 'asset-detail.html', chev: true }, { icon: 'navigation', iconCls: 'green', title: 'GPS-14', sub: 'GNSS Receiver · Deployed', href: 'asset-detail.html', chev: true }, { icon: 'radio', iconCls: 'violet', title: 'Radio-021', sub: 'VHF Handheld · Deployed', href: 'asset-detail.html', chev: true }];
 
-          <div class="m-card">
-            <div class="row between"><span class="eyebrow">Project</span><span class="m-tracking" style="padding:6px 12px;font-size:11px"><span class="dot ok pulse"></span>Tracking active</span></div>
-            <div>
-              <div class="m-card-title">Offshore Survey Alpha</div>
-              <div class="m-caption">Survey Engineer · 04 Sep — 18 Sep</div>
-            </div>
-            <dl class="m-kv">
-              <dt>Vessel</dt><dd>MV Pageo 02</dd>
-              <dt>Started</dt><dd>08:03</dd>
-            </dl>
-            <a class="m-btn secondary" href="project.html">View project<i data-icon="arrowright"></i></a>
-          </div>
+  PN.page('my-assets', { title: 'My equipment', icon: 'diamond', nav: 'project', time: '15:42', render() {
+    return M.top({ back: 'project.html', title: 'My equipment' }) + body(
+      M.card(M.ringStat(100, 'ok', '3 / 3 accounted', 'Project Alpha · custody Fahmi Syaban · last scan 10:18')) +
+      M.list(items) +
+      M.btn('Scan equipment', 'primary', 'scanline', 'scan.html') + M.btn('Report missing item', 'secondary', 'warning', 'asset-detail-report-issue.html')
+    );
+  } });
 
-          <div class="m-card">
-            <span class="eyebrow">Current status</span>
-            <div class="m-status-big ok">On operation</div>
-            <dl class="m-kv">
-              <dt>GPS</dt><dd class="ok">Good · ± 7 m</dd>
-              <dt>Last sync</dt><dd>Now</dd>
-              <dt>Battery</dt><dd>82%</dd>
-            </dl>
-            <div class="m-btn-row">
-              <a class="m-btn dark" href="check-in.html"><i data-icon="pin"></i>Check in</a>
-              <a class="m-btn secondary" href="scan.html"><i data-icon="scanline"></i>Scan</a>
-            </div>
-          </div>
+  PN.page('my-assets-needs-confirmation', { title: 'My equipment — Needs confirmation', icon: 'diamond', nav: 'project', time: '15:42', render() {
+    const list = items.slice(0, 2).concat([{ state: 'warn', title: 'Radio-021', sub: 'Not scanned today · last seen 03 Sep 17:10', right: M.chip('warn', 'Confirm') }]);
+    return M.top({ back: 'project.html', title: 'My equipment' }) + body(
+      M.card(M.ringStat(67, 'warn', '2 / 3 accounted', 'Radio-021 was not detected by today’s reader pass')) +
+      M.card('<div class="row s12"><span class="ai sm amber">' + C.icon('warning') + '</span><div><div class="m-label">1 item needs confirmation</div><div class="m-caption">Scan Radio-021 to confirm custody, or report it missing.</div></div></div>', 'warn') +
+      M.list(list) +
+      M.btn('Scan equipment', 'primary', 'scanline', 'scan.html') + M.btn('Report missing item', 'secondary', 'warning', 'asset-detail-report-issue.html')
+    );
+  } });
 
-          <div class="m-section"><span class="eyebrow">Today</span><a href="activity.html">All activity</a></div>
-          <div class="m-card" style="padding:16px 16px 12px">
-            <div class="m-timeline">
-              <div class="tl"><span class="time">08:02</span><span class="node"><span class="dot ok"></span></span><div>Operation started<div class="sub">Jakarta Base</div></div></div>
-              <div class="tl"><span class="time">08:24</span><span class="node"><span class="dot info"></span></span><div>Entered Base<div class="sub">Geofence · PAGEO Base</div></div></div>
-              <div class="tl"><span class="time">10:18</span><span class="node"><span class="dot transit"></span></span><div>Mobilized<div class="sub">3 / 3 equipment scanned</div></div></div>
-              <div class="tl"><span class="time">11:20</span><span class="node"><span class="dot info"></span></span><div>Boarded MV Pageo 02<div class="sub">Port Tanjung Priok</div></div></div>
-            </div>
-          </div>
-        </div>`;
+  PN.page('asset-detail', { title: 'Asset detail', icon: 'diamond', nav: 'project', time: '15:42', render() {
+    return M.top({ back: 'my-assets.html', small: 'Asset', title: 'MBES-03' }) + body(
+      M.hero({ kind: 'dark', top: '<div class="row s12"><span class="ai ocean">' + C.icon('diamond') + '</span><div><div class="m-hero-title">Multibeam Echo Sounder</div><div class="m-hero-sub">Kongsberg EM 2040C · SN 20401183</div></div></div>', stats: [['Status', 'Deployed'], ['Custody', 'You'], ['Last seen', '3 min']] }) +
+      M.card(M.kv([['RFID', '<span class="mono">E280-11-8829184</span>'], ['Project', 'Alpha · Offshore Survey'], ['Location', 'MV Pageo 02 · Deck'], ['Last reader', 'RD-11 · 15:37'], ['Calibration', 'Valid to 18 Dec 2026']], 'left')) +
+      M.section('History', 'Movement', 'activity.html') +
+      M.card(M.timeline([{ time: 'Sep 01', kind: 'unknown', text: 'Warehouse', sub: 'Jakarta Base · RD-01 · 09:12' }, { time: 'Sep 02', kind: 'unknown', text: 'Workshop', sub: 'Pre-mobilization check · RD-03' }, { time: 'Sep 03', kind: 'transit', text: 'Loading Area', sub: 'Scanned 27 / 28 · RD-04' }, { time: 'Sep 03', kind: 'info', text: 'Vessel MV Pageo 02', sub: 'Received · RD-11 · custody Fahmi' }, { time: 'Sep 04', kind: 'ok', text: 'Offshore site', sub: 'Deployed · RD-11 · 15:37' }]), '', 'padding:18px 18px 12px') +
+      M.btn('Confirm custody', 'secondary', 'checkcircle', 'scan.html') + M.btn('Report issue', 'destructive', 'warning', 'asset-detail-report-issue.html')
+    );
+  } });
+
+  PN.page('asset-detail-report-issue', { title: 'Asset — Report issue', icon: 'diamond', nav: 'project', time: '15:43', render() {
+    return M.top({ back: 'asset-detail.html', small: 'Asset', title: 'Report issue · MBES-03', sos: false }) + body(
+      '<div class="m-caption" style="padding:0 4px">Multibeam Echo Sounder · Custody: Fahmi Syaban · MV Pageo 02</div>' +
+      M.card(
+        '<div class="m-field"><label>Issue type</label><div class="m-input">' + C.icon('warning') + '<span class="grow">Damaged</span>' + C.icon('chevrondown', 'ic-18') + '</div><div class="help">Damaged · Malfunction · Missing part · Lost</div></div>' +
+        '<div class="m-field"><label>Description</label><div class="m-input" style="height:auto;min-height:120px;align-items:flex-start;padding:14px">Port-side transducer housing cracked during recovery at 14:10. Unit still powers on, but swath data quality is degraded on the outer beams.</div></div>' +
+        '<div class="m-field"><label>Severity</label><div class="row s8">' + M.chip('', 'Minor') + M.chip('warn', 'Degraded', 'check') + M.chip('', 'Unusable') + '</div></div>' +
+        '<div class="m-field"><label>Photo</label>' + M.btn('Attach photo', 'secondary', 'upload') + '<div class="help">Optional · up to 3 photos, stored with the report</div></div>'
+      ) +
+      M.btn('Submit report', 'primary', 'file', 'my-assets.html') + '<div class="m-note">Sent to Asset Manager and QHSE.</div>'
+    );
+  } });
+})();
+
+// handwritten — RFID scan flow
+(function () {
+  const body = (inner, cls) => '<div class="m-body ' + (cls || '') + '">' + inner + '</div>';
+  PN.page('scan', { title: 'RFID scan', icon: 'nfc', nav: 'none', time: '15:42', render() {
+    return M.top({ close: 'my-assets.html', title: 'Scan asset', sos: false }) + body(
+      '<div style="height:24px"></div>' + M.ring('info', 'nfc', true) +
+      '<div class="eyebrow" style="color:var(--accent)">Scanning…</div><div class="m-h2">Bring the reader near<br>the equipment</div>' +
+      '<div class="m-caption" style="max-width:26ch">The tag is read automatically. Keep the reader within 30 cm.</div>' +
+      M.chip('info', 'RFID reader connected · RD-M03', 'bluetooth') +
+      '<div class="grow"></div>' + M.btn('Cancel', 'tertiary', null, 'my-assets.html'),
+      'center');
+  } });
+  PN.page('scan-detected', { title: 'RFID scan — Detected', icon: 'nfc', nav: 'none', time: '15:42', render() {
+    return M.top({ close: 'my-assets.html', title: 'Scan asset', sos: false }) + body(
+      M.ring('ok', 'check') + '<div class="eyebrow ok">Asset detected</div><div class="m-h1">MBES-03</div><div class="m-caption">Multibeam Echo Sounder · Project Alpha</div>' +
+      M.card(M.kv([['Status', M.chip('info', 'Deployed')], ['Custody', 'You'], ['RFID', '<span class="mono">E280-11-8829184</span>'], ['Reader', 'RD-M03 · 15:42:08']]), '', 'width:100%;text-align:left') +
+      '<div class="grow"></div>' + M.btn('Confirm custody', 'primary', 'check', 'my-assets.html') + M.btn('Scan another', 'tertiary', 'scanline', 'scan.html'),
+      'center');
+  } });
+  PN.page('scan-not-recognized', { title: 'RFID scan — Not recognized', icon: 'nfc', nav: 'none', time: '15:43', render() {
+    return M.top({ close: 'my-assets.html', title: 'Scan asset', sos: false }) + body(
+      M.ring('warn', 'alert') + '<div class="eyebrow warn">Not recognized</div><div class="m-h1">Tag not registered</div><div class="m-caption">E280-11-1190244 is not in the registry.</div>' +
+      M.card(M.kv([['Tag ID', '<span class="mono">E280-11-1190244</span>'], ['Reader', 'RD-M03 · 15:43:21'], ['Project', 'Alpha']]) + '<div class="m-caption">Registering links this tag to a new asset record that the Asset Manager will review.</div>', '', 'width:100%;text-align:left') +
+      '<div class="grow"></div>' + M.btn('Register asset', 'secondary', 'plus', 'scan.html') + M.btn('Try again', 'tertiary', 'refresh', 'scan.html'),
+      'center');
+  } });
+})();
+
+// handwritten — Emergency muster
+(function () {
+  const body = (inner, cls) => '<div class="m-body ' + (cls || '') + '">' + inner + '</div>';
+  function requested(offline) {
+    return M.banner('crit', 'Emergency muster · MV Pageo 02', '15:38') + (offline ? M.banner('offline', 'Offline · confirmation will sync when connected') : '') + body(
+      '<div style="height:8px"></div>' + M.ring('crit', 'flag') + '<div class="eyebrow crit">Muster requested</div><div class="m-h1">Proceed to<br>Muster Point B</div>' +
+      M.card(M.kv([['Location', 'Deck 2 · Starboard'], ['Distance', '180 m'], ['Requested', '15:38 by QHSE'], ['Your team', '33 / 39 confirmed']]), '', 'width:100%;text-align:left') +
+      '<div class="grow"></div>' + M.btn(offline ? "I'M SAFE (will sync)" : "I'M SAFE", 'success lg', 'check', 'muster-confirmed.html') + M.btn('I need help', 'tertiary', 'lifebuoy', 'sos.html', 'style="color:var(--s-crit)"'),
+      'center');
   }
-});
-
-/* Converted from mobile/project.html (state: Project overview) */
-// converted
-PN.page("project", {
-  title: "Project",
-  icon: "clipboard",
-  nav: "project",
-  time: "15:42",
-  render() {
-    return `<header class="m-top">
-          <div class="m-title"><small>Project Alpha</small>Offshore Survey</div>
-          <a class="m-sos-btn" href="sos.html" aria-label="Emergency SOS">SOS</a>
-        </header>
-        <div class="m-body">
-          <div class="m-caption" style="margin-top:-6px">04 Sep — 18 Sep · MV Pageo 02 · Offshore Construction Survey</div>
-
-          <div class="m-card">
-            <div class="row between"><span class="eyebrow">My status</span><span class="m-tracking" style="padding:6px 12px;font-size:11px"><span class="dot ok pulse"></span>Tracking active</span></div>
-            <div class="m-status-big info">On vessel</div>
-            <dl class="m-kv">
-              <dt>Vessel</dt><dd>MV Pageo 02</dd>
-              <dt>Boarded</dt><dd>11:20</dd>
-              <dt>Muster point</dt><dd>B · Deck 2</dd>
-            </dl>
-          </div>
-
-          <div class="m-card">
-            <div class="row between">
-              <a class="eyebrow" href="project-team.html" style="display:inline-flex;align-items:center;gap:4px">Team <i data-icon="chevronright" class="ic-14"></i></a>
-              <a href="project.html" style="font-size:14px;font-weight:500">View all</a>
-            </div>
-            <div>
-              <div class="m-card-title">12 personnel</div>
-              <div class="m-caption"><span class="ok" style="font-weight:600">10 Accounted</span> · <span class="off">2 Offline</span></div>
-            </div>
-            <div class="m-progress ok"><i style="width:83%"></i></div>
-            <div class="row" style="gap:0;padding-left:8px">
-              <span class="avatar" style="margin-left:-8px;border:2px solid #fff">FS</span>
-              <span class="avatar" style="margin-left:-8px;border:2px solid #fff">AP</span>
-              <span class="avatar" style="margin-left:-8px;border:2px solid #fff">RH</span>
-              <span class="avatar" style="margin-left:-8px;border:2px solid #fff">AS</span>
-              <span class="avatar" style="margin-left:-8px;border:2px solid #fff">BS</span>
-              <span class="avatar" style="margin-left:-8px;border:2px solid #fff">DL</span>
-              <span class="avatar" style="margin-left:-8px;border:2px solid #fff;background:var(--pageo-mist);color:var(--text-2)">+6</span>
-            </div>
-          </div>
-
-          <div class="m-section"><span class="eyebrow">My assets</span><a href="my-assets.html">All equipment</a></div>
-          <div class="m-list">
-            <a class="li ok" href="my-assets.html" style="color:inherit"><span class="st"><i data-icon="check"></i></span><div class="li-body">MBES-03<div class="li-sub">Multibeam Echo Sounder · Deployed</div></div><i data-icon="chevronright"></i></a>
-            <a class="li ok" href="my-assets.html" style="color:inherit"><span class="st"><i data-icon="check"></i></span><div class="li-body">GPS-14<div class="li-sub">GNSS Receiver · Deployed</div></div><i data-icon="chevronright"></i></a>
-            <a class="li ok" href="my-assets.html" style="color:inherit"><span class="st"><i data-icon="check"></i></span><div class="li-body">Radio-021<div class="li-sub">VHF Handheld · Deployed</div></div><i data-icon="chevronright"></i></a>
-          </div>
-          <div class="m-caption" style="margin-top:-4px;padding-left:4px">3 / 3 accounted · last scan 10:18</div>
-
-          <div class="m-section"><span class="eyebrow">Mobilization</span></div>
-          <div class="m-list">
-            <a class="li" href="mobilization.html" style="color:inherit"><i data-icon="truck" class="ic-24"></i><div class="li-body">Mobilization checklist<div class="li-sub">24 / 26 ready · Vessel receiving</div></div><span class="chip warn">2 open</span><i data-icon="chevronright"></i></a>
-          </div>
-
-          <a class="m-btn secondary" href="map.html"><i data-icon="map"></i>View project map</a>
-        </div>`;
-  }
-});
-
-/* Converted from mobile/project.html (state: Team) */
-// converted
-PN.page("project-team", {
-  title: "Project — Team",
-  icon: "clipboard",
-  nav: "project",
-  time: "15:42",
-  hidden: true,
-  render() {
-    return `<header class="m-top">
-          <a class="back" href="project.html" aria-label="Back"><i data-icon="chevronleft" class="ic-24"></i></a>
-          <div class="m-title"><small>Project Alpha</small>Team</div>
-        </header>
-        <div class="m-body">
-          <div class="row between" style="margin-top:-4px">
-            <span class="m-caption">12 personnel · MV Pageo 02</span>
-            <span class="m-caption"><span class="ok" style="font-weight:600">10 accounted</span> · <span class="off">2 offline</span></span>
-          </div>
-          <div class="m-list">
-            <div class="li"><span class="avatar">AP</span><div class="li-body">Andi Pratama<div class="li-sub">Party Chief · Supervisor</div></div><span class="m-chip info">On vessel</span></div>
-            <div class="li"><span class="avatar">FS</span><div class="li-body">Fahmi Syaban<div class="li-sub">Survey Engineer · You</div></div><span class="m-chip info">On vessel</span></div>
-            <div class="li"><span class="avatar">RH</span><div class="li-body">Rizky Hakim<div class="li-sub">Hydrographic Surveyor</div></div><span class="m-chip info">On vessel</span></div>
-            <div class="li"><span class="avatar">AS</span><div class="li-body">Agus Setiawan<div class="li-sub">ROV Pilot</div></div><span class="m-chip info">On vessel</span></div>
-            <div class="li"><span class="avatar">BS</span><div class="li-body">Budi Santoso<div class="li-sub">Vessel Master</div></div><span class="m-chip info">On vessel</span></div>
-            <div class="li"><span class="avatar">DL</span><div class="li-body">Dewi Lestari<div class="li-sub">Data Processor</div></div><span class="m-chip info">On vessel</span></div>
-            <div class="li"><span class="avatar">HW</span><div class="li-body">Hendra Wijaya<div class="li-sub">Geophysicist</div></div><span class="m-chip info">On vessel</span></div>
-            <div class="li"><span class="avatar">PA</span><div class="li-body">Putri Anggraini<div class="li-sub">QHSE Officer</div></div><span class="m-chip active">Active</span></div>
-            <div class="li"><span class="avatar">YP</span><div class="li-body">Yoga Prasetyo<div class="li-sub">Survey Technician</div></div><span class="m-chip active">Active</span></div>
-            <div class="li"><span class="avatar">SW</span><div class="li-body">Sari Wulandari<div class="li-sub">Medic</div></div><span class="m-chip active">Active</span></div>
-            <div class="li"><span class="avatar" style="background:var(--s-offline-bg);color:var(--text-2)">TR</span><div class="li-body">Teguh Rahmat<div class="li-sub">Deck Engineer · Last seen 14:05</div></div><span class="m-chip off">Offline</span></div>
-            <div class="li"><span class="avatar" style="background:var(--s-offline-bg);color:var(--text-2)">IK</span><div class="li-body">Iwan Kurniawan<div class="li-sub">Electronics Technician · Last seen 13:48</div></div><span class="m-chip off">Offline</span></div>
-          </div>
-          <div class="m-caption" style="padding:0 4px">Status is shared by each teammate's device while the operation is active.</div>
-        </div>`;
-  }
-});
-
-/* Converted from mobile/map.html (state: Your position) */
-// converted
-PN.page("map", {
-  title: "Map",
-  icon: "map",
-  nav: "map",
-  time: "15:42",
-  render() {
-    return `<header class="m-top">
-          <div class="m-title">Map</div>
-          <span class="m-chip active"><span class="dot ok pulse"></span>Live · 12 s</span>
-          <a class="m-sos-btn" href="sos.html" aria-label="Emergency SOS">SOS</a>
-        </header>
-        <div class="m-body" style="padding:0;gap:0">
-          <div class="m-map">
-            <div class="map flush" data-map="offshore">
-              <div data-fence="16,20 80,14 88,56 30,64" data-label="Offshore Work Area" data-kind="zone"></div>
-
-              <div class="mk vessel" style="left:56%;top:34%"><span class="sym"><i data-icon="ship"></i></span><span class="lbl">MV Pageo 02</span></div>
-              <div class="mk muster" style="left:64%;top:30%"><span class="sym"><i data-icon="flag"></i></span><span class="lbl">Muster B</span></div>
-
-              <div class="mk person" style="left:40%;top:26%"><span class="sym"><i data-icon="user"></i></span><span class="lbl">Andi P.</span></div>
-              <div class="mk person" style="left:70%;top:44%"><span class="sym"><i data-icon="user"></i></span><span class="lbl">Rizky H.</span></div>
-              <div class="mk person" style="left:30%;top:48%"><span class="sym"><i data-icon="user"></i></span><span class="lbl">Agus S.</span></div>
-
-              <a href="map-asset-selected.html" class="mk asset" style="left:50%;top:50%"><span class="sym"><i data-icon="diamond"></i></span><span class="lbl">MBES-03</span></a>
-              <div class="mk asset" style="left:24%;top:34%"><span class="sym"><i data-icon="diamond"></i></span><span class="lbl">GPS-14</span></div>
-
-              <div class="mk me" style="left:46%;top:40%;z-index:3"><span class="accuracy" style="width:70px;height:70px;left:50%;top:50%;transform:translate(-50%,-50%)"></span><span class="sym"></span></div>
-
-              <div class="map-ui tr">
-                <div class="map-ctl">
-                  <button aria-label="Zoom in"><i data-icon="plus"></i></button>
-                  <button aria-label="Zoom out"><i data-icon="minus"></i></button>
-                  <button aria-label="My location" style="color:var(--accent)"><i data-icon="locate"></i></button>
-                </div>
-              </div>
-              <div class="map-ui tl"><span class="map-coords">-6.18746, 106.82721</span></div>
-            </div>
-
-            <div class="m-sheet">
-              <div class="grab"></div>
-              <div class="row between">
-                <span class="eyebrow">Your position</span>
-                <span class="m-caption"><span class="dot ok pulse" style="margin-right:6px;vertical-align:1px"></span>Updated now</span>
-              </div>
-              <div class="m-h2 tnum">-6.18746, 106.82721</div>
-              <div class="m-caption" style="margin-top:-6px">Accuracy ± 7 m · Updated now · GPS good</div>
-              <div class="row s8 wrap">
-                <span class="m-chip"><i data-icon="clipboard" class="ic-16"></i>Project Alpha</span>
-                <span class="m-chip"><i data-icon="ship" class="ic-16"></i>MV Pageo 02</span>
-                <span class="m-chip info"><i data-icon="pin" class="ic-16"></i>Work area</span>
-              </div>
-              <a class="m-btn secondary" href="map.html"><i data-icon="navigation"></i>Share position with supervisor</a>
-            </div>
-          </div>
-        </div>`;
-  }
-});
-
-/* Converted from mobile/map.html (state: Asset selected) */
-// converted
-PN.page("map-asset-selected", {
-  title: "Map — Asset selected",
-  icon: "map",
-  nav: "map",
-  time: "15:42",
-  hidden: true,
-  render() {
-    return `<header class="m-top">
-          <div class="m-title">Map</div>
-          <span class="m-chip active"><span class="dot ok pulse"></span>Live · 12 s</span>
-          <a class="m-sos-btn" href="sos.html" aria-label="Emergency SOS">SOS</a>
-        </header>
-        <div class="m-body" style="padding:0;gap:0">
-          <div class="m-map">
-            <div class="map flush" data-map="offshore">
-              <div data-fence="16,20 80,14 88,56 30,64" data-label="Offshore Work Area" data-kind="zone"></div>
-
-              <div class="mk vessel" style="left:56%;top:34%"><span class="sym"><i data-icon="ship"></i></span><span class="lbl">MV Pageo 02</span></div>
-              <div class="mk muster" style="left:64%;top:30%"><span class="sym"><i data-icon="flag"></i></span><span class="lbl">Muster B</span></div>
-
-              <div class="mk person" style="left:40%;top:26%"><span class="sym"><i data-icon="user"></i></span><span class="lbl">Andi P.</span></div>
-              <div class="mk person" style="left:70%;top:44%"><span class="sym"><i data-icon="user"></i></span><span class="lbl">Rizky H.</span></div>
-              <div class="mk person" style="left:30%;top:48%"><span class="sym"><i data-icon="user"></i></span><span class="lbl">Agus S.</span></div>
-
-              <div class="mk asset" style="left:50%;top:50%;z-index:3"><span class="sym" style="box-shadow:0 0 0 6px rgba(22,143,191,.25),0 2px 6px rgba(20,29,34,.25)"><i data-icon="diamond"></i></span><span class="lbl" style="color:var(--pageo-deep)">MBES-03<small>Selected</small></span></div>
-              <div class="mk asset" style="left:24%;top:34%"><span class="sym"><i data-icon="diamond"></i></span><span class="lbl">GPS-14</span></div>
-
-              <div class="mk me" style="left:46%;top:40%"><span class="accuracy" style="width:70px;height:70px;left:50%;top:50%;transform:translate(-50%,-50%)"></span><span class="sym"></span></div>
-
-              <div class="map-ui tr">
-                <div class="map-ctl">
-                  <button aria-label="Zoom in"><i data-icon="plus"></i></button>
-                  <button aria-label="Zoom out"><i data-icon="minus"></i></button>
-                  <button aria-label="My location"><i data-icon="locate"></i></button>
-                </div>
-              </div>
-            </div>
-
-            <div class="m-sheet">
-              <div class="grab"></div>
-              <div class="entity-tile" style="border:0;padding:0;background:transparent">
-                <span class="sym dark"><i data-icon="diamond"></i></span>
-                <div class="grow">
-                  <div class="m-h3">MBES-03</div>
-                  <div class="m-caption">Multibeam Echo Sounder · Project Alpha</div>
-                </div>
-                <span class="m-chip info">Deployed</span>
-              </div>
-              <dl class="m-kv" style="font-size:15px">
-                <dt>Custody</dt><dd>You</dd>
-                <dt>Last seen</dt><dd>3 min ago · RD-11</dd>
-                <dt>Location</dt><dd>MV Pageo 02 · Deck</dd>
-              </dl>
-              <div class="m-btn-row">
-                <a class="m-btn secondary" href="map.html"><i data-icon="x"></i>Close</a>
-                <a class="m-btn primary" href="asset-detail.html">Open asset<i data-icon="arrowright"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>`;
-  }
-});
-
-/* Converted from mobile/my-assets.html (state: All accounted) */
-// converted
-PN.page("my-assets", {
-  title: "My Equipment",
-  icon: "diamond",
-  nav: "project",
-  time: "15:42",
-  render() {
-    return `<header class="m-top">
-          <a class="back" href="project.html" aria-label="Back"><i data-icon="chevronleft" class="ic-24"></i></a>
-          <div class="m-title">My equipment</div>
-          <a class="m-sos-btn" href="sos.html" aria-label="Emergency SOS">SOS</a>
-        </header>
-        <div class="m-body">
-          <div style="padding:4px 4px 8px">
-            <div class="m-big-num">3 <small>assigned</small></div>
-            <div class="m-caption" style="margin-top:6px">Project Alpha · Custody: Fahmi Syaban</div>
-          </div>
-
-          <div class="m-list">
-            <a class="li ok" href="asset-detail.html" style="color:inherit"><span class="st"><i data-icon="check"></i></span><div class="li-body">MBES-03<div class="li-sub">Multibeam Echo Sounder · Deployed</div></div><i data-icon="chevronright"></i></a>
-            <a class="li ok" href="asset-detail.html" style="color:inherit"><span class="st"><i data-icon="check"></i></span><div class="li-body">GPS-14<div class="li-sub">GNSS Receiver · Deployed</div></div><i data-icon="chevronright"></i></a>
-            <a class="li ok" href="asset-detail.html" style="color:inherit"><span class="st"><i data-icon="check"></i></span><div class="li-body">Radio-021<div class="li-sub">VHF Handheld · Deployed</div></div><i data-icon="chevronright"></i></a>
-          </div>
-          <div class="m-caption" style="margin-top:-4px;padding-left:4px">3 / 3 accounted · last scan 10:18</div>
-
-          <a class="m-btn primary" href="scan.html"><i data-icon="scanline"></i>Scan equipment</a>
-          <a class="m-btn secondary" href="asset-detail-report-issue.html"><i data-icon="warning"></i>Report missing item</a>
-        </div>`;
-  }
-});
-
-/* Converted from mobile/my-assets.html (state: Needs confirmation) */
-// converted
-PN.page("my-assets-needs-confirmation", {
-  title: "My Equipment — Needs confirmation",
-  icon: "diamond",
-  nav: "project",
-  time: "15:42",
-  hidden: true,
-  render() {
-    return `<header class="m-top">
-          <a class="back" href="project.html" aria-label="Back"><i data-icon="chevronleft" class="ic-24"></i></a>
-          <div class="m-title">My equipment</div>
-          <a class="m-sos-btn" href="sos.html" aria-label="Emergency SOS">SOS</a>
-        </header>
-        <div class="m-body">
-          <div style="padding:4px 4px 8px">
-            <div class="m-big-num">3 <small>assigned</small></div>
-            <div class="m-caption" style="margin-top:6px">Project Alpha · Custody: Fahmi Syaban</div>
-          </div>
-
-          <div class="banner warn" style="border-radius:12px;font-size:14px;align-items:flex-start">
-            <i data-icon="warning" class="ic-24" style="margin-top:1px"></i>
-            <div><b>1 item needs confirmation</b><div style="font-size:13px;margin-top:2px;opacity:.9">Radio-021 was not detected by today's reader pass. Scan it to confirm custody.</div></div>
-          </div>
-
-          <div class="m-list">
-            <a class="li ok" href="asset-detail.html" style="color:inherit"><span class="st"><i data-icon="check"></i></span><div class="li-body">MBES-03<div class="li-sub">Multibeam Echo Sounder · Deployed</div></div><i data-icon="chevronright"></i></a>
-            <a class="li ok" href="asset-detail.html" style="color:inherit"><span class="st"><i data-icon="check"></i></span><div class="li-body">GPS-14<div class="li-sub">GNSS Receiver · Deployed</div></div><i data-icon="chevronright"></i></a>
-            <a class="li warn" href="asset-detail.html" style="color:inherit"><span class="st"><i data-icon="warning"></i></span><div class="li-body">Radio-021<div class="li-sub warn">Not scanned today · last seen 03 Sep 17:10</div></div><i data-icon="chevronright"></i></a>
-          </div>
-          <div class="m-caption" style="margin-top:-4px;padding-left:4px">2 / 3 accounted · last scan 10:18</div>
-
-          <a class="m-btn primary" href="scan.html"><i data-icon="scanline"></i>Scan equipment</a>
-          <a class="m-btn secondary" href="asset-detail-report-issue.html"><i data-icon="warning"></i>Report missing item</a>
-        </div>`;
-  }
-});
-
-/* Converted from mobile/asset-detail.html (state: Asset detail) */
-// converted
-PN.page("asset-detail", {
-  title: "Asset Detail",
-  icon: "diamond",
-  nav: "project",
-  time: "15:42",
-  render() {
-    return `<header class="m-top">
-          <a class="back" href="my-assets.html" aria-label="Back"><i data-icon="chevronleft" class="ic-24"></i></a>
-          <div class="m-title"><small>Asset</small>MBES-03</div>
-        </header>
-        <div class="m-body">
-          <div class="m-card">
-            <div class="entity-tile" style="border:0;padding:0;background:transparent">
-              <span class="sym dark" style="width:44px;height:44px"><i data-icon="diamond" class="ic-24"></i></span>
-              <div class="grow">
-                <div class="m-card-title" style="font-size:17px">Multibeam Echo Sounder</div>
-                <div class="m-caption">Survey sensor · Serial SN-02381920</div>
-              </div>
-              <span class="m-chip info">Deployed</span>
-            </div>
-            <div class="divider"></div>
-            <dl class="m-kv left" style="font-size:15px;gap:10px 20px">
-              <dt>RFID</dt><dd class="tnum">E280-11-8829184</dd>
-              <dt>Project</dt><dd>Alpha · Offshore Survey</dd>
-              <dt>Status</dt><dd style="letter-spacing:.04em">DEPLOYED</dd>
-              <dt>Custody</dt><dd>Fahmi Syaban</dd>
-              <dt>Location</dt><dd>MV Pageo 02 · Deck</dd>
-              <dt>Last seen</dt><dd>3 min ago · RD-11</dd>
-            </dl>
-          </div>
-
-          <div class="m-section"><span class="eyebrow">History</span><span class="m-caption">Project Alpha mobilization</span></div>
-          <div class="m-card" style="padding:16px 16px 12px">
-            <div class="m-timeline">
-              <div class="tl"><span class="time">Sep 01</span><span class="node"><span class="dot unknown"></span></span><div>Warehouse<div class="sub">Jakarta Base · RD-01 · 09:12</div></div></div>
-              <div class="tl"><span class="time">Sep 02</span><span class="node"><span class="dot unknown"></span></span><div>Workshop<div class="sub">Pre-mobilization check · RD-03 · 14:30</div></div></div>
-              <div class="tl"><span class="time">Sep 03</span><span class="node"><span class="dot transit"></span></span><div>Loading Area<div class="sub">Dispatch gate · RD-05 · 16:42</div></div></div>
-              <div class="tl"><span class="time">Sep 03</span><span class="node"><span class="dot transit"></span></span><div>Vessel Pageo-02<div class="sub">Received on board · RD-11 · 18:05</div></div></div>
-              <div class="tl"><span class="time">Sep 04</span><span class="node"><span class="dot info"></span></span><div>Offshore Site<div class="sub">Deployed · RD-11 · 10:18</div></div></div>
-            </div>
-          </div>
-
-          <a class="m-btn secondary" href="scan.html"><i data-icon="checkcircle"></i>Confirm custody</a>
-          <a class="m-btn destructive" href="asset-detail-report-issue.html"><i data-icon="warning"></i>Report issue</a>
-        </div>`;
-  }
-});
-
-/* Converted from mobile/asset-detail.html (state: Report issue) */
-// converted
-PN.page("asset-detail-report-issue", {
-  title: "Asset Detail — Report issue",
-  icon: "diamond",
-  nav: "project",
-  time: "15:43",
-  hidden: true,
-  render() {
-    return `<header class="m-top">
-          <a class="back" href="asset-detail.html" aria-label="Back"><i data-icon="chevronleft" class="ic-24"></i></a>
-          <div class="m-title"><small>Asset</small>Report issue · MBES-03</div>
-        </header>
-        <div class="m-body" style="gap:16px">
-          <div class="m-caption" style="margin-top:-4px">Multibeam Echo Sounder · Custody: Fahmi Syaban · MV Pageo 02</div>
-
-          <div class="m-field">
-            <label>Issue type</label>
-            <div class="m-input" role="button" aria-haspopup="listbox"><i data-icon="warning"></i><span class="grow">Damaged</span><i data-icon="chevrondown"></i></div>
-            <div class="help">Damaged · Malfunction · Missing part · Lost</div>
-          </div>
-
-          <div class="m-field">
-            <label>Description</label>
-            <div class="m-input" style="height:120px;align-items:flex-start;padding-top:12px;line-height:1.45">Port-side transducer housing cracked during recovery at 14:10. Unit still powers on, but swath data quality is degraded on the outer beams.</div>
-          </div>
-
-          <div class="m-field">
-            <label>Photo</label>
-            <a class="m-btn secondary" href="asset-detail.html"><i data-icon="upload"></i>Attach photo</a>
-            <div class="help">Optional · up to 3 photos, stored with the report</div>
-          </div>
-
-          <div class="m-field">
-            <label>Severity</label>
-            <div class="seg" style="display:flex">
-              <button type="button" style="flex:1;height:40px">Minor</button>
-              <button type="button" class="active" style="flex:1;height:40px">Degraded</button>
-              <button type="button" style="flex:1;height:40px">Unusable</button>
-            </div>
-          </div>
-
-          <div class="grow"></div>
-          <a class="m-btn primary" href="my-assets.html">Submit report</a>
-          <div class="m-caption" style="text-align:center">Sent to Asset Manager and QHSE.</div>
-        </div>`;
-  }
-});
-
-/* Converted from mobile/scan.html (state: Scanning) */
-// converted
-PN.page("scan", {
-  title: "Scan",
-  icon: "nfc",
-  nav: "none",
-  time: "15:42",
-  render() {
-    return `<header class="m-top">
-          <div class="m-title">Scan asset</div>
-          <a class="back" href="my-assets.html" aria-label="Close" style="margin-left:auto;margin-right:-8px"><i data-icon="x" class="ic-24"></i></a>
-        </header>
-        <div class="m-body center">
-          <div class="grow"></div>
-          <div class="m-icon-ring info scanning" style="width:128px;height:128px"><i data-icon="nfc" style="width:56px;height:56px"></i></div>
-          <div class="m-h2" style="max-width:260px">Bring reader near the equipment</div>
-          <div class="eyebrow" style="color:var(--accent)">Scanning…</div>
-          <span class="m-chip"><span class="dot ok"></span>RFID reader connected · RD-M03</span>
-          <div class="grow"></div>
-          <div class="m-caption" style="max-width:280px">Hold the handheld reader within 10 cm of the tag. Scans are recorded to Project Alpha.</div>
-          <a class="m-btn tertiary" href="my-assets.html">Cancel</a>
-        </div>`;
-  }
-});
-
-/* Converted from mobile/scan.html (state: Detected) */
-// converted
-PN.page("scan-detected", {
-  title: "Scan — Detected",
-  icon: "nfc",
-  nav: "none",
-  time: "15:42",
-  hidden: true,
-  render() {
-    return `<header class="m-top">
-          <div class="m-title">Scan asset</div>
-          <a class="back" href="my-assets.html" aria-label="Close" style="margin-left:auto;margin-right:-8px"><i data-icon="x" class="ic-24"></i></a>
-        </header>
-        <div class="m-body center">
-          <div class="grow" style="flex:0 1 24px"></div>
-          <div class="m-icon-ring ok"><i data-icon="check"></i></div>
-          <div>
-            <div class="eyebrow" style="color:var(--s-success)">Asset detected</div>
-            <div class="m-h1" style="margin-top:6px">MBES-03</div>
-            <div class="m-caption" style="margin-top:4px">Multibeam Echo Sounder · Project Alpha</div>
-          </div>
-          <div class="m-card" style="width:100%;text-align:left">
-            <dl class="m-kv">
-              <dt>Status</dt><dd class="info">Deployed</dd>
-              <dt>Custody</dt><dd>You</dd>
-              <dt>RFID</dt><dd>E280-11-8829184</dd>
-              <dt>Reader</dt><dd>RD-M03 · 15:42:08</dd>
-            </dl>
-          </div>
-          <div class="grow"></div>
-          <a class="m-btn primary" href="my-assets.html"><i data-icon="check"></i>Confirm</a>
-          <a class="m-btn tertiary" href="scan.html"><i data-icon="scanline"></i>Scan another</a>
-        </div>`;
-  }
-});
-
-/* Converted from mobile/scan.html (state: Not recognized) */
-// converted
-PN.page("scan-not-recognized", {
-  title: "Scan — Not recognized",
-  icon: "nfc",
-  nav: "none",
-  time: "15:43",
-  hidden: true,
-  render() {
-    return `<header class="m-top">
-          <div class="m-title">Scan asset</div>
-          <a class="back" href="my-assets.html" aria-label="Close" style="margin-left:auto;margin-right:-8px"><i data-icon="x" class="ic-24"></i></a>
-        </header>
-        <div class="m-body center">
-          <div class="grow" style="flex:0 1 24px"></div>
-          <div class="m-icon-ring warn"><i data-icon="alert"></i></div>
-          <div>
-            <div class="eyebrow" style="color:#8A5A05">Not recognized</div>
-            <div class="m-h1" style="margin-top:6px">Tag not registered</div>
-            <div class="m-caption tnum" style="margin-top:4px">E280-11-1190244 is not in the registry.</div>
-          </div>
-          <div class="m-card" style="width:100%;text-align:left">
-            <dl class="m-kv">
-              <dt>Tag ID</dt><dd class="tnum">E280-11-1190244</dd>
-              <dt>Reader</dt><dd>RD-M03 · 15:43:21</dd>
-              <dt>Project</dt><dd>Alpha</dd>
-            </dl>
-            <div class="m-caption">Registering links this tag to a new asset record that the Asset Manager will review.</div>
-          </div>
-          <div class="grow"></div>
-          <a class="m-btn secondary" href="scan.html"><i data-icon="plus"></i>Register asset</a>
-          <a class="m-btn tertiary" href="scan.html"><i data-icon="refresh"></i>Try again</a>
-        </div>`;
-  }
-});
-
-/* Converted from mobile/mobilization.html (state: Checklist) */
-// converted
-PN.page("mobilization", {
-  title: "Mobilization",
-  icon: "truck",
-  nav: "project",
-  time: "15:42",
-  render() {
-    return `<header class="m-top">
-          <a class="back" href="project.html" aria-label="Back"><i data-icon="chevronleft" class="ic-24"></i></a>
-          <div class="m-title"><small>Mobilization</small>Project Alpha</div>
-          <a href="mobilization-stages.html" class="m-chip info" style="height:32px">Stages</a>
-        </header>
-        <div class="m-body">
-          <div class="m-card">
-            <span class="eyebrow">Equipment checklist</span>
-            <div class="m-big-num">24 <small>/ 26 ready</small></div>
-            <div class="m-progress warn"><i style="width:92%"></i></div>
-            <div class="row" style="gap:20px">
-              <div><div class="eyebrow" style="font-size:10px">Ready</div><div class="tnum" style="font-size:18px;font-weight:600;color:var(--s-success)">24</div></div>
-              <div><div class="eyebrow" style="font-size:10px">Attention</div><div class="tnum" style="font-size:18px;font-weight:600;color:var(--s-warn)">1</div></div>
-              <div><div class="eyebrow" style="font-size:10px">Pending</div><div class="tnum" style="font-size:18px;font-weight:600;color:var(--text-2)">1</div></div>
-              <div class="grow"></div>
-              <div class="m-caption" style="text-align:right">Vessel receiving<br>MV Pageo 02</div>
-            </div>
-          </div>
-
-          <div class="m-list">
-            <div class="li ok"><span class="st"><i data-icon="check"></i></span><div class="li-body">MBES-03<div class="li-sub">Multibeam Echo Sounder</div></div><span class="li-right">10:18</span></div>
-            <div class="li ok"><span class="st"><i data-icon="check"></i></span><div class="li-body">GPS-04<div class="li-sub">GNSS Receiver</div></div><span class="li-right">10:19</span></div>
-            <div class="li ok"><span class="st"><i data-icon="check"></i></span><div class="li-body">Gyro-01<div class="li-sub">Motion Reference Unit</div></div><span class="li-right">10:21</span></div>
-            <div class="li ok"><span class="st"><i data-icon="check"></i></span><div class="li-body">Laptop-14<div class="li-sub">Acquisition Laptop</div></div><span class="li-right">10:22</span></div>
-            <div class="li ok"><span class="st"><i data-icon="check"></i></span><div class="li-body">SVP-07<div class="li-sub">Sound Velocity Profiler</div></div><span class="li-right">10:24</span></div>
-            <div class="li warn"><span class="st"><i data-icon="warning"></i></span><div class="li-body">Cable Set-07<div class="li-sub warn">Not detected at dispatch gate</div></div><span class="chip warn">Attention</span></div>
-            <div class="li pending"><span class="st"><i data-icon="circle"></i></span><div class="li-body">Battery Pack-04<div class="li-sub">Awaiting scan</div></div><span class="chip unknown">Pending</span></div>
-          </div>
-          <div class="m-caption" style="padding:0 4px">Showing 7 of 26 items · scanned items are listed first</div>
-        </div>
-        <div style="flex:0 0 auto;padding:12px 16px 16px;background:var(--surface);border-top:1px solid var(--border)">
-          <a class="m-btn primary" href="scan.html"><i data-icon="scanline"></i>Scan equipment</a>
-        </div>`;
-  }
-});
-
-/* Converted from mobile/mobilization.html (state: Stages) */
-// converted
-PN.page("mobilization-stages", {
-  title: "Mobilization — Stages",
-  icon: "truck",
-  nav: "project",
-  time: "15:42",
-  hidden: true,
-  render() {
-    return `<header class="m-top">
-          <a class="back" href="project.html" aria-label="Back"><i data-icon="chevronleft" class="ic-24"></i></a>
-          <div class="m-title"><small>Mobilization</small>Project Alpha</div>
-          <a href="mobilization.html" class="m-chip" style="height:32px">Checklist</a>
-        </header>
-        <div class="m-body">
-          <div class="m-card" style="padding:16px 16px 12px">
-            <div class="row between"><span class="eyebrow">Stages</span><span class="m-caption">26 / 28 received</span></div>
-            <div class="m-timeline" style="margin-top:4px">
-              <div class="tl"><span class="time">16:40</span><span class="node"><span class="dot ok"></span></span><div>Prepared<div class="sub">03 Sep · Warehouse, Jakarta Base · 28 / 28</div></div></div>
-              <div class="tl"><span class="time">09:12</span><span class="node"><span class="dot ok"></span></span><div>Dispatch gate<div class="sub">04 Sep · 27 / 28 scanned · Cable Set-07 not detected</div></div></div>
-              <div class="tl"><span class="time">10:45</span><span class="node"><span class="dot ok"></span></span><div>Port<div class="sub">04 Sep · Tanjung Priok · 27 / 28</div></div></div>
-              <div class="tl"><span class="time">11:20</span><span class="node"><span class="dot info pulse"></span></span><div><b style="font-weight:600">Vessel receiving</b> <span class="chip info sm" style="vertical-align:2px;margin-left:4px">Current</span><div class="sub">MV Pageo 02 · 26 / 28 received</div></div></div>
-              <div class="tl"><span class="time">—</span><span class="node"><span class="dot unknown"></span></span><div style="color:var(--text-2)">Deployed<div class="sub">Pending · Offshore site</div></div></div>
-            </div>
-          </div>
-
-          <div class="m-card tinted">
-            <div class="row top">
-              <i data-icon="info" class="ic-24" style="color:var(--pageo-deep);flex:0 0 auto"></i>
-              <div>
-                <div class="m-label" style="color:var(--pageo-deep)">2 items not yet received on MV Pageo 02</div>
-                <div class="m-caption" style="margin-top:4px;color:var(--pageo-deep)">Cable Set-07 · Battery Pack-04. Receiving can be confirmed now; the outstanding items stay open on the checklist.</div>
-              </div>
-            </div>
-          </div>
-
-          <a class="m-btn primary" href="mobilization.html"><i data-icon="checkcircle"></i>Confirm receiving</a>
-          <a class="m-btn tertiary" href="scan.html"><i data-icon="scanline"></i>Scan outstanding items</a>
-        </div>`;
-  }
-});
-
-/* Converted from mobile/muster.html (state: Muster requested) */
-// converted
-PN.page("muster", {
-  title: "Muster",
-  icon: "flag",
-  nav: "none",
-  time: "15:38",
-  render() {
-    return `<div class="m-banner crit"><i data-icon="siren"></i>Emergency muster · MV Pageo 02<span class="right">15:38</span></div>
-        <div class="m-body center" style="padding-top:20px">
-          <div class="grow" style="flex:0 1 12px"></div>
-          <div class="m-icon-ring crit" style="width:112px;height:112px"><i data-icon="flag" style="width:52px;height:52px"></i></div>
-          <div>
-            <div class="eyebrow" style="color:var(--s-crit)">Muster requested</div>
-            <div class="m-h1" style="margin-top:6px;font-size:30px">Proceed to<br>Muster Point B</div>
-          </div>
-          <div class="m-card" style="width:100%;text-align:left">
-            <dl class="m-kv">
-              <dt>Location</dt><dd>Deck 2 · Starboard</dd>
-              <dt>Distance</dt><dd>180 m</dd>
-              <dt>Requested</dt><dd>15:38 by QHSE</dd>
-            </dl>
-          </div>
-          <div class="grow"></div>
-          <a class="m-btn success lg" href="muster-confirmed.html" style="font-size:19px;letter-spacing:.04em"><i data-icon="check" class="ic-24"></i>I'M SAFE</a>
-          <a class="m-btn tertiary" href="sos.html" style="color:var(--s-crit)"><i data-icon="lifebuoy"></i>I need help</a>
-        </div>`;
-  }
-});
-
-/* Converted from mobile/muster.html (state: Confirmed) */
-// converted
-PN.page("muster-confirmed", {
-  title: "Muster — Confirmed",
-  icon: "flag",
-  nav: "none",
-  time: "15:42",
-  hidden: true,
-  render() {
-    return `<header class="m-top">
-          <div class="m-title"><small>Emergency muster</small>MV Pageo 02</div>
-        </header>
-        <div class="m-body center">
-          <div class="grow" style="flex:0 1 12px"></div>
-          <div class="m-icon-ring ok" style="width:112px;height:112px"><i data-icon="check" style="width:52px;height:52px"></i></div>
-          <div>
-            <div class="m-status-big ok" style="font-size:34px">Safe</div>
-            <div class="m-body-text" style="margin-top:8px;color:var(--text-2)">Your status has been reported to QHSE.</div>
-          </div>
-          <div class="tnum" style="font-size:40px;font-weight:700;letter-spacing:-.01em;line-height:1">15:42:12</div>
-          <div class="m-card" style="width:100%;text-align:left">
-            <dl class="m-kv">
-              <dt>Muster point</dt><dd>B · Deck 2</dd>
-              <dt>Confirmed via</dt><dd>App</dd>
-              <dt>Team</dt><dd><span class="ok">33</span> / 39 confirmed</dd>
-            </dl>
-            <div class="m-progress ok"><i style="width:85%"></i></div>
-            <div class="m-caption">Stay at the muster point until QHSE stands the muster down.</div>
-          </div>
-          <div class="grow"></div>
-          <a class="m-btn secondary" href="home.html"><i data-icon="home"></i>Back to home</a>
-        </div>`;
-  }
-});
-
-/* Converted from mobile/muster.html (state: Offline muster) */
-// converted
-PN.page("muster-offline", {
-  title: "Muster — Offline muster",
-  icon: "flag",
-  nav: "none",
-  time: "15:38",
-  offline: true,
-  hidden: true,
-  render() {
-    return `<div class="m-banner crit"><i data-icon="siren"></i>Emergency muster · MV Pageo 02<span class="right">15:38</span></div>
-        <div class="m-banner offline"><i data-icon="wifioff"></i>Offline · confirmation will sync when connected</div>
-        <div class="m-body center" style="padding-top:20px">
-          <div class="grow" style="flex:0 1 12px"></div>
-          <div class="m-icon-ring crit" style="width:112px;height:112px"><i data-icon="flag" style="width:52px;height:52px"></i></div>
-          <div>
-            <div class="eyebrow" style="color:var(--s-crit)">Muster requested</div>
-            <div class="m-h1" style="margin-top:6px;font-size:30px">Proceed to<br>Muster Point B</div>
-          </div>
-          <div class="m-card" style="width:100%;text-align:left">
-            <dl class="m-kv">
-              <dt>Location</dt><dd>Deck 2 · Starboard</dd>
-              <dt>Distance</dt><dd>180 m</dd>
-              <dt>Requested</dt><dd>15:38 by QHSE</dd>
-            </dl>
-          </div>
-          <div class="grow"></div>
-          <a class="m-btn success lg" href="muster-confirmed.html" style="font-size:19px;letter-spacing:.04em"><i data-icon="check" class="ic-24"></i>I'M SAFE (will sync)</a>
-          <a class="m-btn tertiary" href="sos.html" style="color:var(--s-crit)"><i data-icon="lifebuoy"></i>I need help</a>
-        </div>`;
-  }
-});
-
-/* Converted from mobile/sos.html (state: Press and hold) */
-// converted
-PN.page("sos", {
-  title: "SOS",
-  icon: "siren",
-  nav: "none",
-  time: "15:42",
-  render() {
-    return `<header class="m-top">
-          <div class="m-title">Emergency SOS</div>
-          <a class="back" href="home.html" aria-label="Close" style="margin-left:auto;margin-right:-8px"><i data-icon="x" class="ic-24"></i></a>
-        </header>
-        <div class="m-body center">
-          <div class="grow" style="flex:0 1 8px"></div>
-          <div class="eyebrow" style="color:var(--s-crit)">Press and hold</div>
-          <div class="sos-hold" data-route="sos-sent" data-target="#sos-sent" role="button" aria-label="Hold for 2 seconds to send SOS"><div class="ring"></div><div class="inner"><b>SOS</b><span>Hold 2 seconds</span></div></div>
-          <div class="m-caption" style="max-width:280px">Sends your location and project information to QHSE and your supervisor.</div>
-          <div class="m-card" style="width:100%;text-align:left">
-            <dl class="m-kv" style="font-size:15px">
-              <dt>Position</dt><dd class="tnum">-6.18746, 106.82721 · ± 7 m</dd>
-              <dt>Project</dt><dd>Alpha · MV Pageo 02</dd>
-              <dt>Battery</dt><dd>82%</dd>
-            </dl>
-          </div>
-          <div class="grow"></div>
-          <a class="m-btn tertiary" href="home.html">Not an emergency — go back</a>
-        </div>`;
-  }
-});
-
-/* Converted from mobile/sos.html (state: SOS sent) */
-// converted
-PN.page("sos-sent", {
-  title: "SOS — SOS sent",
-  icon: "siren",
-  nav: "none",
-  time: "15:42",
-  hidden: true,
-  render() {
-    return `<header class="m-top">
-          <div class="m-title">Emergency SOS</div>
-        </header>
-        <div class="m-body center">
-          <div class="grow" style="flex:0 1 4px"></div>
-          <div class="m-icon-ring crit" style="width:112px;height:112px"><i data-icon="siren" style="width:52px;height:52px"></i></div>
-          <div>
-            <div class="eyebrow" style="color:var(--s-crit)">SOS sent</div>
-            <div class="m-h1" style="margin-top:6px">Help is on the way</div>
-            <div class="m-body-text" style="margin-top:8px;color:var(--text-2);max-width:280px">Your location and project information have been transmitted.</div>
-          </div>
-          <div class="tnum" style="font-size:40px;font-weight:700;letter-spacing:-.01em;line-height:1">15:42:08</div>
-          <div class="m-card" style="width:100%;text-align:left;padding:14px 16px">
-            <div class="m-list" style="border:0;border-radius:0;background:transparent">
-              <div class="li ok" style="padding:8px 0;min-height:44px"><span class="st"><i data-icon="check"></i></span><div class="li-body" style="font-size:15px">Received by QHSE Officer<div class="li-sub">Putri Anggraini · 15:42:10</div></div></div>
-              <div class="li ok" style="padding:8px 0;min-height:44px"><span class="st"><i data-icon="check"></i></span><div class="li-body" style="font-size:15px">Supervisor notified<div class="li-sub">Andi Pratama · 15:42:11</div></div></div>
-              <div class="li ok" style="padding:8px 0;min-height:44px"><span class="st"><i data-icon="check"></i></span><div class="li-body" style="font-size:15px">Vessel master notified<div class="li-sub">Budi Santoso · MV Pageo 02 · 15:42:11</div></div></div>
-            </div>
-          </div>
-          <div class="grow"></div>
-          <a class="m-btn destructive solid" href="sos.html"><i data-icon="phone"></i>Call emergency contact</a>
-          <a class="m-btn tertiary" href="sos-confirm-cancel.html" style="color:var(--text-2)">Cancel SOS (false alarm)</a>
-        </div>`;
-  }
-});
-
-/* Converted from mobile/sos.html (state: Confirm cancel) */
-// converted
-PN.page("sos-confirm-cancel", {
-  title: "SOS — Confirm cancel",
-  icon: "siren",
-  nav: "none",
-  time: "15:43",
-  hidden: true,
-  render() {
-    return `<header class="m-top">
-          <div class="m-title">Emergency SOS</div>
-        </header>
-        <div class="m-body center" style="background:rgba(23,26,28,.45);padding:24px 20px;justify-content:center">
-          <div class="m-card" style="width:100%;text-align:left;box-shadow:var(--shadow-modal);border-color:transparent;padding:20px;gap:14px">
-            <div class="m-icon-ring crit" style="width:56px;height:56px"><i data-icon="alert" style="width:28px;height:28px"></i></div>
-            <div>
-              <div class="m-h2">Cancel SOS?</div>
-              <div class="m-body-text" style="color:var(--text-2);margin-top:6px">This will notify QHSE that you are safe. Responders already on the way will be stood down.</div>
-            </div>
-            <dl class="m-kv" style="font-size:14px">
-              <dt>Sent</dt><dd>15:42:08</dd>
-              <dt>Active for</dt><dd>1 min 12 s</dd>
-            </dl>
-            <a class="m-btn dark" href="home.html"><i data-icon="check"></i>Yes, I'm safe — cancel SOS</a>
-            <a class="m-btn secondary" href="sos-sent.html" style="color:var(--s-crit);border-color:var(--s-crit)">Keep SOS active</a>
-          </div>
-        </div>`;
-  }
-});
-
-/* Converted from mobile/activity.html (state: Activity) */
-// converted
-PN.page("activity", {
-  title: "Activity",
-  icon: "activity",
-  nav: "activity",
-  time: "15:42",
-  render() {
-    return `<header class="m-top">
-          <div class="m-title">Activity</div>
-          <span class="m-sync ok"><i data-icon="checkcircle"></i>Synced · 15:42</span>
-          <a class="m-sos-btn" href="sos.html" aria-label="Emergency SOS">SOS</a>
-        </header>
-        <div class="m-body">
-          <div class="seg" style="display:flex">
-            <button type="button" class="active" style="flex:1;height:36px">Today</button>
-            <button type="button" style="flex:1;height:36px">This week</button>
-            <button type="button" style="flex:1;height:36px">All</button>
-          </div>
-
-          <div class="m-section"><span class="eyebrow">Today · 04 Sep</span><a href="activity-location-history.html">Location history</a></div>
-          <div class="m-card" style="padding:16px 16px 12px">
-            <div class="m-timeline">
-              <div class="tl"><span class="time">15:42</span><span class="node"><span class="dot ok"></span></span><div>Position updated<div class="sub">± 7 m · Offshore Work Area</div></div></div>
-              <div class="tl"><span class="time">13:05</span><span class="node"><span class="dot ok"></span></span><div>Check-in confirmed<div class="sub">Site check-in · MV Pageo 02</div></div></div>
-              <div class="tl"><span class="time">11:20</span><span class="node"><span class="dot info"></span></span><div>Entered Project Site<div class="sub">Geofence · Offshore Work Area</div></div></div>
-              <div class="tl"><span class="time">10:18</span><span class="node"><span class="dot transit"></span></span><div>Mobilized<div class="sub">3 / 3 equipment scanned</div></div></div>
-              <div class="tl"><span class="time">10:02</span><span class="node"><span class="dot transit"></span></span><div>Offshore transit<div class="sub">MV Pageo 02 departed Tanjung Priok</div></div></div>
-              <div class="tl"><span class="time">09:31</span><span class="node"><span class="dot info"></span></span><div>Vessel boarding<div class="sub">MV Pageo 02 · Port Tanjung Priok</div></div></div>
-              <div class="tl"><span class="time">08:47</span><span class="node"><span class="dot unknown"></span></span><div>Warehouse<div class="sub">Scanned 3 assets · RD-01</div></div></div>
-              <div class="tl"><span class="time">08:24</span><span class="node"><span class="dot info"></span></span><div>Entered Base<div class="sub">Geofence · PAGEO Base</div></div></div>
-              <div class="tl"><span class="time">08:02</span><span class="node"><span class="dot ok"></span></span><div>Operation started<div class="sub">Jakarta Base · tracking on</div></div></div>
-            </div>
-          </div>
-
-          <div class="m-section"><span class="eyebrow">Yesterday · 03 Sep</span></div>
-          <div class="m-card" style="padding:16px 16px 12px">
-            <div class="m-timeline">
-              <div class="tl"><span class="time">17:10</span><span class="node"><span class="dot off"></span></span><div>Operation ended<div class="sub">Jakarta Base · tracking off</div></div></div>
-              <div class="tl"><span class="time">16:40</span><span class="node"><span class="dot unknown"></span></span><div>Equipment prepared<div class="sub">Warehouse · 28 / 28 checked</div></div></div>
-              <div class="tl"><span class="time">07:58</span><span class="node"><span class="dot ok"></span></span><div>Operation started<div class="sub">Jakarta Base</div></div></div>
-            </div>
-          </div>
-        </div>`;
-  }
-});
-
-/* Converted from mobile/activity.html (state: Location history) */
-// converted
-PN.page("activity-location-history", {
-  title: "Activity — Location history",
-  icon: "activity",
-  nav: "activity",
-  time: "15:42",
-  hidden: true,
-  render() {
-    return `<header class="m-top">
-          <a class="back" href="activity.html" aria-label="Back"><i data-icon="chevronleft" class="ic-24"></i></a>
-          <div class="m-title"><small>Today · 04 Sep</small>Location history</div>
-        </header>
-        <div class="m-body">
-          <div class="map" data-map="coast" style="height:220px;min-height:0">
-            <div data-track="14,84 24,72 32,60 44,50 56,42 66,34" data-color="#08698F"></div>
-            <div class="mk site" style="left:14%;top:84%"><span class="sym"><i data-icon="building"></i></span><span class="lbl">Jakarta Base</span></div>
-            <div class="mk site" style="left:32%;top:60%"><span class="sym"><i data-icon="anchor"></i></span><span class="lbl">Tanjung Priok</span></div>
-            <div class="mk me" style="left:66%;top:34%"><span class="sym"></span></div>
-            <div class="map-ui br"><span class="map-coords">6 positions · 07:53 – 15:42</span></div>
-          </div>
-
-          <div class="m-list">
-            <div class="li"><i data-icon="building" class="ic-24"></i><div class="li-body">Jakarta Base<div class="li-sub">07:53 – 08:47</div></div><span class="li-right">54 min</span></div>
-            <div class="li"><i data-icon="warehouse" class="ic-24"></i><div class="li-body">Warehouse<div class="li-sub">08:47 – 09:20</div></div><span class="li-right">33 min</span></div>
-            <div class="li"><i data-icon="anchor" class="ic-24"></i><div class="li-body">Port Tanjung Priok<div class="li-sub">09:20 – 10:02</div></div><span class="li-right">42 min</span></div>
-            <div class="li"><i data-icon="ship" class="ic-24" style="color:var(--accent)"></i><div class="li-body">MV Pageo 02<div class="li-sub">10:02 – now</div></div><span class="li-right ok" style="font-weight:600">5 h 40 min</span></div>
-          </div>
-          <div class="m-caption" style="padding:0 4px">History is retained for 90 days and visible to you and your operations team.</div>
-        </div>`;
-  }
-});
-
-/* Converted from mobile/profile.html (state: Profile) */
-// converted
-PN.page("profile", {
-  title: "Profile",
-  icon: "user",
-  nav: "profile",
-  time: "15:42",
-  render() {
-    return `<header class="m-top">
-          <div class="m-title">Profile</div>
-          <a class="m-sos-btn" href="sos.html" aria-label="Emergency SOS">SOS</a>
-        </header>
-        <div class="m-body">
-          <div class="m-card">
-            <div class="row" style="gap:14px">
-              <span class="avatar lg">FS</span>
-              <div class="grow">
-                <div class="m-card-title">Fahmi Syaban</div>
-                <div class="m-caption">Survey Engineer · PG-0142</div>
-              </div>
-              <span class="m-chip active"><span class="dot ok"></span>Active</span>
-            </div>
-          </div>
-
-          <div class="m-card">
-            <span class="eyebrow">Tracking &amp; privacy</span>
-            <span class="m-tracking"><span class="dot ok pulse"></span>Location sharing active</span>
-            <div class="m-body-text">Location sharing is active while you are assigned to this operation.</div>
-            <dl class="m-kv" style="font-size:15px">
-              <dt>Started</dt><dd>04 Sep · 08:03</dd>
-              <dt>Shared with</dt><dd>Project Alpha ops team</dd>
-              <dt>Retention</dt><dd>90 days</dd>
-            </dl>
-            <a class="m-btn tertiary" href="profile-how-tracking-works.html"><i data-icon="book"></i>Learn how tracking works</a>
-          </div>
-
-          <div class="m-section"><span class="eyebrow">Device</span></div>
-          <div class="m-list">
-            <div class="li"><i data-icon="locate" class="ic-24"></i><div class="li-body">GPS</div><span class="li-right ok" style="font-weight:600">Good · ± 7 m</span></div>
-            <div class="li"><i data-icon="battery" class="ic-24"></i><div class="li-body">Battery</div><span class="li-right">82%</span></div>
-            <div class="li"><i data-icon="smartphone" class="ic-24"></i><div class="li-body">App version</div><span class="li-right">1.4.2</span></div>
-            <div class="li"><i data-icon="refresh" class="ic-24"></i><div class="li-body">Offline buffer</div><span class="li-right">0 events</span></div>
-            <div class="li"><i data-icon="shieldcheck" class="ic-24"></i><div class="li-body">Permissions<div class="li-sub">Location · Notifications</div></div><span class="st" style="background:var(--s-success-bg);color:var(--s-success)"><i data-icon="check"></i></span></div>
-          </div>
-
-          <div class="m-section"><span class="eyebrow">Account</span></div>
-          <div class="m-list">
-            <a class="li" href="profile.html" style="color:inherit"><i data-icon="phone" class="ic-24"></i><div class="li-body">Emergency contact<div class="li-sub">Rina Syaban · +62 812 ··· 4471</div></div><i data-icon="chevronright"></i></a>
-            <a class="li" href="profile.html" style="color:inherit"><i data-icon="clipboard" class="ic-24"></i><div class="li-body">Certifications<div class="li-sub">BOSIET · valid 2027</div></div><i data-icon="chevronright"></i></a>
-            <a class="li" href="profile.html" style="color:inherit"><i data-icon="book" class="ic-24"></i><div class="li-body">Language</div><span class="li-right">English</span><i data-icon="chevronright"></i></a>
-            <a class="li" href="login.html" style="color:var(--s-crit)"><i data-icon="logout" class="ic-24" style="color:var(--s-crit)"></i><div class="li-body">Sign out</div></a>
-          </div>
-        </div>`;
-  }
-});
-
-/* Converted from mobile/profile.html (state: How tracking works) */
-// converted
-PN.page("profile-how-tracking-works", {
-  title: "Profile — How tracking works",
-  icon: "user",
-  nav: "profile",
-  time: "15:42",
-  hidden: true,
-  render() {
-    return `<header class="m-top">
-          <a class="back" href="profile.html" aria-label="Back"><i data-icon="chevronleft" class="ic-24"></i></a>
-          <div class="m-title"><small>Tracking &amp; privacy</small>How tracking works</div>
-        </header>
-        <div class="m-body" style="gap:10px">
-          <div class="m-caption" style="padding:0 4px 4px">What PAGEO Navigator records from your phone, who sees it, and for how long.</div>
-
-          <div class="m-card">
-            <div class="row top" style="gap:14px">
-              <span class="m-icon-ring info" style="width:44px;height:44px;flex:0 0 auto"><i data-icon="pin" style="width:22px;height:22px"></i></span>
-              <div>
-                <div class="m-label" style="font-size:16px;font-weight:600">Only during operations</div>
-                <div class="m-caption" style="margin-top:4px;font-size:14px">Your position is shared only from the moment you start an assigned operation until it ends. Outside an operation the app does not record or send your location.</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="m-card">
-            <div class="row top" style="gap:14px">
-              <span class="m-icon-ring info" style="width:44px;height:44px;flex:0 0 auto"><i data-icon="eye" style="width:22px;height:22px"></i></span>
-              <div>
-                <div class="m-label" style="font-size:16px;font-weight:600">Always visible to you</div>
-                <div class="m-caption" style="margin-top:4px;font-size:14px">Everything the operations team can see about your movements is shown to you in Activity and Location history. There is no hidden view.</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="m-card">
-            <div class="row top" style="gap:14px">
-              <span class="m-icon-ring info" style="width:44px;height:44px;flex:0 0 auto"><i data-icon="shield" style="width:22px;height:22px"></i></span>
-              <div>
-                <div class="m-label" style="font-size:16px;font-weight:600">Used for safety and accountability</div>
-                <div class="m-caption" style="margin-top:4px;font-size:14px">Location is used for muster, emergency response, and confirming who was on site and on board. It is not used to measure individual performance.</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="m-card">
-            <div class="row top" style="gap:14px">
-              <span class="m-icon-ring info" style="width:44px;height:44px;flex:0 0 auto"><i data-icon="clock" style="width:22px;height:22px"></i></span>
-              <div>
-                <div class="m-label" style="font-size:16px;font-weight:600">Retained 90 days</div>
-                <div class="m-caption" style="margin-top:4px;font-size:14px">Position history is kept for 90 days and then deleted. Muster and incident records are kept longer under the QHSE policy.</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="grow"></div>
-          <a class="m-btn secondary" href="profile.html">Done</a>
-        </div>`;
-  }
-});
-
-/* Converted from mobile/offline.html (state: Offline) */
-// converted
-PN.page("offline", {
-  title: "Offline",
-  icon: "wifioff",
-  nav: "home",
-  time: "15:42",
-  offline: true,
-  render() {
-    return `<div class="m-banner offline"><i data-icon="wifioff"></i>Offline<span class="right">7 events stored locally</span></div>
-        <header class="m-top">
-          <span class="brand" data-logo></span>
-          <span class="grow"></span>
-          <a href="offline-sync-status.html" class="m-sync pending"><i data-icon="alert"></i>Offline · 7 pending</a>
-          <a class="m-sos-btn" href="sos.html" aria-label="Emergency SOS">SOS</a>
-        </header>
-        <div class="m-body">
-          <div>
-            <div class="m-caption">Thursday, 04 September</div>
-            <div class="m-h1">Good afternoon,<br>Fahmi</div>
-          </div>
-
-          <div class="m-card">
-            <div class="row between"><span class="eyebrow">Current status</span><span class="m-tracking" style="padding:6px 12px;font-size:11px"><span class="dot ok pulse"></span>Tracking active</span></div>
-            <div class="m-status-big ok">On operation</div>
-            <dl class="m-kv">
-              <dt>GPS</dt><dd class="ok">Good · ± 7 m</dd>
-              <dt>Last sync</dt><dd class="warn">14:20</dd>
-              <dt>Battery</dt><dd>58%</dd>
-            </dl>
-            <div class="m-btn-row">
-              <a class="m-btn dark" href="check-in.html"><i data-icon="pin"></i>Check in</a>
-              <a class="m-btn secondary" href="scan.html"><i data-icon="scanline"></i>Scan</a>
-            </div>
-          </div>
-
-          <div class="m-card tinted">
-            <div class="row top">
-              <i data-icon="refresh" class="ic-24" style="color:var(--pageo-deep);flex:0 0 auto"></i>
-              <div>
-                <div class="m-label" style="color:var(--pageo-deep)">Will sync when connection is available</div>
-                <div class="m-caption" style="margin-top:4px;color:var(--pageo-deep)">Check-ins, scans and positions are stored on this phone and sent automatically. You can keep working.</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="m-section"><span class="eyebrow">Today</span><a href="activity.html">All activity</a></div>
-          <div class="m-card" style="padding:16px 16px 12px">
-            <div class="m-timeline">
-              <div class="tl"><span class="time">08:02</span><span class="node"><span class="dot ok"></span></span><div>Operation started<div class="sub">Jakarta Base</div></div></div>
-              <div class="tl"><span class="time">11:20</span><span class="node"><span class="dot info"></span></span><div>Boarded MV Pageo 02<div class="sub">Port Tanjung Priok</div></div></div>
-              <div class="tl"><span class="time">14:31</span><span class="node"><span class="dot ok"></span></span><div><div class="row between">Check-in confirmed<span class="m-chip off" style="height:22px;font-size:11px;padding:0 8px">Pending sync</span></div><div class="sub">Site check-in · MV Pageo 02</div></div></div>
-              <div class="tl"><span class="time">14:40</span><span class="node"><span class="dot unknown"></span></span><div><div class="row between">Scanned MBES-03<span class="m-chip off" style="height:22px;font-size:11px;padding:0 8px">Pending sync</span></div><div class="sub">Custody confirmed · RD-M03</div></div></div>
-              <div class="tl"><span class="time">15:42</span><span class="node"><span class="dot ok"></span></span><div><div class="row between">Position updated<span class="m-chip off" style="height:22px;font-size:11px;padding:0 8px">Pending sync</span></div><div class="sub">5 positions buffered</div></div></div>
-            </div>
-          </div>
-        </div>`;
-  }
-});
-
-/* Converted from mobile/offline.html (state: Syncing) */
-// converted
-PN.page("offline-syncing", {
-  title: "Offline — Syncing",
-  icon: "wifioff",
-  nav: "home",
-  time: "15:44",
-  hidden: true,
-  render() {
-    return `<div class="m-banner" style="background:var(--accent-bg);color:var(--pageo-deep)"><i data-icon="refresh"></i>Syncing 7 events…<span class="right">Connected</span></div>
-        <header class="m-top">
-          <span class="brand" data-logo></span>
-          <span class="grow"></span>
-          <span class="m-sync busy"><i data-icon="refresh"></i>Syncing…</span>
-          <a class="m-sos-btn" href="sos.html" aria-label="Emergency SOS">SOS</a>
-        </header>
-        <div class="m-body">
-          <div>
-            <div class="m-caption">Thursday, 04 September</div>
-            <div class="m-h1">Good afternoon,<br>Fahmi</div>
-          </div>
-
-          <div class="m-card">
-            <div class="row between"><span class="eyebrow">Current status</span><span class="m-tracking" style="padding:6px 12px;font-size:11px"><span class="dot ok pulse"></span>Tracking active</span></div>
-            <div class="m-status-big ok">On operation</div>
-            <dl class="m-kv">
-              <dt>GPS</dt><dd class="ok">Good · ± 7 m</dd>
-              <dt>Last sync</dt><dd class="info">In progress</dd>
-              <dt>Battery</dt><dd>58%</dd>
-            </dl>
-            <div class="m-btn-row">
-              <a class="m-btn dark" href="check-in.html"><i data-icon="pin"></i>Check in</a>
-              <a class="m-btn secondary" href="scan.html"><i data-icon="scanline"></i>Scan</a>
-            </div>
-          </div>
-
-          <div class="m-card">
-            <div class="row between"><span class="eyebrow">Sync</span><span class="m-caption tnum">3 / 7</span></div>
-            <div class="m-progress"><i style="width:43%"></i></div>
-            <div class="m-caption">Sending stored check-ins, scans and positions to Project Alpha. Nothing to do on your side.</div>
-          </div>
-
-          <div class="m-section"><span class="eyebrow">Today</span><a href="activity.html">All activity</a></div>
-          <div class="m-card" style="padding:16px 16px 12px">
-            <div class="m-timeline">
-              <div class="tl"><span class="time">08:02</span><span class="node"><span class="dot ok"></span></span><div>Operation started<div class="sub">Jakarta Base</div></div></div>
-              <div class="tl"><span class="time">11:20</span><span class="node"><span class="dot info"></span></span><div>Boarded MV Pageo 02<div class="sub">Port Tanjung Priok</div></div></div>
-              <div class="tl"><span class="time">14:31</span><span class="node"><span class="dot ok"></span></span><div><div class="row between">Check-in confirmed<span class="m-chip active" style="height:22px;font-size:11px;padding:0 8px">Synced</span></div><div class="sub">Site check-in · MV Pageo 02</div></div></div>
-              <div class="tl"><span class="time">14:40</span><span class="node"><span class="dot unknown"></span></span><div><div class="row between">Scanned MBES-03<span class="m-chip info" style="height:22px;font-size:11px;padding:0 8px">Syncing</span></div><div class="sub">Custody confirmed · RD-M03</div></div></div>
-            </div>
-          </div>
-        </div>`;
-  }
-});
-
-/* Converted from mobile/offline.html (state: Sync status) */
-// converted
-PN.page("offline-sync-status", {
-  title: "Offline — Sync status",
-  icon: "wifioff",
-  nav: "home",
-  time: "15:42",
-  offline: true,
-  hidden: true,
-  render() {
-    return `<header class="m-top">
-          <a class="back" href="home.html" aria-label="Back"><i data-icon="chevronleft" class="ic-24"></i></a>
-          <div class="m-title">Sync status</div>
-          <span class="m-sync pending"><i data-icon="alert"></i>Offline</span>
-        </header>
-        <div class="m-body">
-          <div class="m-section" style="padding-top:0"><span class="eyebrow">Indicator states</span></div>
-          <div class="m-list">
-            <div class="li"><span class="m-sync ok" style="width:120px;font-size:14px"><i data-icon="checkcircle"></i>Synced</span><div class="li-body"><div class="li-sub">All events delivered. Last sync time shown.</div></div></div>
-            <div class="li"><span class="m-sync busy" style="width:120px;font-size:14px"><i data-icon="refresh"></i>Syncing</span><div class="li-body"><div class="li-sub">Connection restored; stored events are being sent.</div></div></div>
-            <div class="li"><span class="m-sync pending" style="width:120px;font-size:14px"><i data-icon="alert"></i>Offline · 12</span><div class="li-body"><div class="li-sub">No connection. Count of events waiting to send.</div></div></div>
-          </div>
-
-          <div class="m-section"><span class="eyebrow">Pending events (7)</span><span class="m-caption">Oldest first</span></div>
-          <div class="m-list">
-            <div class="li"><span class="st" style="background:var(--s-offline-bg);color:var(--text-2)"><i data-icon="pin"></i></span><div class="li-body">Check-in<div class="li-sub">Site check-in · MV Pageo 02</div></div><span class="li-right">14:31</span></div>
-            <div class="li"><span class="st" style="background:var(--s-offline-bg);color:var(--text-2)"><i data-icon="scanline"></i></span><div class="li-body">Scan MBES-03<div class="li-sub">Custody confirmed · RD-M03</div></div><span class="li-right">14:40</span></div>
-            <div class="li"><span class="st" style="background:var(--s-offline-bg);color:var(--text-2)"><i data-icon="locate"></i></span><div class="li-body">Position ×5<div class="li-sub">14:45 – 15:42 · ± 7–9 m</div></div><span class="li-right">15:42</span></div>
-          </div>
-          <div class="m-caption" style="padding:0 4px">Events are kept on this phone until they are confirmed by the server. Emergency actions (SOS, muster) use SMS fallback when available.</div>
-
-          <a class="m-btn secondary" href="offline-syncing.html"><i data-icon="refresh"></i>Retry sync</a>
-        </div>`;
-  }
-});
-
-/* Converted from mobile/check-in.html (state: Site check-in) */
-// converted
-PN.page("check-in", {
-  title: "Check-in",
-  icon: "pin",
-  nav: "home",
-  time: "11:20",
-  render() {
-    return `<header class="m-top">
-          <a class="back" href="home.html" aria-label="Back"><i data-icon="chevronleft" class="ic-24"></i></a>
-          <div class="m-title"><small>Check in</small>MV Pageo 02</div>
-        </header>
-        <div class="m-body">
-          <div class="m-card" style="padding:0;overflow:hidden">
-            <div class="map flush" data-map="offshore" style="height:160px;min-height:0">
-              <div data-fence="30,18 74,14 78,64 34,70" data-label="Vessel geofence" data-kind="zone"></div>
-              <div class="mk vessel" style="left:54%;top:40%"><span class="sym"><i data-icon="ship"></i></span><span class="lbl">MV Pageo 02</span></div>
-              <div class="mk me" style="left:50%;top:48%"><span class="accuracy" style="width:36px;height:36px;left:50%;top:50%;transform:translate(-50%,-50%)"></span><span class="sym"></span></div>
-            </div>
-            <div class="row" style="padding:12px 16px 14px;gap:10px">
-              <span class="dot ok pulse"></span>
-              <div class="m-caption" style="color:var(--text)">You are inside the geofence · <b>Vessel — MV Pageo 02</b> · ± 7 m</div>
-            </div>
-          </div>
-
-          <div class="m-section" style="padding-top:0"><span class="eyebrow">What are you recording?</span></div>
-          <div class="m-list">
-            <div class="li"><span class="checkbox on" style="width:22px;height:22px;border-radius:50%"><i data-icon="check"></i></span><div class="li-body">Vessel boarding<div class="li-sub">Records you as on board</div></div></div>
-            <div class="li"><span class="checkbox" style="width:22px;height:22px;border-radius:50%"></span><div class="li-body">Site check-in</div></div>
-            <div class="li"><span class="checkbox" style="width:22px;height:22px;border-radius:50%"></span><div class="li-body">Site check-out</div></div>
-            <div class="li"><span class="checkbox" style="width:22px;height:22px;border-radius:50%"></span><div class="li-body">End operation<div class="li-sub">Stops location sharing</div></div></div>
-          </div>
-
-          <div class="grow"></div>
-          <a class="m-btn primary" href="check-in-confirmed.html"><i data-icon="ship"></i>Confirm boarding</a>
-          <div class="m-caption" style="text-align:center">Recorded at 11:20 WIB · syncs automatically</div>
-        </div>`;
-  }
-});
-
-/* Converted from mobile/check-in.html (state: Confirmed) */
-// converted
-PN.page("check-in-confirmed", {
-  title: "Check-in — Confirmed",
-  icon: "pin",
-  nav: "home",
-  time: "11:20",
-  hidden: true,
-  render() {
-    return `<header class="m-top">
-          <div class="m-title"><small>Check in</small>MV Pageo 02</div>
-        </header>
-        <div class="m-body center">
-          <div class="grow" style="flex:0 1 24px"></div>
-          <div class="m-icon-ring ok" style="width:112px;height:112px"><i data-icon="check" style="width:52px;height:52px"></i></div>
-          <div>
-            <div class="eyebrow" style="color:var(--s-success)">Boarding confirmed</div>
-            <div class="m-h1" style="margin-top:6px">You're on<br>MV Pageo 02</div>
-          </div>
-          <div class="m-card" style="width:100%;text-align:left">
-            <dl class="m-kv">
-              <dt>Time</dt><dd>11:20:41</dd>
-              <dt>Muster point</dt><dd>B · Deck 2</dd>
-              <dt>Supervisor</dt><dd>Andi Pratama</dd>
-            </dl>
-            <div class="m-caption">Your supervisor and the vessel master can now see you on the manifest.</div>
-          </div>
-          <div class="grow"></div>
-          <a class="m-btn secondary" href="project.html"><i data-icon="clipboard"></i>View project</a>
-          <a class="m-btn tertiary" href="home.html">Back to home</a>
-        </div>`;
-  }
-});
-
-/* Converted from mobile/check-in.html (state: Outside geofence) */
-// converted
-PN.page("check-in-outside-geofence", {
-  title: "Check-in — Outside geofence",
-  icon: "pin",
-  nav: "home",
-  time: "10:54",
-  hidden: true,
-  render() {
-    return `<header class="m-top">
-          <a class="back" href="home.html" aria-label="Back"><i data-icon="chevronleft" class="ic-24"></i></a>
-          <div class="m-title"><small>Check in</small>MV Pageo 02</div>
-        </header>
-        <div class="m-body">
-          <div class="m-card" style="padding:0;overflow:hidden">
-            <div class="map flush" data-map="harbor" style="height:160px;min-height:0">
-              <div data-fence="52,14 84,12 88,50 56,54" data-label="Vessel geofence" data-kind="zone"></div>
-              <div class="mk vessel" style="left:70%;top:32%"><span class="sym"><i data-icon="ship"></i></span><span class="lbl">MV Pageo 02</span></div>
-              <div class="mk me" style="left:22%;top:78%"><span class="accuracy" style="width:84px;height:84px;left:50%;top:50%;transform:translate(-50%,-50%)"></span><span class="sym"></span></div>
-            </div>
-            <div class="banner warn" style="border:0;border-radius:0;border-top:1px solid #EBD6A8;font-size:14px;align-items:flex-start;padding:12px 16px">
-              <i data-icon="warning" class="ic-24" style="margin-top:1px"></i>
-              <div>You are <b>420 m</b> from MV Pageo 02 — check-in is only available inside the vessel geofence.</div>
-            </div>
-            <div class="row between" style="padding:12px 16px 14px">
-              <span class="m-caption" style="color:var(--text)">GPS accuracy</span>
-              <span class="chip warn"><span class="dot warn"></span>± 32 m · Low</span>
-            </div>
-          </div>
-
-          <div class="m-section" style="padding-top:0"><span class="eyebrow">What are you recording?</span></div>
-          <div class="m-list" style="opacity:.6">
-            <div class="li"><span class="checkbox on" style="width:22px;height:22px;border-radius:50%"><i data-icon="check"></i></span><div class="li-body">Vessel boarding<div class="li-sub">Records you as on board</div></div></div>
-            <div class="li"><span class="checkbox" style="width:22px;height:22px;border-radius:50%"></span><div class="li-body">Site check-in</div></div>
-            <div class="li"><span class="checkbox" style="width:22px;height:22px;border-radius:50%"></span><div class="li-body">Site check-out</div></div>
-          </div>
-
-          <div class="grow"></div>
-          <a class="m-btn primary disabled" href="check-in.html" style="opacity:.45;pointer-events:none" aria-disabled="true"><i data-icon="ship"></i>Confirm boarding</a>
-          <a class="m-btn tertiary" href="check-in.html"><i data-icon="refresh"></i>Refresh position</a>
-        </div>`;
-  }
-});
+  PN.page('muster', { title: 'Emergency muster', icon: 'flag', nav: 'none', time: '15:38', render() { return requested(false); } });
+  PN.page('muster-offline', { title: 'Emergency muster — Offline', icon: 'flag', nav: 'none', time: '15:38', offline: true, render() { return requested(true); } });
+  PN.page('muster-confirmed', { title: 'Emergency muster — Confirmed', icon: 'flag', nav: 'none', time: '15:42', render() {
+    return M.top({ small: 'Emergency muster', title: 'MV Pageo 02', sos: false }) + body(
+      M.hero({ kind: 'green', body: '<div class="row s12" style="justify-content:center"><span class="ai green" style="background:rgba(255,255,255,.2);box-shadow:none">' + C.icon('check') + '</span></div><div class="m-hero-title" style="text-align:center;font-size:30px;letter-spacing:.04em">SAFE</div><div class="m-hero-sub" style="text-align:center">Your status has been reported to QHSE.</div><div class="big" style="text-align:center;font-size:36px">15:42:12</div>', stats: [['Muster point', 'B · Deck 2'], ['Via', 'App'], ['Team', '33 / 39']] }) +
+      M.card('<div class="m-label">Stay at the muster point</div><div class="m-caption">Remain until QHSE stands the muster down. You will be notified on this phone.</div>' + M.progress(85, 'ok') + '<div class="m-caption tnum">33 of 39 confirmed · 4 not confirmed · 2 offline</div>', '', 'width:100%') +
+      '<div class="grow"></div>' + M.btn('Back to home', 'secondary', 'home', 'home.html'),
+      'center');
+  } });
+})();
+
+// handwritten — SOS
+(function () {
+  const D = window.DATA, me = D.me;
+  const body = (inner, cls, style) => '<div class="m-body ' + (cls || '') + '"' + (style ? ' style="' + style + '"' : '') + '>' + inner + '</div>';
+  PN.page('sos', { title: 'SOS', icon: 'siren', nav: 'none', time: '15:42', render() {
+    return M.top({ close: 'home.html', title: 'Emergency SOS', sos: false }) + body(
+      '<div class="eyebrow crit">Press and hold</div>' + '<div class="sos-hold" data-route="sos-sent"><div class="ring"></div><div class="inner"><b>SOS</b><span>Hold 2 seconds</span></div></div>' +
+      '<div class="m-caption" style="max-width:28ch">Sends your location and project information to QHSE and your supervisor.</div>' +
+      M.card(M.kv([['Position', me.lat + ', ' + me.lng + ' · ± ' + me.acc + ' m'], ['Project', 'Alpha · ' + me.vessel], ['Battery', me.battery + '%']]), '', 'width:100%;text-align:left') +
+      '<div class="grow"></div>' + M.btn('Not an emergency — go back', 'tertiary', null, 'home.html'),
+      'center');
+  } });
+  PN.page('sos-sent', { title: 'SOS — Sent', icon: 'siren', nav: 'none', time: '15:42', render() {
+    return M.top({ title: 'Emergency SOS', sos: false }) + body(
+      M.hero({ kind: 'red', body: '<div class="row s12" style="justify-content:center"><span class="ai" style="background:rgba(255,255,255,.2);box-shadow:none">' + C.icon('siren') + '</span></div><div class="eyebrow" style="text-align:center">SOS sent</div><div class="m-hero-title" style="text-align:center;font-size:26px">Help is on the way</div><div class="m-hero-sub" style="text-align:center">Your location and project information have been transmitted.</div><div class="big" style="text-align:center;font-size:36px">15:42:08</div>' }) +
+      M.list([{ state: 'ok', title: 'Received by QHSE Officer', sub: 'Putri Anggraini · 15:42:10' }, { state: 'ok', title: 'Supervisor notified', sub: 'Andi Pratama · 15:42:11' }, { state: 'ok', title: 'Vessel master notified', sub: 'Budi Santoso · MV Pageo 02 · 15:42:11' }]) +
+      '<div class="grow"></div>' + M.btn('Call emergency contact', 'destructive solid', 'phone') + M.btn('Cancel SOS (false alarm)', 'tertiary', null, 'sos-confirm-cancel.html')
+    );
+  } });
+  PN.page('sos-confirm-cancel', { title: 'SOS — Confirm cancel', icon: 'siren', nav: 'none', time: '15:43', render() {
+    return M.top({ title: 'Emergency SOS', sos: false }) + body(
+      M.card('<div class="row s12"><span class="ai sm red">' + C.icon('alert') + '</span><div class="m-h3">Cancel SOS?</div></div><div class="m-caption">This will notify QHSE that you are safe. Responders already on the way will be stood down.</div>' + M.kv([['Sent', '15:42:08'], ['Active for', '1 min 12 s']]) + M.btn("Yes, I'm safe — cancel SOS", 'dark', 'check', 'home.html') + M.btn('Keep SOS active', 'destructive', null, 'sos-sent.html'), '', 'width:100%;box-shadow:var(--shadow-modal)'),
+      'center', 'background:rgba(23,26,28,.45)');
+  } });
+})();
+
+// handwritten — Activity & location history
+(function () {
+  const D = window.DATA, me = D.me;
+  const body = (inner, cls) => '<div class="m-body ' + (cls || '') + '">' + inner + '</div>';
+  PN.page('activity', { title: 'Activity', icon: 'activity', nav: 'activity', time: '15:42', render() {
+    return M.top({ title: 'Activity', right: M.sync('ok', 'Synced · 15:42') }) + body(
+      C.seg(['Today', 'This week', 'All']).replace('class="seg"', 'class="seg" style="width:100%"') +
+      M.tiles([{ label: 'Events today', value: 9, icon: 'activity' }, { label: 'Hours on operation', value: '7.6', kind: 'ok', icon: 'clock' }, { label: 'Scans', value: 4, icon: 'nfc' }]) +
+      M.section('Today · 04 Sep', 'Location history', 'activity-location-history.html') +
+      M.card(M.timeline(me.today.slice().reverse().concat([{ time: '09:31', kind: 'info', text: 'Vessel boarding', sub: 'MV Pageo 02 · Port Tanjung Priok' }, { time: '08:47', kind: 'transit', text: 'Warehouse', sub: 'Scanned 3 assets · RD-01' }])), '', 'padding:18px 18px 12px') +
+      M.section('Yesterday · 03 Sep') +
+      M.card(M.timeline([{ time: '17:10', kind: 'ok', text: 'Operation ended', sub: 'Jakarta Base · 8.4 h' }, { time: '14:30', kind: 'transit', text: 'Workshop', sub: 'Pre-mobilization check · MBES-03' }, { time: '08:05', kind: 'ok', text: 'Operation started', sub: 'Jakarta Base' }]), '', 'padding:18px 18px 12px')
+    );
+  } });
+  PN.page('activity-location-history', { title: 'Activity — Location history', icon: 'route', nav: 'activity', time: '15:42', render() {
+    return M.top({ back: 'activity.html', small: 'Today · 04 Sep', title: 'Location history' }) + body(
+      '<div class="m-card" style="padding:0;overflow:hidden">' + C.map({ scene: 'coast', height: 230, flush: true, legend: false, ctl: false, tracks: [{ pts: '14,78 22,70 30,62 42,52 54,44 60,40', color: '#0B76A3' }], markers: [{ kind: 'site', x: 14, y: 78, label: 'Jakarta Base' }, { kind: 'site', x: 30, y: 62, label: 'Tanjung Priok' }, { kind: 'me', x: 60, y: 40 }] }) + '</div>' +
+      M.list([{ icon: 'building', iconCls: 'slate', title: 'Jakarta Base', sub: '07:53 – 08:47', right: '54 min' }, { icon: 'warehouse', iconCls: 'amber', title: 'Warehouse', sub: '08:47 – 09:20', right: '33 min' }, { icon: 'anchor', iconCls: 'ocean', title: 'Port Tanjung Priok', sub: '09:20 – 10:02', right: '42 min' }, { icon: 'ship', iconCls: 'green', title: 'MV Pageo 02', sub: '10:02 – now', right: '5 h 40 min' }]) +
+      '<div class="m-note">History is retained for 90 days and visible to you and your operations team.</div>'
+    );
+  } });
+})();
+
+// handwritten — Profile & privacy
+(function () {
+  const D = window.DATA, me = D.me;
+  const body = (inner, cls) => '<div class="m-body ' + (cls || '') + '">' + inner + '</div>';
+  PN.page('profile', { title: 'Profile', icon: 'user', nav: 'profile', time: '15:42', render() {
+    return M.top({ title: 'Profile' }) + body(
+      M.hero({ top: '<div class="row s12">' + C.avatar('FS', 'lg') + '<div><div class="m-hero-title">' + me.name + '</div><div class="m-hero-sub">' + me.role + ' · ' + me.id + '</div></div></div>', stats: [['Project', 'Alpha'], ['Vessel', 'Pageo 02'], ['Status', 'Active']] }) +
+      M.card('<div class="row between">' + C.eyebrow('Tracking & privacy') + M.tracking(true, 'Location sharing active') + '</div><div class="m-body-text">Location sharing is active while you are assigned to this operation.</div>' + M.kv([['Started', '04 Sep · 08:03'], ['Shared with', 'Project Alpha ops team'], ['Retention', '90 days']]) + M.btn('Learn how tracking works', 'tertiary', 'book', 'profile-how-tracking-works.html'), 'ok') +
+      M.section('Device') +
+      M.list([{ icon: 'locate', iconCls: 'green', title: 'GPS', right: 'Good · ± 7 m' }, { icon: 'battery', iconCls: 'ocean', title: 'Battery', right: '82%' }, { icon: 'smartphone', iconCls: 'violet', title: 'App version', right: '1.4.2' }, { icon: 'refresh', iconCls: 'teal', title: 'Offline buffer', right: '0 events' }, { icon: 'shieldcheck', iconCls: 'green', title: 'Permissions', right: 'Location · Notifications' }]) +
+      M.section('Account') +
+      M.list([{ icon: 'phone', iconCls: 'ocean', title: 'Emergency contact', sub: 'Rina Syaban · +62 812 ··· 4471', chev: true, href: '#' }, { icon: 'clipboard', iconCls: 'amber', title: 'Certifications', sub: 'BOSIET · valid to 14 Mar 2027', chev: true, href: '#' }, { icon: 'book', iconCls: 'slate', title: 'Language', right: 'English' }, { icon: 'logout', iconCls: 'red', title: '<span class="crit">Sign out</span>', href: 'login.html' }])
+    );
+  } });
+  PN.page('profile-how-tracking-works', { title: 'Profile — How tracking works', icon: 'book', nav: 'profile', time: '15:42', render() {
+    const cards = [['pin', 'ocean', 'Only during operations', 'Your position is shared only from the moment you start an assigned operation until it ends. Outside an operation the app does not record or send your location.'], ['eye', 'violet', 'Always visible to you', 'Everything the operations team can see about your movements is shown to you in Activity and Location history. There is no hidden view.'], ['shield', 'green', 'Used for safety and accountability', 'Location is used for muster, emergency response, and confirming who was on site and on board. It is not used to measure individual performance.'], ['clock', 'amber', 'Retained 90 days', 'Position history is kept for 90 days and then deleted. Muster and incident records are kept longer under the QHSE policy.']];
+    return M.top({ back: 'profile.html', title: 'How tracking works', sos: false }) + body(
+      '<div class="m-caption" style="padding:0 4px">What PAGEO Navigator records from your phone, who sees it, and for how long.</div>' +
+      cards.map(function (c) { return M.card('<div class="row top s12"><span class="ai sm ' + c[1] + '">' + C.icon(c[0]) + '</span><div><div class="m-label" style="font-size:16px">' + c[2] + '</div><div class="m-caption" style="margin-top:4px">' + c[3] + '</div></div></div>'); }).join('') +
+      M.btn('Done', 'secondary', 'check', 'profile.html')
+    );
+  } });
+})();
+
+// handwritten — Check-in flow
+(function () {
+  const D = window.DATA, me = D.me;
+  const body = (inner, cls) => '<div class="m-body ' + (cls || '') + '">' + inner + '</div>';
+  const map = (outside) => '<div class="m-card" style="padding:0;overflow:hidden">' + C.map({ scene: 'offshore', height: 170, flush: true, legend: false, ctl: false, fences: [{ pts: '30,25 70,25 70,75 30,75', label: 'Vessel — MV Pageo 02' }], markers: [{ kind: 'vessel', x: 50, y: 50, label: 'MV Pageo 02' }, { kind: 'me', x: outside ? 18 : 46, y: outside ? 62 : 44, accuracy: outside ? 90 : 60 }] }) + '</div>';
+  const options = (sel) => M.list([['Vessel boarding', 'Records you as on board', 'ship', 'ocean'], ['Site check-in', 'Marks you present at the work area', 'pin', 'green'], ['Site check-out', 'Leaves the work area', 'logout', 'amber'], ['End operation', 'Stops location sharing', 'square', 'slate']].map(function (o, i) { return { icon: o[2], iconCls: o[3], title: o[0], sub: o[1], right: C.radio(i === sel) }; }));
+
+  PN.page('check-in', { title: 'Check-in', icon: 'pin', nav: 'home', time: '11:20', render() {
+    return M.top({ back: 'home.html', small: 'Check in', title: me.vessel }) + body(
+      map(false) +
+      M.card('<div class="row s12"><span class="ai sm green">' + C.icon('checkcircle') + '</span><div><div class="m-label">You are inside the geofence</div><div class="m-caption">Vessel — MV Pageo 02 · ± 7 m · GPS good</div></div></div>', 'ok') +
+      M.section('What are you recording?') + options(0) +
+      M.btn('Confirm boarding', 'primary', 'ship', 'check-in-confirmed.html') +
+      '<div class="m-note">Recorded at 11:20 WIB · syncs automatically</div>'
+    );
+  } });
+
+  PN.page('check-in-confirmed', { title: 'Check-in — Confirmed', icon: 'pin', nav: 'home', time: '11:20', render() {
+    return M.top({ small: 'Check in', title: me.vessel, sos: false }) + body(
+      M.ring('ok', 'check') + '<div class="eyebrow ok">Boarding confirmed</div><div class="m-h1">You’re on<br>' + me.vessel + '</div>' +
+      M.card(M.kv([['Time', '11:20:41'], ['Muster point', me.muster], ['Supervisor', me.supervisor], ['Vessel master', 'Capt. Slamet Riyadi']]) + '<div class="m-caption">Your supervisor and the vessel master can now see you on the manifest.</div>', '', 'width:100%;text-align:left') +
+      M.btn('View project', 'secondary', 'clipboard', 'project.html') + M.btn('Back to home', 'tertiary', null, 'home.html'),
+      'center');
+  } });
+
+  PN.page('check-in-outside-geofence', { title: 'Check-in — Outside geofence', icon: 'pin', nav: 'home', time: '11:02', render() {
+    return M.top({ back: 'home.html', small: 'Check in', title: me.vessel }) + body(
+      map(true) +
+      M.card('<div class="row s12"><span class="ai sm amber">' + C.icon('warning') + '</span><div><div class="m-label">You are 420 m from MV Pageo 02</div><div class="m-caption">Check-in is only available inside the vessel geofence.</div></div></div><div class="row between"><span class="m-caption">GPS accuracy</span>' + M.chip('warn', '± 32 m · Low', 'warning') + '</div>', 'warn') +
+      M.section('What are you recording?') + options(0) +
+      M.btn('Confirm boarding', 'primary disabled', 'ship') + M.btn('Refresh position', 'tertiary', 'refresh', 'check-in.html')
+    );
+  } });
+})();
 
 /* Mobile Field App — app bootstrap: device frame, demo screen menu, scan auto-advance */
 PN.app({

@@ -1,46 +1,22 @@
-/* Converted from mobile/activity.html (state: Activity) */
-// converted
-PN.page("activity", {
-  title: "Activity",
-  icon: "activity",
-  nav: "activity",
-  time: "15:42",
-  render() {
-    return `<header class="m-top">
-          <div class="m-title">Activity</div>
-          <span class="m-sync ok"><i data-icon="checkcircle"></i>Synced · 15:42</span>
-          <a class="m-sos-btn" href="sos.html" aria-label="Emergency SOS">SOS</a>
-        </header>
-        <div class="m-body">
-          <div class="seg" style="display:flex">
-            <button type="button" class="active" style="flex:1;height:36px">Today</button>
-            <button type="button" style="flex:1;height:36px">This week</button>
-            <button type="button" style="flex:1;height:36px">All</button>
-          </div>
-
-          <div class="m-section"><span class="eyebrow">Today · 04 Sep</span><a href="activity-location-history.html">Location history</a></div>
-          <div class="m-card" style="padding:16px 16px 12px">
-            <div class="m-timeline">
-              <div class="tl"><span class="time">15:42</span><span class="node"><span class="dot ok"></span></span><div>Position updated<div class="sub">± 7 m · Offshore Work Area</div></div></div>
-              <div class="tl"><span class="time">13:05</span><span class="node"><span class="dot ok"></span></span><div>Check-in confirmed<div class="sub">Site check-in · MV Pageo 02</div></div></div>
-              <div class="tl"><span class="time">11:20</span><span class="node"><span class="dot info"></span></span><div>Entered Project Site<div class="sub">Geofence · Offshore Work Area</div></div></div>
-              <div class="tl"><span class="time">10:18</span><span class="node"><span class="dot transit"></span></span><div>Mobilized<div class="sub">3 / 3 equipment scanned</div></div></div>
-              <div class="tl"><span class="time">10:02</span><span class="node"><span class="dot transit"></span></span><div>Offshore transit<div class="sub">MV Pageo 02 departed Tanjung Priok</div></div></div>
-              <div class="tl"><span class="time">09:31</span><span class="node"><span class="dot info"></span></span><div>Vessel boarding<div class="sub">MV Pageo 02 · Port Tanjung Priok</div></div></div>
-              <div class="tl"><span class="time">08:47</span><span class="node"><span class="dot unknown"></span></span><div>Warehouse<div class="sub">Scanned 3 assets · RD-01</div></div></div>
-              <div class="tl"><span class="time">08:24</span><span class="node"><span class="dot info"></span></span><div>Entered Base<div class="sub">Geofence · PAGEO Base</div></div></div>
-              <div class="tl"><span class="time">08:02</span><span class="node"><span class="dot ok"></span></span><div>Operation started<div class="sub">Jakarta Base · tracking on</div></div></div>
-            </div>
-          </div>
-
-          <div class="m-section"><span class="eyebrow">Yesterday · 03 Sep</span></div>
-          <div class="m-card" style="padding:16px 16px 12px">
-            <div class="m-timeline">
-              <div class="tl"><span class="time">17:10</span><span class="node"><span class="dot off"></span></span><div>Operation ended<div class="sub">Jakarta Base · tracking off</div></div></div>
-              <div class="tl"><span class="time">16:40</span><span class="node"><span class="dot unknown"></span></span><div>Equipment prepared<div class="sub">Warehouse · 28 / 28 checked</div></div></div>
-              <div class="tl"><span class="time">07:58</span><span class="node"><span class="dot ok"></span></span><div>Operation started<div class="sub">Jakarta Base</div></div></div>
-            </div>
-          </div>
-        </div>`;
-  }
-});
+// handwritten — Activity & location history
+(function () {
+  const D = window.DATA, me = D.me;
+  const body = (inner, cls) => '<div class="m-body ' + (cls || '') + '">' + inner + '</div>';
+  PN.page('activity', { title: 'Activity', icon: 'activity', nav: 'activity', time: '15:42', render() {
+    return M.top({ title: 'Activity', right: M.sync('ok', 'Synced · 15:42') }) + body(
+      C.seg(['Today', 'This week', 'All']).replace('class="seg"', 'class="seg" style="width:100%"') +
+      M.tiles([{ label: 'Events today', value: 9, icon: 'activity' }, { label: 'Hours on operation', value: '7.6', kind: 'ok', icon: 'clock' }, { label: 'Scans', value: 4, icon: 'nfc' }]) +
+      M.section('Today · 04 Sep', 'Location history', 'activity-location-history.html') +
+      M.card(M.timeline(me.today.slice().reverse().concat([{ time: '09:31', kind: 'info', text: 'Vessel boarding', sub: 'MV Pageo 02 · Port Tanjung Priok' }, { time: '08:47', kind: 'transit', text: 'Warehouse', sub: 'Scanned 3 assets · RD-01' }])), '', 'padding:18px 18px 12px') +
+      M.section('Yesterday · 03 Sep') +
+      M.card(M.timeline([{ time: '17:10', kind: 'ok', text: 'Operation ended', sub: 'Jakarta Base · 8.4 h' }, { time: '14:30', kind: 'transit', text: 'Workshop', sub: 'Pre-mobilization check · MBES-03' }, { time: '08:05', kind: 'ok', text: 'Operation started', sub: 'Jakarta Base' }]), '', 'padding:18px 18px 12px')
+    );
+  } });
+  PN.page('activity-location-history', { title: 'Activity — Location history', icon: 'route', nav: 'activity', time: '15:42', render() {
+    return M.top({ back: 'activity.html', small: 'Today · 04 Sep', title: 'Location history' }) + body(
+      '<div class="m-card" style="padding:0;overflow:hidden">' + C.map({ scene: 'coast', height: 230, flush: true, legend: false, ctl: false, tracks: [{ pts: '14,78 22,70 30,62 42,52 54,44 60,40', color: '#0B76A3' }], markers: [{ kind: 'site', x: 14, y: 78, label: 'Jakarta Base' }, { kind: 'site', x: 30, y: 62, label: 'Tanjung Priok' }, { kind: 'me', x: 60, y: 40 }] }) + '</div>' +
+      M.list([{ icon: 'building', iconCls: 'slate', title: 'Jakarta Base', sub: '07:53 – 08:47', right: '54 min' }, { icon: 'warehouse', iconCls: 'amber', title: 'Warehouse', sub: '08:47 – 09:20', right: '33 min' }, { icon: 'anchor', iconCls: 'ocean', title: 'Port Tanjung Priok', sub: '09:20 – 10:02', right: '42 min' }, { icon: 'ship', iconCls: 'green', title: 'MV Pageo 02', sub: '10:02 – now', right: '5 h 40 min' }]) +
+      '<div class="m-note">History is retained for 90 days and visible to you and your operations team.</div>'
+    );
+  } });
+})();

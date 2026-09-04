@@ -919,6 +919,211 @@ table { border-collapse: collapse; width: 100%; }
 .map[data-small] .map-ctl { display: none; }
 .map[data-small] .map-legend { display: none; }
 
+/* ============================================================
+   MOBILE v3 — modern, colorful, field-friendly
+   ============================================================ */
+:root { --m-ocean: #1A9BCB; --m-deep: #0B76A3; --m-green: #22A876; --m-green-2: #15825A; --m-amber: #F0B23A; --m-amber-2: #D89414; --m-violet: #8A7CE8; --m-violet-2: #6B5BD2; --m-teal: #2FC0C9; --m-teal-2: #0FA3B1; --m-red: #E2605E; --m-red-2: #C43D3D; --m-slate: #7F8C95; --m-slate-2: #5C6870; }
+.screen { background: linear-gradient(180deg, #E4F2F9 0px, #F3F5F7 280px); }
+.m-top { padding: 6px 20px 10px; }
+.m-top .m-title { font-size: 24px; letter-spacing: -.02em; }
+.m-top .back { border-radius: 14px; width: 42px; height: 42px; }
+.m-body { padding: 4px 16px 28px; gap: 14px; }
+.m-greeting { display: flex; flex-direction: column; gap: 2px; padding: 2px 4px 4px; }
+.m-greeting .m-h1 { font-size: 28px; font-weight: 700; }
+.m-card { border-radius: 20px; border: 0; box-shadow: 0 6px 20px rgba(20,29,34,.06); padding: 18px; gap: 12px; }
+.m-card.tinted { background: #E4F3FA; box-shadow: none; }
+.m-card.ok { background: #E7F5EE; box-shadow: none; }
+.m-card.crit { background: #FCEEEE; box-shadow: none; }
+.m-card.warn { background: #FCF2DE; box-shadow: none; }
+.m-card .m-card-title { font-size: 19px; }
+.m-list { border-radius: 20px; border: 0; box-shadow: 0 6px 20px rgba(20,29,34,.06); }
+.m-list .li { min-height: 64px; padding: 12px 16px; border-bottom-color: #EEF1F3; }
+.m-list .li .li-icon { width: 46px; height: 46px; border-radius: 15px; }
+.m-list .li .li-icon .ic { width: 22px; height: 22px; }
+.li-icon.ocean, .ai.ocean-soft { background: #E1F1FA; color: var(--m-deep); }
+.li-icon.green { background: #E3F5EC; color: var(--m-green-2); }
+.li-icon.amber { background: #FCF0D8; color: var(--m-amber-2); }
+.li-icon.violet { background: #ECE9FB; color: var(--m-violet-2); }
+.li-icon.teal { background: #DFF6F7; color: var(--m-teal-2); }
+.li-icon.red { background: #FBE6E6; color: var(--m-red-2); }
+.li-icon.slate { background: #EDF0F2; color: var(--m-slate-2); }
+.m-list .li .st { width: 34px; height: 34px; }
+.m-list .li.ok .st { background: linear-gradient(135deg, #2FB37D, #17875D); color: #fff; }
+.m-list .li.warn .st { background: linear-gradient(135deg, #F0B23A, #D89414); color: #fff; }
+.m-list .li.crit .st { background: linear-gradient(135deg, #E2605E, #C43D3D); color: #fff; }
+.m-list .li.pending .st { border: 2px dashed var(--border-2); }
+.m-section { padding: 6px 6px 0; }
+.m-section .eyebrow { font-size: 12px; color: var(--text); letter-spacing: .06em; }
+.m-section a { font-weight: 600; }
+
+/* Hero */
+.m-hero { position: relative; overflow: hidden; border-radius: 24px; padding: 20px; color: #fff; display: flex; flex-direction: column; gap: 12px; background: linear-gradient(135deg, #1D9FD0 0%, #0E7BA8 55%, #085C80 100%); box-shadow: 0 14px 30px rgba(8,105,143,.28); }
+.m-hero::before { content: ""; position: absolute; right: -60px; top: -70px; width: 220px; height: 220px; border-radius: 50%; background: rgba(255,255,255,.10); }
+.m-hero::after { content: ""; position: absolute; right: 30px; bottom: -90px; width: 170px; height: 170px; border-radius: 50%; background: rgba(255,255,255,.07); }
+.m-hero > * { position: relative; z-index: 1; }
+.m-hero.green { background: linear-gradient(135deg, #27B382 0%, #178A5F 55%, #0F6A48 100%); box-shadow: 0 14px 30px rgba(23,135,93,.28); }
+.m-hero.red { background: linear-gradient(135deg, #E8625F 0%, #C43D3D 55%, #9E2C2C 100%); box-shadow: 0 14px 30px rgba(196,61,61,.30); }
+.m-hero.amber { background: linear-gradient(135deg, #F2B84A 0%, #D89414 60%, #B37600 100%); box-shadow: 0 14px 30px rgba(216,148,20,.28); }
+.m-hero.dark { background: linear-gradient(135deg, #2C3439 0%, #171A1C 70%); box-shadow: 0 14px 30px rgba(23,26,28,.30); }
+.m-hero.violet { background: linear-gradient(135deg, #8E80EE 0%, #6B5BD2 60%, #4E40B0 100%); box-shadow: 0 14px 30px rgba(107,91,210,.28); }
+.m-hero .eyebrow { color: rgba(255,255,255,.72); }
+.m-hero-title { font-size: 22px; font-weight: 700; letter-spacing: -.02em; line-height: 1.2; }
+.m-hero-sub { font-size: 14px; color: rgba(255,255,255,.82); }
+.m-hero .m-tracking { background: rgba(255,255,255,.18); color: #fff; backdrop-filter: blur(6px); }
+.m-hero .m-tracking .dot { background: #8CF0BF; } .m-hero .m-tracking .dot.pulse::after { border-color: #8CF0BF; }
+.m-hero .m-tracking.off { background: rgba(255,255,255,.14); color: rgba(255,255,255,.85); } .m-hero .m-tracking.off .dot { background: transparent; border-color: rgba(255,255,255,.7); }
+.m-hero-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 2px; }
+.m-hero-stats .hs { background: rgba(255,255,255,.14); border-radius: 14px; padding: 10px 12px; backdrop-filter: blur(6px); }
+.m-hero-stats .hs b { display: block; font-size: 16px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.m-hero-stats .hs span { display: block; font-size: 11px; letter-spacing: .06em; text-transform: uppercase; opacity: .72; margin-top: 2px; }
+.m-hero-actions { display: flex; gap: 10px; margin-top: 4px; }
+.m-hero .m-btn.white { background: #fff; color: var(--pageo-deep); box-shadow: 0 6px 16px rgba(0,0,0,.18); }
+.m-hero .m-btn.glass { background: rgba(255,255,255,.16); color: #fff; border: 1px solid rgba(255,255,255,.28); }
+.m-hero .m-kv dt { color: rgba(255,255,255,.7); } .m-hero .m-kv dd { color: #fff; }
+.m-hero .avatar { border-color: rgba(255,255,255,.4); }
+.m-hero .m-progress { background: rgba(255,255,255,.22); } .m-hero .m-progress i { background: #fff; }
+.m-hero .big { font-size: 40px; font-weight: 800; letter-spacing: -.03em; line-height: 1; font-variant-numeric: tabular-nums; }
+.m-hero .big small { font-size: 16px; font-weight: 600; opacity: .8; letter-spacing: 0; }
+
+/* Quick actions & tiles */
+.m-actions { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; padding: 2px 0; }
+.m-actions a { display: flex; flex-direction: column; align-items: center; gap: 8px; font-size: 12px; font-weight: 600; color: var(--text); text-align: center; }
+.ai { width: 58px; height: 58px; border-radius: 19px; display: inline-flex; align-items: center; justify-content: center; color: #fff; box-shadow: 0 8px 16px rgba(20,29,34,.14); }
+.ai .ic { width: 25px; height: 25px; }
+.ai.ocean { background: linear-gradient(135deg, var(--m-ocean), var(--m-deep)); }
+.ai.green { background: linear-gradient(135deg, var(--m-green), var(--m-green-2)); }
+.ai.amber { background: linear-gradient(135deg, var(--m-amber), var(--m-amber-2)); }
+.ai.violet { background: linear-gradient(135deg, var(--m-violet), var(--m-violet-2)); }
+.ai.teal { background: linear-gradient(135deg, var(--m-teal), var(--m-teal-2)); }
+.ai.red { background: linear-gradient(135deg, var(--m-red), var(--m-red-2)); }
+.ai.slate { background: linear-gradient(135deg, var(--m-slate), var(--m-slate-2)); }
+.ai.sm { width: 44px; height: 44px; border-radius: 14px; box-shadow: none; } .ai.sm .ic { width: 20px; height: 20px; }
+.m-tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.m-tiles .tile { background: var(--surface); border-radius: 18px; padding: 14px 12px; display: flex; flex-direction: column; gap: 4px; box-shadow: 0 6px 20px rgba(20,29,34,.06); }
+.m-tiles .tile b { font-size: 22px; font-weight: 700; letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
+.m-tiles .tile span { font-size: 12px; color: var(--text-2); }
+.m-tiles .tile .ti { width: 32px; height: 32px; border-radius: 10px; display: inline-flex; align-items: center; justify-content: center; margin-bottom: 4px; background: #E1F1FA; color: var(--m-deep); }
+.m-tiles .tile .ti .ic { width: 16px; height: 16px; }
+.m-tiles .tile.ok .ti { background: #E3F5EC; color: var(--m-green-2); } .m-tiles .tile.ok b { color: var(--s-success); }
+.m-tiles .tile.warn .ti { background: #FCF0D8; color: var(--m-amber-2); } .m-tiles .tile.warn b { color: var(--s-warn); }
+.m-tiles .tile.crit .ti { background: #FBE6E6; color: var(--m-red-2); } .m-tiles .tile.crit b { color: var(--s-crit); }
+.m-tiles .tile.off .ti { background: #EDF0F2; color: var(--m-slate-2); } .m-tiles .tile.off b { color: var(--s-offline); }
+.m-tiles.two { grid-template-columns: repeat(2, 1fr); }
+.m-ringstat { display: flex; align-items: center; gap: 14px; }
+.m-ringstat .ring { --c: var(--m-ocean); }
+.m-ringstat .ring::after { background: var(--surface); }
+
+/* Buttons */
+.m-btn { height: 56px; border-radius: 16px; font-size: 16px; }
+.m-btn.primary { background: linear-gradient(135deg, var(--m-ocean), var(--m-deep)); box-shadow: 0 8px 18px rgba(11,118,163,.30); }
+.m-btn.secondary { background: #E1F1FA; color: var(--pageo-deep); border: 0; }
+.m-btn.success { background: linear-gradient(135deg, var(--m-green), var(--m-green-2)); box-shadow: 0 8px 18px rgba(23,135,93,.28); }
+.m-btn.destructive { background: #FBE6E6; border: 0; color: var(--s-crit); }
+.m-btn.destructive.solid { background: linear-gradient(135deg, var(--m-red), var(--m-red-2)); box-shadow: 0 8px 18px rgba(196,61,61,.28); color: #fff; }
+.m-btn.dark { background: linear-gradient(135deg, #2C3439, #171A1C); box-shadow: 0 8px 18px rgba(23,26,28,.24); }
+.m-btn.lg { height: 66px; border-radius: 20px; font-size: 18px; }
+.m-btn.tertiary { height: 46px; }
+.m-input { border-radius: 16px; height: 56px; border-color: transparent; background: var(--surface); box-shadow: 0 2px 8px rgba(20,29,34,.05); }
+.m-input:focus-within { border-color: var(--accent); box-shadow: 0 0 0 4px var(--accent-ring); }
+.m-field.invalid .m-input { border-color: var(--s-crit); }
+.m-chip { height: 32px; border-radius: 12px; }
+
+/* Nav & chrome */
+.m-nav { height: 92px; background: rgba(255,255,255,.97); backdrop-filter: blur(12px); border-top: 0; box-shadow: 0 -8px 28px rgba(20,29,34,.08); border-radius: 26px 26px 0 0; padding: 10px 12px 26px; }
+.m-nav a { font-size: 11px; }
+.m-nav a .ic { width: 26px; height: 26px; padding: 3px; }
+.m-nav a.active .ic { background: linear-gradient(135deg, var(--m-ocean), var(--m-deep)); color: #fff; border-radius: 14px; width: 52px; height: 32px; padding: 4px 13px; box-shadow: 0 6px 14px rgba(11,118,163,.28); }
+.m-nav a.active { color: var(--pageo-deep); }
+.m-sos-btn { background: linear-gradient(135deg, var(--m-red), var(--m-red-2)); color: #fff; border: 0; box-shadow: 0 6px 14px rgba(196,61,61,.32); width: 46px; height: 46px; }
+.m-sync { border-radius: 12px; padding: 7px 11px; box-shadow: 0 2px 8px rgba(20,29,34,.06); }
+.m-sync.ok { background: #E3F5EC; } .m-sync.busy { background: #E1F1FA; } .m-sync.pending { background: #FCF0D8; }
+.m-tracking { border-radius: 12px; }
+.m-banner { font-size: 14px; padding: 12px 18px; }
+.m-banner.offline { background: linear-gradient(90deg, #2C3439, #171A1C); }
+.m-banner.crit { background: linear-gradient(90deg, #E2605E, #C43D3D); }
+.m-icon-ring { width: 120px; height: 120px; box-shadow: 0 16px 36px rgba(20,29,34,.14); }
+.m-icon-ring .ic { width: 52px; height: 52px; }
+.m-icon-ring.info { background: linear-gradient(135deg, #E1F1FA, #C7E7F5); color: var(--m-deep); }
+.m-icon-ring.ok { background: linear-gradient(135deg, #E3F5EC, #BFE7D3); color: var(--m-green-2); }
+.m-icon-ring.warn { background: linear-gradient(135deg, #FCF0D8, #F7DFA8); color: var(--m-amber-2); }
+.m-icon-ring.crit { background: linear-gradient(135deg, #FBE6E6, #F4C4C4); color: var(--m-red-2); }
+.m-timeline .tl .node .dot { width: 10px; height: 10px; margin-top: 5px; box-shadow: 0 0 0 3px var(--surface), 0 0 0 5px rgba(20,29,34,.05); }
+.m-timeline .tl { font-size: 15px; font-weight: 500; }
+.m-timeline .tl .sub { font-weight: 400; }
+.m-sheet { border-radius: 28px 28px 0 0; box-shadow: 0 -12px 40px rgba(20,29,34,.18); padding: 12px 20px 30px; gap: 14px; }
+.m-big-num { font-size: 46px; font-weight: 800; }
+.m-status-big { font-size: 24px; }
+.sos-hold { width: 220px; height: 220px; }
+.sos-hold .inner { box-shadow: inset 0 -8px 0 rgba(0,0,0,.14), 0 18px 40px rgba(196,61,61,.40); }
+.m-kv { font-size: 15px; } .m-kv dd { font-weight: 600; }
+.m-kv.left dt { color: var(--text-3); }
+.m-avatar-row .avatar { width: 34px; height: 34px; font-size: 11px; box-shadow: 0 2px 6px rgba(20,29,34,.12); }
+.m-login-top { padding: 28px 24px 70px; margin: -4px -16px 0; background: linear-gradient(160deg, #1D9FD0 0%, #0E7BA8 55%, #085C80 100%); color: #fff; display: flex; flex-direction: column; gap: 14px; position: relative; overflow: hidden; }
+.m-login-top::before { content: ""; position: absolute; right: -80px; top: -80px; width: 260px; height: 260px; border-radius: 50%; background: rgba(255,255,255,.10); }
+.m-login-top .logo-mark img { filter: brightness(0) invert(1); }
+.m-login-top .m-h1 { color: #fff; }
+.m-login-top .m-caption { color: rgba(255,255,255,.75); }
+.m-login-card { margin-top: -52px; }
+.m-map .map-attr { display: none; }
+.m-divider { height: 1px; background: #EEF1F3; margin: 2px 0; }
+.m-note { font-size: 13px; color: var(--text-2); text-align: center; padding: 0 12px; }
+
+/* ---------- Dashboard v2: charts, filters, CRUD ---------- */
+.chart { width: 100%; display: flex; flex-direction: column; gap: 10px; }
+.chart .chart-svg { width: 100%; height: auto; display: block; overflow: visible; }
+.donut { display: flex; align-items: center; gap: 20px; }
+.donut .donut-svg { flex: 0 0 auto; }
+.donut-legend { display: flex; flex-direction: column; gap: 6px; flex: 1; min-width: 0; }
+.donut-legend .dl { display: grid; grid-template-columns: 10px 1fr auto auto; gap: 10px; align-items: center; font-size: 13px; padding: 4px 6px; border-radius: 6px; }
+.donut-legend .dl.link { cursor: pointer; } .donut-legend .dl.link:hover { background: var(--bg); }
+.donut-legend .dl i { width: 10px; height: 10px; border-radius: 3px; display: block; }
+.donut-legend .dl .l { color: var(--text-2); }
+.donut-legend .dl b { font-variant-numeric: tabular-nums; }
+.donut-legend .dl small { color: var(--text-3); font-variant-numeric: tabular-nums; min-width: 3ch; text-align: right; }
+.hstack { display: flex; flex-direction: column; gap: 10px; }
+.hstack .hs-row { display: grid; grid-template-columns: 110px 1fr 40px; gap: 12px; align-items: center; font-size: 13px; }
+.hstack .hs-track { display: flex; height: 12px; border-radius: 6px; overflow: hidden; background: var(--pageo-mist); gap: 2px; }
+.hstack .hs-track i { display: block; height: 100%; }
+.hstack .hs-row b { text-align: right; font-variant-numeric: tabular-nums; }
+.kpi.filter { cursor: pointer; transition: border-color .12s, box-shadow .12s, transform .06s; user-select: none; }
+.kpi.filter:hover { border-color: var(--accent); }
+.kpi.filter.active { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-ring); background: #F5FBFE; }
+.kpi.filter.active::after { content: ""; position: absolute; top: 14px; right: 14px; width: 18px; height: 18px; border-radius: 50%; background: var(--accent); background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E"); background-size: 11px; background-repeat: no-repeat; background-position: center; }
+.kpi.filter .kpi-icon { right: 40px; }
+.filter-bar { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; font-size: 13px; color: var(--text-2); min-height: 28px; }
+.fchip { display: inline-flex; align-items: center; gap: 6px; height: 28px; padding: 0 6px 0 10px; border-radius: var(--r-pill); background: var(--accent-bg); color: var(--pageo-deep); font-size: 12px; font-weight: 500; }
+.fchip button { width: 18px; height: 18px; border-radius: 50%; border: 0; background: rgba(8,105,143,.12); color: inherit; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; padding: 0; }
+.fchip button .ic { width: 11px; height: 11px; }
+.filter-bar .clear { background: none; border: 0; color: var(--accent); font-size: 12px; font-weight: 500; cursor: pointer; padding: 4px 6px; }
+.filter-bar .count { margin-left: auto; font-variant-numeric: tabular-nums; }
+.input.has-select { position: relative; padding-right: 10px; }
+.input.has-select select { appearance: none; -webkit-appearance: none; padding-right: 22px; cursor: pointer; }
+.input.has-select .chev { position: absolute; right: 10px; pointer-events: none; }
+.input textarea { border: 0; outline: 0; background: transparent; width: 100%; resize: vertical; min-height: 72px; font: inherit; }
+.form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px 24px; }
+.form-grid .span2 { grid-column: span 2; }
+.form-section { display: flex; flex-direction: column; gap: 16px; }
+.form-section > .eyebrow { padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+.pn-overlay { position: fixed; inset: 0; background: rgba(23,26,28,.45); z-index: 900; display: flex; align-items: center; justify-content: center; padding: 24px; opacity: 0; transition: opacity .16s; }
+.pn-overlay.show { opacity: 1; }
+.pn-overlay .modal { transform: translateY(8px); transition: transform .16s; max-height: 90vh; overflow: auto; }
+.pn-overlay.show .modal { transform: none; }
+.pn-menu { position: fixed; z-index: 950; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; box-shadow: var(--shadow-modal); padding: 6px; min-width: 180px; display: flex; flex-direction: column; gap: 1px; }
+.pn-menu button { display: flex; align-items: center; gap: 10px; padding: 8px 10px; border: 0; background: none; border-radius: 7px; font-size: 13px; font-weight: 500; text-align: left; color: var(--text); cursor: pointer; }
+.pn-menu button .ic { color: var(--text-3); }
+.pn-menu button:hover { background: var(--bg); }
+.pn-menu button.danger { color: var(--s-crit); } .pn-menu button.danger .ic { color: var(--s-crit); }
+.pn-menu .sep { height: 1px; background: var(--border); margin: 4px 0; }
+.table tr.row-new td { animation: rowin 1.2s ease-out; }
+@keyframes rowin { 0% { background: #E4F3FA; } 100% { background: transparent; } }
+.m-login-card { position: relative; z-index: 1; }
+.kpi-mini { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; }
+.kpi-mini .km { border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px; background: var(--surface); cursor: pointer; transition: border-color .12s, box-shadow .12s; }
+.kpi-mini .km:hover { border-color: var(--accent); }
+.kpi-mini .km.active { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-ring); background: #F5FBFE; }
+.kpi-mini .km b { display: block; font-size: 22px; font-weight: 700; letter-spacing: -.02em; font-variant-numeric: tabular-nums; line-height: 1.1; }
+.kpi-mini .km span { font-size: 12px; color: var(--text-2); display: flex; align-items: center; gap: 6px; }
+
 
 </style>
 <div class="" id="app-root"><div id="stage" class="web"></div>
@@ -1567,7 +1772,7 @@ table { border-collapse: collapse; width: 100%; }
       b.addEventListener('click', function () { const n = b.textContent.trim(); if (!/^\d+$/.test(n)) { PN.toast('Loading next page…', 'chevronright'); return; } b.parentElement.querySelectorAll('button').forEach(function (o) { o.classList.remove('active'); }); b.classList.add('active'); PN.toast('Page ' + n, 'list'); });
     });
     // Search inputs filter the first table on the page
-    root.querySelectorAll('.input input[type="search"], .filters .input input, .search input').forEach(function (inp) {
+    root.querySelectorAll('.input input[type="search"]:not([data-custom]), .filters .input input:not([data-custom]), .search input:not([data-custom])').forEach(function (inp) {
       inp.addEventListener('input', function () {
         const q = inp.value.trim().toLowerCase();
         const table = (inp.closest('.page, .screen') || root).querySelector('.table tbody'); if (!table) return;
@@ -1612,6 +1817,7 @@ table { border-collapse: collapse; width: 100%; }
   };
   PN.paintMap = paintMap;
   PN.renderIcons = renderIcons;
+  PN.bind = bindBehaviors;
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', function () { if (!window.PN_MANUAL_INIT) PN.init(document.body); });
   else if (!window.PN_MANUAL_INIT) PN.init(document.body);
@@ -1705,7 +1911,7 @@ table { border-collapse: collapse; width: 100%; }
   };
   C.kpi = function (o) {
     const lines = (o.lines || []).map(function (l) { return '<span>' + C.dot(l.kind) + '&nbsp;<span class="num">' + l.num + '</span>' + esc(l.text) + '</span>'; }).join('');
-    return '<div class="card kpi' + (o.compact ? ' compact' : '') + (o.alert ? ' alert' : '') + (o.cls ? ' ' + o.cls : '') + '">' +
+    return '<div class="card kpi' + (o.compact ? ' compact' : '') + (o.alert ? ' alert' : '') + (o.cls ? ' ' + o.cls : '') + '"' + (o.attr ? ' ' + o.attr : '') + '>' +
       (o.icon ? '<span class="kpi-icon ' + (o.iconKind || '') + '">' + icon(o.icon) + '</span>' : '') +
       C.eyebrow(o.label) + '<div class="kpi-value">' + o.value + (o.unit ? '<small>' + esc(o.unit) + '</small>' : '') + '</div>' +
       (lines ? '<div class="kpi-lines">' + lines + '</div>' : '') +
@@ -1830,6 +2036,118 @@ table { border-collapse: collapse; width: 100%; }
   M.sos = function () { return '<div class="sos-hold"><div class="ring"></div><div class="inner"><b>SOS</b><span>Hold 2 seconds</span></div></div>'; };
 })();
 
+/* ---------- Mobile v3 additions: hero, quick actions, stat tiles, colored list icons ---------- */
+(function () {
+  const C = window.C, M = window.M, esc = C.esc, icon = C.icon;
+  M.hero = function (o) {
+    o = o || {};
+    const stats = o.stats ? '<div class="m-hero-stats">' + o.stats.map(function (s) { return '<div class="hs"><b>' + s[1] + '</b><span>' + esc(s[0]) + '</span></div>'; }).join('') + '</div>' : '';
+    return '<div class="m-hero ' + (o.kind || '') + '">' + (o.top || '') + (o.eyebrow ? '<div class="eyebrow">' + esc(o.eyebrow) + '</div>' : '') + (o.title ? '<div class="m-hero-title">' + esc(o.title) + '</div>' : '') + (o.sub ? '<div class="m-hero-sub">' + o.sub + '</div>' : '') + (o.body || '') + stats + (o.actions ? '<div class="m-hero-actions">' + o.actions + '</div>' : '') + '</div>';
+  };
+  M.actions = function (items) {
+    return '<div class="m-actions">' + items.map(function (a) { return '<a href="' + (a.href || '#') + '"><span class="ai ' + (a.kind || 'ocean') + '">' + icon(a.icon) + '</span><span>' + esc(a.label) + '</span></a>'; }).join('') + '</div>';
+  };
+  M.tiles = function (items) {
+    return '<div class="m-tiles">' + items.map(function (t) { return '<div class="tile' + (t.kind ? ' ' + t.kind : '') + '">' + (t.icon ? '<span class="ti">' + icon(t.icon) + '</span>' : '') + '<b>' + t.value + '</b><span>' + esc(t.label) + '</span></div>'; }).join('') + '</div>';
+  };
+  M.ringStat = function (pct, kind, label, sub) {
+    return '<div class="m-ringstat">' + C.ring(pct, kind, true) + '<div><div class="m-h3">' + label + '</div>' + (sub ? '<div class="m-caption">' + esc(sub) + '</div>' : '') + '</div></div>';
+  };
+  M.avatars = function (list, more) { return '<div class="m-avatar-row">' + list.map(function (a) { return C.avatar(a); }).join('') + (more ? C.avatar('+' + more, 'dark') : '') + '</div>'; };
+  M.greeting = function (title, date) { return '<div class="m-greeting"><div class="m-caption">' + esc(date) + '</div><div class="m-h1">' + title + '</div></div>'; };
+})();
+
+/* ---------- Charts (SVG, no dependencies) · Modal · Popover menu ---------- */
+(function () {
+  const C = window.C, PN = window.PN, esc = C.esc;
+  function niceMax(v) { if (!(v > 0)) return 1; const p = Math.pow(10, Math.floor(Math.log10(v))); const f = v / p; const n = f <= 1 ? 1 : f <= 2 ? 2 : f <= 2.5 ? 2.5 : f <= 5 ? 5 : 10; return n * p; }
+  C.areaChart = function (o) {
+    const series = o.series || [{ values: o.values, color: o.color || '#168FBF', label: o.label }];
+    const n = series[0].values.length, w = o.w || 600, h = o.h || 190, L = 38, R = 14, T = 16, B = 30;
+    const max = niceMax(Math.max.apply(null, series.map(s => Math.max.apply(null, s.values))) * 1.08);
+    const px = i => L + i * (w - L - R) / Math.max(1, n - 1), py = v => T + (h - T - B) * (1 - v / max);
+    let s = '<svg viewBox="0 0 ' + w + ' ' + h + '" class="chart-svg" role="img" aria-label="' + esc(o.label || 'chart') + '">';
+    const steps = 4;
+    for (let i = 0; i <= steps; i++) { const v = max * i / steps, y = py(v); s += '<line x1="' + L + '" x2="' + (w - R) + '" y1="' + y.toFixed(1) + '" y2="' + y.toFixed(1) + '" stroke="#E6EAED" stroke-width="1"/><text x="' + (L - 8) + '" y="' + (y + 4).toFixed(1) + '" text-anchor="end" font-size="11" fill="#667078" font-family="Inter,sans-serif">' + (Number.isInteger(v) ? v : v.toFixed(1)) + '</text>'; }
+    series.forEach(function (sr) {
+      const pts = sr.values.map((v, i) => [px(i), py(v)]);
+      const d = pts.map((p, i) => (i ? 'L' : 'M') + p[0].toFixed(1) + ',' + p[1].toFixed(1)).join(' ');
+      if (sr.area !== false) s += '<path d="' + d + ' L' + pts[pts.length - 1][0].toFixed(1) + ',' + py(0) + ' L' + pts[0][0].toFixed(1) + ',' + py(0) + ' Z" fill="' + sr.color + '" fill-opacity="' + (sr.fillOpacity != null ? sr.fillOpacity : .10) + '"/>';
+      s += '<path d="' + d + '" fill="none" stroke="' + sr.color + '" stroke-width="2.25" stroke-linejoin="round" stroke-linecap="round"' + (sr.dash ? ' stroke-dasharray="5 4"' : '') + '/>';
+      if (o.dots !== false) pts.forEach((p, i) => { if (i === pts.length - 1 || o.allDots) s += '<circle cx="' + p[0].toFixed(1) + '" cy="' + p[1].toFixed(1) + '" r="3.5" fill="#fff" stroke="' + sr.color + '" stroke-width="2"/>'; });
+      if (o.valueLabels) pts.forEach((p, i) => { s += '<text x="' + p[0].toFixed(1) + '" y="' + (p[1] - 8).toFixed(1) + '" text-anchor="middle" font-size="10" fill="#24292D" font-family="Inter,sans-serif">' + sr.values[i] + '</text>'; });
+    });
+    if (o.labels) { const stride = Math.ceil(o.labels.length / (o.maxLabels || 8)); o.labels.forEach((l, i) => { if (i % stride === 0 || i === o.labels.length - 1) s += '<text x="' + px(i).toFixed(1) + '" y="' + (h - 8) + '" text-anchor="middle" font-size="11" fill="#667078" font-family="Inter,sans-serif">' + esc(l) + '</text>'; }); }
+    s += '</svg>';
+    return '<div class="chart">' + s + (series.length > 1 || o.legend ? C.legend(series.map(sr => ({ label: sr.label, color: sr.color }))) : '') + '</div>';
+  };
+  C.barChart = function (o) {
+    const vals = o.values, n = vals.length, w = o.w || 600, h = o.h || 180, L = 36, R = 10, T = 18, B = 28;
+    const max = niceMax(Math.max.apply(null, vals) * 1.1), bw = (w - L - R) / n, gap = Math.min(10, bw * .3);
+    const py = v => T + (h - T - B) * (1 - v / max);
+    let s = '<svg viewBox="0 0 ' + w + ' ' + h + '" class="chart-svg">';
+    for (let i = 0; i <= 4; i++) { const y = py(max * i / 4); s += '<line x1="' + L + '" x2="' + (w - R) + '" y1="' + y.toFixed(1) + '" y2="' + y.toFixed(1) + '" stroke="#E6EAED"/><text x="' + (L - 8) + '" y="' + (y + 4).toFixed(1) + '" text-anchor="end" font-size="11" fill="#667078" font-family="Inter,sans-serif">' + Math.round(max * i / 4) + '</text>'; }
+    vals.forEach((v, i) => { const x = L + i * bw + gap / 2, y = py(v), col = (o.colors && o.colors[i]) || o.color || '#168FBF'; s += '<rect x="' + x.toFixed(1) + '" y="' + y.toFixed(1) + '" width="' + (bw - gap).toFixed(1) + '" height="' + (py(0) - y).toFixed(1) + '" rx="4" fill="' + col + '"/>'; if (o.valueLabels) s += '<text x="' + (x + (bw - gap) / 2).toFixed(1) + '" y="' + (y - 5).toFixed(1) + '" text-anchor="middle" font-size="10" fill="#24292D" font-family="Inter,sans-serif">' + v + '</text>'; if (o.labels) s += '<text x="' + (x + (bw - gap) / 2).toFixed(1) + '" y="' + (h - 8) + '" text-anchor="middle" font-size="11" fill="#667078" font-family="Inter,sans-serif">' + esc(o.labels[i]) + '</text>'; });
+    return '<div class="chart">' + s + '</svg></div>';
+  };
+  C.donut = function (o) {
+    const parts = o.parts, total = parts.reduce((a, p) => a + p.value, 0), size = o.size || 150, th = o.thickness || 20, r = (size - th) / 2, circ = 2 * Math.PI * r;
+    let off = 0, s = '<svg viewBox="0 0 ' + size + ' ' + size + '" class="donut-svg" style="width:' + size + 'px;height:' + size + 'px">';
+    s += '<circle cx="' + size / 2 + '" cy="' + size / 2 + '" r="' + r + '" fill="none" stroke="#EEF2F4" stroke-width="' + th + '"/>';
+    parts.forEach(p => { const len = total ? circ * p.value / total : 0; s += '<circle cx="' + size / 2 + '" cy="' + size / 2 + '" r="' + r + '" fill="none" stroke="' + p.color + '" stroke-width="' + th + '" stroke-dasharray="' + Math.max(0, len - 2).toFixed(2) + ' ' + (circ - Math.max(0, len - 2)).toFixed(2) + '" stroke-dashoffset="' + (-off).toFixed(2) + '" transform="rotate(-90 ' + size / 2 + ' ' + size / 2 + ')" stroke-linecap="butt"/>'; off += len; });
+    s += '<text x="' + size / 2 + '" y="' + (size / 2 - 2) + '" text-anchor="middle" font-size="26" font-weight="700" fill="#1E2327" font-family="Inter,sans-serif">' + (o.center != null ? o.center : total) + '</text><text x="' + size / 2 + '" y="' + (size / 2 + 16) + '" text-anchor="middle" font-size="11" fill="#667078" font-family="Inter,sans-serif">' + esc(o.centerLabel || 'total') + '</text></svg>';
+    const legend = '<div class="donut-legend">' + parts.map(p => '<div class="dl' + (p.href ? ' link' : '') + '"' + (p.href ? ' data-go-href="' + p.href + '"' : '') + '><i style="background:' + p.color + '"></i><span class="l">' + esc(p.label) + '</span><b>' + p.value + '</b><small>' + (total ? Math.round(100 * p.value / total) : 0) + '%</small></div>').join('') + '</div>';
+    return '<div class="donut">' + s + legend + '</div>';
+  };
+  C.hstack = function (rows, o) {
+    o = o || {};
+    const max = o.max || Math.max.apply(null, rows.map(r => r.parts.reduce((a, p) => a + p.value, 0)));
+    return '<div class="hstack">' + rows.map(r => { const tot = r.parts.reduce((a, p) => a + p.value, 0); return '<div class="hs-row"><span class="hs-l">' + esc(r.label) + '</span><div class="hs-track">' + r.parts.map(p => '<i style="width:' + (100 * p.value / max).toFixed(1) + '%;background:' + p.color + '" title="' + esc(p.label) + ' ' + p.value + '"></i>').join('') + '</div><b>' + tot + '</b></div>'; }).join('') + '</div>' + (o.legend ? C.legend(o.legend) : '');
+  };
+  C.selectNative = function (o) {
+    const opts = (o.options || []).map(function (op) { const v = typeof op === 'string' ? op : op[0], l = typeof op === 'string' ? op : op[1]; return '<option value="' + esc(v) + '"' + (o.value === v ? ' selected' : '') + '>' + esc(l) + '</option>'; }).join('');
+    const box = '<div class="input' + (o.sm ? ' sm' : '') + ' has-select"' + (o.style ? ' style="' + o.style + '"' : '') + '>' + (o.icon ? C.icon(o.icon) : '') + '<select name="' + esc(o.name || '') + '"' + (o.attr ? ' ' + o.attr : '') + '>' + (o.placeholder ? '<option value="">' + esc(o.placeholder) + '</option>' : '') + opts + '</select>' + C.icon('chevrondown', 'chev ic-16') + '</div>';
+    return o.label ? '<div class="field"><label>' + esc(o.label) + '</label>' + box + (o.help ? '<div class="help">' + esc(o.help) + '</div>' : '') + '</div>' : box;
+  };
+  C.textInput = function (o) {
+    const box = '<div class="input' + (o.sm ? ' sm' : '') + (o.textarea ? ' textarea' : '') + '">' + (o.icon ? C.icon(o.icon) : '') + (o.textarea ? '<textarea name="' + esc(o.name) + '" rows="3" placeholder="' + esc(o.placeholder || '') + '">' + esc(o.value || '') + '</textarea>' : '<input name="' + esc(o.name) + '" type="' + (o.type || 'text') + '" value="' + esc(o.value || '') + '" placeholder="' + esc(o.placeholder || '') + '"' + (o.required ? ' required' : '') + (o.attr ? ' ' + o.attr : '') + '>') + '</div>';
+    return o.label ? '<div class="field' + (o.error ? ' invalid' : '') + '"><label>' + esc(o.label) + (o.required ? ' <span class="crit">*</span>' : '') + '</label>' + box + (o.help ? '<div class="help">' + esc(o.help) + '</div>' : '') + (o.error ? '<div class="err">' + C.icon('alert', 'ic-14') + esc(o.error) + '</div>' : '') + '</div>' : box;
+  };
+
+  /* Modal + confirm */
+  PN.modal = function (o) {
+    const ov = document.createElement('div'); ov.className = 'pn-overlay';
+    ov.innerHTML = '<div class="modal" role="dialog" aria-modal="true">' + (o.title ? '<div class="row between"><div class="t-h3">' + o.title + '</div><button class="icon-btn" data-close aria-label="Close">' + PN.icon('x') + '</button></div>' : '') + (o.body || '') + (o.actions ? '<div class="row end s8">' + o.actions + '</div>' : '') + '</div>';
+    document.body.appendChild(ov); PN.renderIcons(ov);
+    function close() { ov.classList.remove('show'); setTimeout(function () { ov.remove(); }, 160); }
+    requestAnimationFrame(function () { ov.classList.add('show'); });
+    ov.addEventListener('click', function (e) { if (e.target === ov) close(); });
+    ov.querySelectorAll('[data-close]').forEach(function (b) { b.addEventListener('click', close); });
+    const c = ov.querySelector('[data-confirm]'); if (c && o.onConfirm) c.addEventListener('click', function () { if (o.onConfirm(ov) !== false) close(); });
+    return { close: close, el: ov };
+  };
+  PN.confirm = function (o) {
+    return PN.modal({ title: o.title, body: '<p class="t-body muted">' + o.text + '</p>' + (o.body || ''), actions: C.btn('Cancel', 'ghost', null, 'data-close') + C.btn(o.confirmLabel || 'Delete', o.danger === false ? 'primary' : 'destructive solid', o.icon || (o.danger === false ? 'check' : 'trash'), 'data-confirm'), onConfirm: o.onConfirm });
+  };
+  /* Popover menu anchored to an element */
+  PN.menu = function (anchor, items) {
+    document.querySelectorAll('.pn-menu').forEach(function (m) { m.remove(); });
+    const m = document.createElement('div'); m.className = 'pn-menu';
+    m.innerHTML = items.map(function (it, i) { return it === '-' ? '<div class="sep"></div>' : '<button type="button" class="' + (it.danger ? 'danger' : '') + '" data-i="' + i + '">' + PN.icon(it.icon || 'circle', 'ic-16') + esc(it.label) + '</button>'; }).join('');
+    document.body.appendChild(m);
+    const r = anchor.getBoundingClientRect(); const mw = 180;
+    m.style.top = Math.min(window.innerHeight - m.offsetHeight - 8, r.bottom + 6) + 'px';
+    m.style.left = Math.max(8, Math.min(window.innerWidth - mw - 8, r.right - mw)) + 'px';
+    function close() { m.remove(); document.removeEventListener('click', onDoc, true); }
+    function onDoc(e) { if (!m.contains(e.target)) close(); }
+    setTimeout(function () { document.addEventListener('click', onDoc, true); }, 0);
+    m.querySelectorAll('button[data-i]').forEach(function (b) { b.addEventListener('click', function (e) { e.stopPropagation(); const it = items[+b.getAttribute('data-i')]; close(); if (it.onClick) it.onClick(); else if (it.href && PN.route) PN.route(it.href.replace(/\.html/, '')); }); });
+    return m;
+  };
+  /* Init a freshly rendered fragment (icons + behaviors) */
+  PN.initFragment = function (el) { PN.renderIcons(el); el.querySelectorAll('.map[data-map]').forEach(PN.paintMap); PN.bind(el); };
+})();
+
 /* ============================================================
    PAGEO Navigator — mock operational data (04 Sep 2026, WIB)
    Shared by web + mobile pages. Example data, not real records.
@@ -1921,6 +2239,33 @@ window.DATA = {
 };
 
 /* ============================================================
+   PAGEO Navigator — local data store (CRUD demo)
+   Seeds from DATA, persists to localStorage so edits survive reloads.
+   ============================================================ */
+(function () {
+  const PN = window.PN;
+  const KEY = 'pageo-navigator-store-v1';
+  let db = null;
+  const clone = function (x) { return JSON.parse(JSON.stringify(x)); };
+  function seed() { const D = window.DATA; return { v: 1, people: clone(D.people), assets: clone(D.assets), projects: clone(D.projects), alerts: clone(D.alerts) }; }
+  function load() {
+    if (db) return db;
+    try { const raw = localStorage.getItem(KEY); if (raw) { const parsed = JSON.parse(raw); if (parsed && parsed.v === 1) { db = parsed; return db; } } } catch (e) {}
+    db = seed(); save(); return db;
+  }
+  function save() { try { localStorage.setItem(KEY, JSON.stringify(db)); } catch (e) {} }
+  PN.store = {
+    all: function (c) { return load()[c] || []; },
+    get: function (c, id) { return load()[c].find(function (x) { return x.id === id; }); },
+    add: function (c, item) { load()[c].unshift(item); save(); return item; },
+    update: function (c, id, patch) { const it = PN.store.get(c, id); if (it) Object.assign(it, patch); save(); return it; },
+    remove: function (c, id) { const arr = load()[c]; const i = arr.findIndex(function (x) { return x.id === id; }); if (i >= 0) arr.splice(i, 1); save(); return i >= 0; },
+    reset: function () { db = null; try { localStorage.removeItem(KEY); } catch (e) {} load(); },
+    count: function (c, fn) { return PN.store.all(c).filter(fn || function () { return true; }).length; }
+  };
+})();
+
+/* ============================================================
    PAGEO Navigator — per-app hash router
    PN.app({ kind: 'web' | 'mobile' | 'ds', home: 'overview' })
    Pages register with PN.page(id, { title, nav, crumb, render, after, hidden })
@@ -1936,14 +2281,19 @@ window.DATA = {
     if (!href || /^(https?:|mailto:|tel:)/.test(href) || href === '#') return null;
     if (href.charAt(0) === '#') return href.slice(1) || null;
     if (href.indexOf('/') >= 0) return null;
-    if (/\.html$/.test(href)) return href.replace(/\.html$/, '');
+    if (/\.html(\?.*)?$/.test(href)) return href.replace(/\.html(\?.*)?$/, '$1');
     return null;
   }
 
   PN.route = function (id, opts) {
     opts = opts || {};
+    let qs = ''; const qi = (id || '').indexOf('?');
+    if (qi >= 0) { qs = id.slice(qi + 1); id = id.slice(0, qi); }
+    const params = {}; if (qs) { qs.split('&').forEach(function (kv) { const p = kv.split('='); params[decodeURIComponent(p[0])] = decodeURIComponent(p[1] || ''); }); }
+    PN.params = params;
     if (!PN.pages[id]) id = cfg.home;
     const def = PN.pages[id];
+    const full = id + (qs ? '?' + qs : '');
     const stage = document.getElementById('stage');
     Array.prototype.slice.call(stage.attributes).forEach(function (a) { if (a.name.indexOf('data-') === 0) stage.removeAttribute(a.name); });
     stage.className = cfg.kind;
@@ -1952,14 +2302,14 @@ window.DATA = {
     if (cfg.kind === 'mobile') {
       stage.innerHTML = '<div class="phone" data-mnav="' + (def.nav || 'none') + '" data-time="' + (def.time || '15:42') + '"' + (def.offline ? ' data-offline' : '') + (def.lowbatt ? ' data-lowbatt' : '') + '><div class="screen' + (def.dark ? ' dark' : '') + '">' + def.render() + '</div></div>';
     } else {
-      stage.innerHTML = '<main class="page' + (def.pageCls ? ' ' + def.pageCls : '') + '" id="page">' + def.render() + '</main>';
+      stage.innerHTML = '<main class="page' + (def.pageCls ? ' ' + def.pageCls : '') + '" id="page">' + def.render(params) + '</main>';
     }
-    current = id;
+    current = full;
     PN.init(stage);
     if (def.after) def.after(stage);
     stage.scrollTop = 0;
     document.title = def.title + ' · ' + cfg.title;
-    if (location.hash !== '#' + id) { if (opts.replace) history.replaceState(null, '', '#' + id); else history.pushState(null, '', '#' + id); }
+    if (location.hash !== '#' + full) { if (opts.replace) history.replaceState(null, '', '#' + full); else history.pushState(null, '', '#' + full); }
     if (cfg.onRoute) cfg.onRoute(id, def);
   };
   PN.current = function () { return current; };
@@ -1985,9 +2335,139 @@ window.DATA = {
   };
 })();
 
+/* ============================================================
+   Dashboard engines: PN.registry (filterable table + summary-card filters + row CRUD)
+                      PN.form (create / edit page bound to PN.store)
+   ============================================================ */
+(function () {
+  const PN = window.PN, C = window.C, esc = C.esc;
+
+  PN.registry = function (cfg) {
+    const state = { q: '', f: {} };
+    function all() { return PN.store.all(cfg.coll); }
+    function filtered() {
+      const q = state.q.trim().toLowerCase();
+      return all().filter(function (r) {
+        for (const k in state.f) { if (state.f[k] && String(r[k]) !== String(state.f[k])) return false; }
+        if (q && !(cfg.search ? cfg.search(r, q) : JSON.stringify(r).toLowerCase().indexOf(q) >= 0)) return false;
+        return true;
+      });
+    }
+    function kpiHtml() {
+      const rows = all();
+      return '<div class="grid kpis g16" style="grid-template-columns:repeat(' + cfg.kpis.length + ',minmax(0,1fr))">' + cfg.kpis.map(function (k) {
+        const value = typeof k.value === 'function' ? k.value(rows) : k.value;
+        const f = k.filter; const active = f && state.f[f.key] === f.value;
+        return C.kpi({ label: k.label, value: value, icon: k.icon, iconKind: k.iconKind, lines: k.lines, compact: true, cls: (f ? 'filter' : '') + (active ? ' active' : ''), attr: f ? 'data-filter="' + esc(f.key) + '=' + esc(f.value) + '" role="button" tabindex="0"' : '' });
+      }).join('') + '</div>';
+    }
+    function filtersHtml() {
+      const rows = all();
+      return '<div class="filters">' + C.input({ icon: 'search', placeholder: cfg.placeholder || 'Search…', sm: true, style: 'width:260px', value: state.q }).replace('<input ', '<input data-custom data-search ') +
+        (cfg.filters || []).map(function (f) {
+          const opts = typeof f.options === 'function' ? f.options(rows) : f.options || Array.from(new Set(rows.map(function (r) { return r[f.key]; }))).filter(Boolean).sort();
+          return C.selectNative({ name: f.key, icon: f.icon, sm: true, placeholder: (f.label || f.key) + ' · All', options: opts, value: state.f[f.key] || '', attr: 'data-filter-select="' + f.key + '"', style: 'min-width:170px' });
+        }).join('') + (cfg.extraFilters || '') + '</div><div class="filter-bar" id="reg-fbar"></div>';
+    }
+    function fbarHtml(n) {
+      const chips = [];
+      if (state.q) chips.push({ k: 'q', label: 'Search: “' + esc(state.q) + '”' });
+      for (const k in state.f) if (state.f[k]) { const f = (cfg.filters || []).find(function (x) { return x.key === k; }); const kp = cfg.kpis.find(function (x) { return x.filter && x.filter.key === k; }); chips.push({ k: k, label: ((f && f.label) || (kp && kp.filterLabel) || k) + ': ' + esc(cfg.labelFor ? cfg.labelFor(k, state.f[k]) : state.f[k]) }); }
+      return (chips.length ? '<span>Filters</span>' + chips.map(function (c) { return '<span class="fchip">' + c.label + '<button data-clear="' + c.k + '" aria-label="Remove filter">' + PN.icon('x') + '</button></span>'; }).join('') + '<button class="clear" data-clear="*">Clear all</button>' : '<span class="muted">No filters · click a summary card or use the selects to filter</span>') +
+        '<span class="count">' + n + ' of ' + all().length + ' ' + (cfg.noun || 'rows') + '</span>';
+    }
+    function tableHtml(rows) {
+      const cols = cfg.cols.concat([{ key: '_act', label: '', cls: 'actions', render: function (r) { return '<button class="btn ghost xs icon-only" data-menu="' + esc(cfg.rowId(r)) + '" data-bound="1" aria-label="Row actions">' + PN.icon('more') + '</button>'; } }]);
+      if (!rows.length) return '<div class="card p0">' + C.empty({ icon: cfg.emptyIcon || 'search', title: 'No ' + (cfg.noun || 'rows') + ' match', text: 'Try clearing a filter or searching for a different term.' }) + '</div>';
+      return C.table({ sortable: true, cols: cols, rows: rows, footText: 'Showing ' + rows.length + ' of ' + all().length + ' ' + (cfg.noun || 'rows'), pages: Math.max(1, Math.ceil(all().length / 12)) });
+    }
+    function render() {
+      const p = PN.params || {};
+      (cfg.filters || []).forEach(function (f) { if (p[f.key]) state.f[f.key] = p[f.key]; });
+      cfg.kpis.forEach(function (k) { if (k.filter && p[k.filter.key]) state.f[k.filter.key] = p[k.filter.key]; });
+      if (p.q) state.q = p.q;
+      return C.pageHead({ eyebrow: cfg.eyebrow, title: cfg.title, sub: cfg.sub, actions: (cfg.actions || '') + C.btn('Export', 'ghost sm', 'download') + (cfg.newHref ? '<a class="btn primary sm" href="' + cfg.newHref + '">' + PN.icon('plus') + esc(cfg.newLabel || 'New') + '</a>' : '') }) +
+        '<div id="reg-kpis">' + kpiHtml() + '</div>' + (cfg.extra || '') + '<div id="reg-filters">' + filtersHtml() + '</div><div id="reg-table"></div>';
+    }
+    function after(stage) {
+      const root = stage;
+      function draw() {
+        const rows = filtered();
+        root.querySelector('#reg-table').innerHTML = tableHtml(rows);
+        root.querySelector('#reg-fbar').innerHTML = fbarHtml(rows.length);
+        root.querySelector('#reg-kpis').innerHTML = kpiHtml();
+        PN.initFragment(root.querySelector('#reg-table')); PN.initFragment(root.querySelector('#reg-kpis')); PN.renderIcons(root.querySelector('#reg-fbar'));
+        bindKpis(); bindMenus(); bindFbar();
+        root.querySelectorAll('[data-filter-select]').forEach(function (s) { s.value = state.f[s.getAttribute('data-filter-select')] || ''; });
+      }
+      function bindKpis() {
+        root.querySelectorAll('[data-filter]').forEach(function (k) {
+          k.addEventListener('click', function () { const kv = k.getAttribute('data-filter').split('='); state.f[kv[0]] = state.f[kv[0]] === kv[1] ? '' : kv[1]; draw(); });
+          k.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); k.click(); } });
+        });
+      }
+      function bindMenus() {
+        root.querySelectorAll('[data-menu]').forEach(function (b) {
+          b.addEventListener('click', function (e) {
+            e.stopPropagation(); const id = b.getAttribute('data-menu'); const r = PN.store.get(cfg.coll, id); if (!r) return;
+            PN.menu(b, [
+              { icon: 'eye', label: 'View details', href: cfg.detailHref(r) },
+              { icon: 'pencil', label: 'Edit', href: cfg.editHref(r) },
+              cfg.extraMenu ? cfg.extraMenu(r, draw) : null, '-',
+              { icon: 'trash', label: 'Delete', danger: true, onClick: function () { PN.confirm({ title: 'Delete ' + esc(cfg.deleteLabel(r)) + '?', text: cfg.deleteText || 'This removes the record from the registry. History and reports keep their own copies.', onConfirm: function () { PN.store.remove(cfg.coll, id); PN.toast('Deleted ' + cfg.deleteLabel(r), 'trash'); draw(); } }); } }
+            ].filter(Boolean));
+          });
+        });
+      }
+      function bindFbar() {
+        root.querySelectorAll('[data-clear]').forEach(function (b) { b.addEventListener('click', function () { const k = b.getAttribute('data-clear'); if (k === '*') { state.q = ''; state.f = {}; const si = root.querySelector('[data-search]'); if (si) si.value = ''; } else if (k === 'q') { state.q = ''; const si = root.querySelector('[data-search]'); if (si) si.value = ''; } else state.f[k] = ''; draw(); }); });
+      }
+      const si = root.querySelector('[data-search]'); if (si) si.addEventListener('input', function () { state.q = si.value; draw(); });
+      root.querySelectorAll('[data-filter-select]').forEach(function (s) { s.addEventListener('change', function () { state.f[s.getAttribute('data-filter-select')] = s.value; draw(); }); });
+      draw();
+      if (cfg.after) cfg.after(root, draw);
+    }
+    return { render: render, after: after };
+  };
+
+  PN.form = function (cfg) {
+    function field(f, rec) {
+      const v = rec ? (f.get ? f.get(rec) : rec[f.name]) : (f.default || '');
+      const html = f.type === 'select' ? C.selectNative({ name: f.name, label: f.label, options: f.options, value: v, icon: f.icon, placeholder: f.placeholder, help: f.help }) : C.textInput({ name: f.name, label: f.label, value: v, type: f.type || 'text', icon: f.icon, placeholder: f.placeholder, required: f.required, help: f.help, textarea: f.type === 'textarea', attr: f.required ? 'data-required' : '' });
+      return '<div class="' + (f.span2 ? 'span2' : '') + '">' + html + '</div>';
+    }
+    return {
+      render: function (params) {
+        const id = params && params.id; const rec = id ? PN.store.get(cfg.coll, id) : null; const edit = !!rec;
+        const sections = cfg.sections.map(function (s) { return '<div class="form-section">' + C.eyebrow(s.title) + '<div class="form-grid">' + s.fields.map(function (f) { return field(f, rec); }).join('') + '</div></div>'; }).join('');
+        return C.pageHead({ eyebrow: cfg.eyebrow, title: edit ? (cfg.editTitle ? cfg.editTitle(rec) : 'Edit ' + cfg.noun) : 'New ' + cfg.noun, sub: edit ? (cfg.editSub ? cfg.editSub(rec) : 'Changes are saved to the local registry') : cfg.newSub,
+            actions: '<a class="btn ghost sm" href="' + cfg.backHref + '">' + PN.icon('arrowleft') + 'Back to ' + cfg.backLabel + '</a>' }) +
+          C.grid([C.col(8, '<form id="pn-form" class="card p24" style="gap:28px" data-edit="' + (edit ? '1' : '') + '" data-id="' + esc(id || '') + '">' + sections + '<div class="row between"><div>' + (edit ? C.btn('Delete ' + cfg.noun, 'destructive', 'trash', 'data-bound="1" id="pn-delete"') : '') + '</div><div class="row s8"><a class="btn ghost" href="' + cfg.backHref + '">Cancel</a>' + C.btn(edit ? 'Save changes' : 'Create ' + cfg.noun, 'primary', 'check', 'data-bound="1" id="pn-save" type="submit"') + '</div></div></form>'),
+            C.col(4, C.card({ title: edit ? 'Record' : 'Before you save', body: edit ? C.kv(cfg.summary(rec), { stack: true }) : '<div class="stack s12 t-body muted" style="font-size:13px">' + (cfg.tips || []).map(function (t) { return '<div class="row top s8">' + PN.icon('info', 'ic-16') + '<span>' + t + '</span></div>'; }).join('') + '</div>' }) + (cfg.side ? cfg.side(rec) : ''))]);
+      },
+      after: function (stage) {
+        const form = stage.querySelector('#pn-form'); if (!form) return;
+        const edit = form.getAttribute('data-edit') === '1', id = form.getAttribute('data-id');
+        function values() { const v = {}; form.querySelectorAll('[name]').forEach(function (el) { v[el.name] = el.value.trim(); }); return v; }
+        function validate() { let ok = true; form.querySelectorAll('[data-required]').forEach(function (el) { const fld = el.closest('.field'); fld.classList.toggle('invalid', !el.value.trim()); let err = fld.querySelector('.err'); if (!el.value.trim()) { ok = false; if (!err) { fld.insertAdjacentHTML('beforeend', '<div class="err">' + PN.icon('alert', 'ic-14') + 'This field is required.</div>'); } } else if (err) err.remove(); }); return ok; }
+        form.addEventListener('submit', function (e) {
+          e.preventDefault(); if (!validate()) { PN.toast('Please complete the required fields', 'alert'); return; }
+          const v = values(); const existing = edit ? PN.store.get(cfg.coll, id) : null;
+          const rec = cfg.toRecord(v, existing);
+          if (edit) { PN.store.update(cfg.coll, id, rec); PN.toast('Saved ' + cfg.label(rec), 'checkcircle'); }
+          else { if (PN.store.get(cfg.coll, rec.id)) { PN.toast(rec.id + ' already exists — choose another ID', 'alert'); return; } PN.store.add(cfg.coll, rec); PN.toast('Created ' + cfg.label(rec), 'checkcircle'); }
+          PN.route(cfg.backHref.replace('.html', '') + (edit ? '' : '?q=' + encodeURIComponent(rec.id)));
+        });
+        const del = stage.querySelector('#pn-delete'); if (del) del.addEventListener('click', function () { const rec = PN.store.get(cfg.coll, id); PN.confirm({ title: 'Delete ' + esc(cfg.label(rec)) + '?', text: 'This removes the record from the registry.', onConfirm: function () { PN.store.remove(cfg.coll, id); PN.toast('Deleted ' + cfg.label(rec), 'trash'); PN.route(cfg.backHref.replace('.html', '')); } }); });
+      }
+    };
+  };
+})();
+
 // handwritten — Command Center, fully data-driven (Template A: KPI + Map + Alerts + Activity)
 PN.page('overview', {
   title: 'Command Center', icon: 'grid', nav: 'overview', crumb: 'Global / Operations / Overview',
+  after(stage) { stage.querySelectorAll('[data-go-href]').forEach(function (el) { el.addEventListener('click', function () { PN.route(el.getAttribute('data-go-href').replace(/\.html/, '')); }); }); },
   render() {
     const D = window.DATA, K = D.kpis;
     const kpis = [
@@ -2015,7 +2495,12 @@ PN.page('overview', {
     return [
       C.pageHead({ eyebrow: 'Operations Command Center', title: 'One operational picture', sub: 'People, equipment, projects, vessels and safety · ' + K.projects.active + ' active projects · ' + K.projects.offshore + ' offshore',
         actions: C.select('All projects', { icon: 'clipboard', sm: true, style: 'width:200px' }) + C.btn('Export', 'ghost sm', 'download') + C.btn('Start muster', 'primary sm', 'siren') }),
-      C.grid(kpis, { cls: 'kpis', style: 'grid-template-columns:repeat(5,minmax(0,1fr))' }),
+      C.grid(kpis.map(function (k, i) { return '<a href="' + ['personnel.html', 'personnel.html?kind=info', 'assets.html', 'assets.html?status=In%20Transit', 'alerts.html'][i] + '" style="color:inherit;display:block">' + k + '</a>'; }), { cls: 'kpis', style: 'grid-template-columns:repeat(5,minmax(0,1fr))' }),
+      C.grid([
+        C.col(4, C.card({ title: 'Personnel status', link: { label: 'Personnel', href: 'personnel.html' }, body: C.donut({ size: 140, thickness: 18, centerLabel: 'on operation', parts: [{ label: 'On site', value: 55, color: '#168FBF', href: 'personnel.html?kind=info' }, { label: 'Offshore', value: 41, color: '#08698F', href: 'personnel.html?kind=info' }, { label: 'In transit', value: 12, color: '#4FB7D9', href: 'personnel.html?kind=transit' }, { label: 'Idle', value: 11, color: '#D89414', href: 'personnel.html?kind=warn' }, { label: 'Offline', value: 7, color: '#7C858A', href: 'personnel.html?kind=off' }, { label: 'Alert', value: 2, color: '#C43D3D', href: 'personnel.html?kind=crit' }] }) })),
+        C.col(4, C.card({ title: 'Assets by status', link: { label: 'Registry', href: 'assets.html' }, body: C.donut({ size: 140, thickness: 18, centerLabel: 'registered', parts: [{ label: 'Available', value: K.assets.available, color: '#17875D', href: 'assets.html?status=Available' }, { label: 'Deployed', value: K.assets.deployed, color: '#168FBF', href: 'assets.html?status=Deployed' }, { label: 'In transit', value: K.assets.transit, color: '#4FB7D9', href: 'assets.html?status=In%20Transit' }, { label: 'Maintenance', value: K.assets.maintenance, color: '#D89414', href: 'assets.html?status=Maintenance' }, { label: 'Unassigned', value: K.assets.unassigned, color: '#B1B8BC' }, { label: 'Missing', value: K.assets.missing, color: '#C43D3D', href: 'assets.html?kind=crit' }] }) })),
+        C.col(4, C.card({ title: 'Alerts · last 7 days', body: C.areaChart({ h: 160, labels: ['29 Aug', '30', '31', '01 Sep', '02', '03', '04'], series: [{ label: 'P3–P4', values: [5, 7, 4, 6, 3, 8, 5], color: '#168FBF' }, { label: 'P1–P2', values: [1, 2, 0, 1, 1, 2, 2], color: '#C43D3D', fillOpacity: .08 }] }) + '<div class="row s16 t-caption"><span>Open now <b class="crit">3</b></span><span>Acknowledged today <b>11</b></span><span>MTTA <b>4 min 12 s</b></span></div>' }))
+      ]),
       C.grid([
         C.col(8, '<div class="card p0"><div class="card-head">' + mapHead + '</div>' + map + '</div>'),
         C.col(4, C.stack([
@@ -2030,7 +2515,7 @@ PN.page('overview', {
       ]),
       C.grid([
         C.col(8, C.card({ cls: 'p0', title: 'Recent activity', right: C.seg(['All', 'People', 'Assets', 'Alerts'], 0, { sm: true }), body: '<div style="padding:4px 20px">' + C.feed(D.activity) + '</div>', foot: '<div class="row between"><span class="t-caption">Showing ' + D.activity.length + ' of 312 events today</span>' + C.link('Full movement log', 'asset-movement.html') + '</div>' })),
-        C.col(4, C.card({ title: 'Personnel accounted', right: '<span class="t-caption">Last 12 h</span>', body: C.bars([62, 66, 74, 80, 88, 92, 95, 97, 96, 94, 95, 95], ['04', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14', '15'], { seq: true }) + C.divider() + C.kv([['Peak accounted', '124 · 11:00'], ['Current', K.people.accounted + ' / ' + K.people.onOperation], ['Freshness policy', 'Live &lt; 1 min · Offline &gt; 30 min']]) }))
+        C.col(4, C.card({ title: 'Personnel accounted', right: '<span class="t-caption">Last 12 h</span>', body: C.areaChart({ h: 150, values: [62, 66, 74, 80, 88, 92, 95, 97, 96, 94, 95, 95], labels: ['04:00', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14', '15:00'], color: '#17875D', maxLabels: 6 }) + C.divider() + C.kv([['Peak accounted', '124 · 11:00'], ['Current', K.people.accounted + ' / ' + K.people.onOperation], ['Freshness policy', 'Live &lt; 1 min · Offline &gt; 30 min']]) }))
       ])
     ].join('');
   }
@@ -2207,186 +2692,36 @@ PN.page("live-map", {
   }
 });
 
-/* Converted from web/projects.html — edit freely; delete "// converted" to mark as handwritten */
-// converted
-PN.page("projects", {
-  title: "Projects",
-  icon: "clipboard",
-  nav: "projects",
-  crumb: "Global / Operations / Projects",
-  render() {
-    return `<div class="page-head">
-    <div class="titles">
-      <div class="eyebrow">Operations</div>
-      <h1>Projects</h1>
-      <div class="sub">Project is the center of the data model — personnel, assets, vessels and alerts roll up to it</div>
-    </div>
-    <div class="actions">
-      <button class="btn ghost sm"><i data-icon="download"></i>Export</button>
-      <button class="btn primary sm"><i data-icon="plus"></i>New project</button>
-    </div>
-  </div>
-
-  <!-- Filters -->
-  <div class="filters">
-    <div class="input sm" style="width:260px"><i data-icon="search"></i><input type="search" placeholder="Search project, client or vessel" aria-label="Search projects"></div>
-    <div class="input sm select"><span>Status · All</span><i data-icon="chevrondown" class="chev"></i></div>
-    <div class="input sm select"><span>Type · All</span><i data-icon="chevrondown" class="chev"></i></div>
-    <div class="input sm select"><span>Vessel · All</span><i data-icon="chevrondown" class="chev"></i></div>
-    <div class="input sm select"><span>Site · All</span><i data-icon="chevrondown" class="chev"></i></div>
-    <div class="input sm select"><i data-icon="calendar"></i><span>Sep 2026</span><i data-icon="chevrondown" class="chev"></i></div>
-    <div class="seg sm ml-auto"><button class="active">Active</button><button>Planned</button><button>Closed</button><button>All</button></div>
-  </div>
-
-  <!-- KPI strip -->
-  <div class="grid kpis g16" style="grid-template-columns:repeat(4,minmax(0,1fr))">
-    <div class="card kpi compact p16">
-      <div class="eyebrow">Active projects</div>
-      <div class="kpi-value">7</div>
-      <div class="kpi-lines"><span><span class="dot ok"></span>&nbsp;<span class="num">1</span>planned · starts 22 Sep</span></div>
-    </div>
-    <div class="card kpi compact p16">
-      <div class="eyebrow">Offshore</div>
-      <div class="kpi-value">3</div>
-      <div class="kpi-lines"><span><span class="dot info"></span>&nbsp;<span class="num">53</span>personnel on vessels</span></div>
-    </div>
-    <div class="card kpi compact p16">
-      <div class="eyebrow">Onshore</div>
-      <div class="kpi-value">4</div>
-      <div class="kpi-lines"><span><span class="dot warn"></span>&nbsp;<span class="num">1</span>mobilizing · <span class="num" style="min-width:0">1</span>demobilizing</span></div>
-    </div>
-    <div class="card kpi compact alert p16">
-      <div class="eyebrow">Open alerts</div>
-      <div class="kpi-value">1</div>
-      <div class="kpi-lines"><span><span class="dot crit"></span>&nbsp;<span class="num">1</span>P2 · Project Alpha</span></div>
-    </div>
-  </div>
-
-  <!-- Registry table -->
-  <div class="card p0">
-    <div class="table-wrap">
-      <table class="table">
-        <thead>
-          <tr>
-            <th class="sortable">Project <i data-icon="chevronsupdown"></i></th>
-            <th>Status</th>
-            <th>Vessel</th>
-            <th>Site</th>
-            <th class="num">Personnel</th>
-            <th class="num">Assets</th>
-            <th class="num">Open alerts</th>
-            <th>Start – End</th>
-            <th class="sortable">Last activity <i data-icon="arrowdown"></i></th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><div class="cell-entity"><span class="entity-tile" style="padding:0;border:0;background:none"><span class="sym"><i data-icon="waves"></i></span></span><div><a class="strong" href="project-detail.html">Project Alpha</a><div class="sub">Offshore Construction Survey</div></div></div></td>
-            <td><span class="chip info sm"><span class="dot info"></span>Offshore</span></td>
-            <td>MV PAGEO 02</td>
-            <td>Offshore Work Area · Java Sea</td>
-            <td class="num">24 / 26</td>
-            <td class="num">47</td>
-            <td class="num"><span class="sev p2">1</span></td>
-            <td class="tnum">04 Sep – 18 Sep 2026</td>
-            <td class="tnum">15:42</td>
-            <td class="actions"><button class="icon-btn" aria-label="More"><i data-icon="more"></i></button></td>
-          </tr>
-          <tr>
-            <td><div class="cell-entity"><span class="entity-tile" style="padding:0;border:0;background:none"><span class="sym"><i data-icon="waves"></i></span></span><div><a class="strong" href="project-detail.html">Project Bravo</a><div class="sub">Pipeline Inspection ROV</div></div></div></td>
-            <td><span class="chip info sm"><span class="dot info"></span>Offshore</span></td>
-            <td>MV PAGEO 01</td>
-            <td>Pipeline KP 12 – 48</td>
-            <td class="num">18 / 18</td>
-            <td class="num">31</td>
-            <td class="num faint">0</td>
-            <td class="tnum">28 Aug – 12 Sep 2026</td>
-            <td class="tnum">15:41</td>
-            <td class="actions"><button class="icon-btn" aria-label="More"><i data-icon="more"></i></button></td>
-          </tr>
-          <tr>
-            <td><div class="cell-entity"><span class="entity-tile" style="padding:0;border:0;background:none"><span class="sym"><i data-icon="anchor"></i></span></span><div><a class="strong" href="project-detail.html">Project Charlie</a><div class="sub">Port Bathymetry</div></div></div></td>
-            <td><span class="chip warn sm"><span class="dot warn"></span>Mobilizing</span></td>
-            <td class="faint">—</td>
-            <td>Tanjung Priok</td>
-            <td class="num">9 / 12</td>
-            <td class="num">22</td>
-            <td class="num faint">0</td>
-            <td class="tnum">05 Sep – 11 Sep 2026</td>
-            <td class="tnum">15:22</td>
-            <td class="actions"><button class="icon-btn" aria-label="More"><i data-icon="more"></i></button></td>
-          </tr>
-          <tr>
-            <td><div class="cell-entity"><span class="entity-tile" style="padding:0;border:0;background:none"><span class="sym"><i data-icon="layers"></i></span></span><div><a class="strong" href="project-detail.html">Project Delta</a><div class="sub">Geotechnical Site Investigation</div></div></div></td>
-            <td><span class="chip unknown sm"><span class="dot unknown"></span>Planned</span></td>
-            <td>MV PAGEO 03</td>
-            <td>Natuna Block B</td>
-            <td class="num">0 / 14</td>
-            <td class="num">12</td>
-            <td class="num faint">0</td>
-            <td class="tnum">22 Sep – 20 Oct 2026</td>
-            <td class="tnum">02 Sep</td>
-            <td class="actions"><button class="icon-btn" aria-label="More"><i data-icon="more"></i></button></td>
-          </tr>
-          <tr>
-            <td><div class="cell-entity"><span class="entity-tile" style="padding:0;border:0;background:none"><span class="sym"><i data-icon="route"></i></span></span><div><a class="strong" href="project-detail.html">Project Echo</a><div class="sub">Cable Route Survey</div></div></div></td>
-            <td><span class="chip transit sm"><span class="dot transit"></span>Demobilizing</span></td>
-            <td>MV PAGEO 03</td>
-            <td>Tanjung Priok</td>
-            <td class="num">14 / 14</td>
-            <td class="num">29</td>
-            <td class="num faint">0</td>
-            <td class="tnum">11 Aug – 05 Sep 2026</td>
-            <td class="tnum">15:30</td>
-            <td class="actions"><button class="icon-btn" aria-label="More"><i data-icon="more"></i></button></td>
-          </tr>
-          <tr>
-            <td><div class="cell-entity"><span class="entity-tile" style="padding:0;border:0;background:none"><span class="sym"><i data-icon="crosshair"></i></span></span><div><a class="strong" href="project-detail.html">Project Foxtrot</a><div class="sub">Jetty Positioning</div></div></div></td>
-            <td><span class="chip ok sm"><span class="dot ok"></span>Onshore</span></td>
-            <td class="faint">—</td>
-            <td>Cilegon Jetty 2</td>
-            <td class="num">6 / 6</td>
-            <td class="num">9</td>
-            <td class="num faint">0</td>
-            <td class="tnum">01 Sep – 09 Sep 2026</td>
-            <td class="tnum">15:38</td>
-            <td class="actions"><button class="icon-btn" aria-label="More"><i data-icon="more"></i></button></td>
-          </tr>
-          <tr>
-            <td><div class="cell-entity"><span class="entity-tile" style="padding:0;border:0;background:none"><span class="sym"><i data-icon="waves"></i></span></span><div><a class="strong" href="project-detail.html">Project Golf</a><div class="sub">Subsea Inspection</div></div></div></td>
-            <td><span class="chip info sm"><span class="dot info"></span>Offshore</span></td>
-            <td>MV Bina Marine 71</td>
-            <td>Madura Strait Platform C</td>
-            <td class="num">11 / 12</td>
-            <td class="num">19</td>
-            <td class="num faint">0</td>
-            <td class="tnum">30 Aug – 14 Sep 2026</td>
-            <td class="tnum">15:40</td>
-            <td class="actions"><button class="icon-btn" aria-label="More"><i data-icon="more"></i></button></td>
-          </tr>
-          <tr>
-            <td><div class="cell-entity"><span class="entity-tile" style="padding:0;border:0;background:none"><span class="sym"><i data-icon="building"></i></span></span><div><a class="strong" href="project-detail.html">Base Jakarta</a><div class="sub">Warehouse &amp; workshop</div></div></div></td>
-            <td><span class="chip ok sm"><span class="dot ok"></span>Onshore</span></td>
-            <td class="faint">—</td>
-            <td>PAGEO Base · Jakarta</td>
-            <td class="num">38 / 38</td>
-            <td class="num">481</td>
-            <td class="num faint">0</td>
-            <td class="tnum">Permanent</td>
-            <td class="tnum">15:42</td>
-            <td class="actions"><button class="icon-btn" aria-label="More"><i data-icon="more"></i></button></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="table-foot">
-      <span>Showing 1–8 of 8 projects · <span class="num">120</span> personnel expected · <span class="num">650</span> assets assigned</span>
-      <div class="pager"><button aria-label="Previous"><i data-icon="chevronleft" class="ic-14"></i></button><button class="active">1</button><button aria-label="Next"><i data-icon="chevronright" class="ic-14"></i></button></div>
-    </div>
-  </div>`;
-  }
-});
+// handwritten — Projects registry (filterable, CRUD)
+(function () {
+  const reg = PN.registry({
+    coll: 'projects', noun: 'projects', eyebrow: 'Operations', title: 'Projects', sub: 'Project is the center of the data model — personnel, assets, vessels and alerts roll up to it',
+    newHref: 'project-form.html', newLabel: 'New project', placeholder: 'Search project, client or vessel', emptyIcon: 'clipboard',
+    kpis: [
+      { label: 'Projects', value: r => r.length, icon: 'clipboard', iconKind: 'accent' },
+      { label: 'Offshore', value: r => r.filter(x => x.status === 'Offshore').length, icon: 'waves', filter: { key: 'status', value: 'Offshore' }, filterLabel: 'Status' },
+      { label: 'Onshore', value: r => r.filter(x => x.status === 'Onshore').length, icon: 'building', iconKind: 'ok', filter: { key: 'status', value: 'Onshore' }, filterLabel: 'Status' },
+      { label: 'Mobilizing', value: r => r.filter(x => x.status === 'Mobilizing').length, icon: 'truck', iconKind: 'warn', filter: { key: 'status', value: 'Mobilizing' }, filterLabel: 'Status' },
+      { label: 'Planned', value: r => r.filter(x => x.status === 'Planned').length, icon: 'calendar', filter: { key: 'status', value: 'Planned' }, filterLabel: 'Status' },
+      { label: 'Open alerts', value: r => r.reduce((a, x) => a + (+x.alerts || 0), 0), icon: 'bell', iconKind: 'crit' }
+    ],
+    search: (r, q) => (r.name + ' ' + r.type + ' ' + (r.client || '') + ' ' + r.vessel + ' ' + r.site).toLowerCase().indexOf(q) >= 0,
+    filters: [{ key: 'vessel', label: 'Vessel', icon: 'ship' }, { key: 'pm', label: 'Project manager', icon: 'user' }],
+    cols: [
+      { key: 'name', label: 'Project', render: r => C.entityCell({ icon: r.id === 'base' ? 'building' : 'waves', symCls: '', name: r.name, sub: r.type, href: 'project-detail.html' }) },
+      { key: 'status', label: 'Status', render: r => C.chip(r.kind, r.status, { sm: true }) },
+      { key: 'vessel', label: 'Vessel' }, { key: 'site', label: 'Site' },
+      { key: 'people', label: 'Personnel', num: true, render: r => '<b>' + r.people[0] + '</b> <span class="muted">/ ' + r.people[1] + '</span>' },
+      { key: 'assets', label: 'Assets', num: true },
+      { key: 'alerts', label: 'Alerts', num: true, render: r => r.alerts ? C.badge(r.alerts) : '<span class="muted">0</span>' },
+      { key: 'start', label: 'Start – End', render: r => C.esc(r.start) + ' – ' + C.esc(r.end) },
+      { key: 'pm', label: 'PM' }, { key: 'last', label: 'Last activity', num: true }
+    ],
+    rowId: r => r.id, detailHref: () => 'project-detail.html', editHref: r => 'project-form.html?id=' + r.id, deleteLabel: r => r.name,
+    extraMenu: (r) => ({ icon: 'users', label: 'Assign personnel', onClick: () => PN.route('assignment') })
+  });
+  PN.page('projects', { title: 'Projects', icon: 'clipboard', nav: 'projects', crumb: 'Global / Operations / Projects', render: reg.render, after: reg.after });
+})();
 
 /* Converted from web/project-detail.html — edit freely; delete "// converted" to mark as handwritten */
 // converted
@@ -2629,191 +2964,38 @@ PN.page("project-detail", {
   }
 });
 
-/* Converted from web/personnel.html — edit freely; delete "// converted" to mark as handwritten */
-// converted
-PN.page("personnel", {
-  title: "Personnel",
-  icon: "users",
-  nav: "personnel",
-  crumb: "Global / People / Personnel",
-  render() {
-    return `<div class="page-head">
-    <div class="titles">
-      <div class="eyebrow">People</div>
-      <h1>Personnel</h1>
-      <div class="sub">Mobilization, presence and safety — 128 on operation</div>
-    </div>
-    <div class="actions">
-      <div class="seg sm"><button>Comfortable</button><button class="active">Default</button><button>Compact</button></div>
-      <button class="btn ghost sm"><i data-icon="columns"></i>Columns</button>
-      <button class="btn ghost sm"><i data-icon="download"></i>Export</button>
-      <button class="btn primary sm"><i data-icon="link"></i>Assign to project</button>
-    </div>
-  </div>
-
-  <!-- Filters -->
-  <div class="filters">
-    <div class="input sm" style="width:260px"><i data-icon="search"></i><input type="search" placeholder="Search name, ID or role" aria-label="Search personnel"></div>
-    <div class="input sm select"><span>Project · All</span><i data-icon="chevrondown" class="chev"></i></div>
-    <div class="input sm select"><span>Site · All</span><i data-icon="chevrondown" class="chev"></i></div>
-    <div class="input sm select"><span>Vessel · All</span><i data-icon="chevrondown" class="chev"></i></div>
-    <div class="input sm select"><span>Department · All</span><i data-icon="chevrondown" class="chev"></i></div>
-    <div class="input sm select"><span>Status · All</span><i data-icon="chevrondown" class="chev"></i></div>
-    <label class="row s8 ml-auto" style="font-size:13px;color:var(--text-2)"><span class="switch" role="switch" aria-checked="false"></span>Show offline only</label>
-  </div>
-
-  <!-- Status legend -->
-  <div class="row s8 wrap">
-    <span class="chip ok"><span class="dot ok"></span>Active <span class="num">128</span></span>
-    <span class="chip info"><span class="dot info"></span>On Site <span class="num">96</span></span>
-    <span class="chip info"><span class="dot info"></span>Offshore <span class="num">41</span></span>
-    <span class="chip transit"><span class="dot transit"></span>In Transit <span class="num">12</span></span>
-    <span class="chip off"><span class="dot off"></span>Offline <span class="num">7</span></span>
-    <span class="chip crit"><span class="dot crit"></span>Alert <span class="num">2</span></span>
-    <span class="t-caption ml-auto">Freshness: Live &lt; 1 min · Recent 1–5 · Stale 5–30 · Offline &gt; 30 min</span>
-  </div>
-
-  <!-- Registry table -->
-  <div class="card p0">
-    <div class="table-wrap">
-      <table class="table">
-        <thead>
-          <tr>
-            <th style="width:40px"><span class="checkbox" role="checkbox" aria-checked="false" aria-label="Select all"></span></th>
-            <th class="sortable">Employee <i data-icon="chevronsupdown"></i></th>
-            <th>Role</th>
-            <th>Department</th>
-            <th>Project</th>
-            <th>Location</th>
-            <th>Status</th>
-            <th>Freshness</th>
-            <th class="sortable num">Last update <i data-icon="arrowdown"></i></th>
-            <th class="num">Battery</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><span class="checkbox" role="checkbox" aria-checked="false"></span></td>
-            <td><div class="cell-entity"><span class="avatar">AP</span><div><a class="strong" href="employee-detail.html">Andi Pratama</a><div class="sub">PG-0107</div></div></div></td>
-            <td>Surveyor</td><td>Survey</td><td><a href="project-detail.html">Project Alpha</a></td><td>MV PAGEO 02</td>
-            <td><span class="chip ok sm"><span class="dot ok"></span>Active</span></td>
-            <td><span class="fresh live"><b>LIVE</b>8 sec ago</span></td>
-            <td class="num">15:42:31</td><td class="num">84%</td>
-            <td class="actions"><button class="icon-btn" aria-label="More"><i data-icon="more"></i></button></td>
-          </tr>
-          <tr>
-            <td><span class="checkbox" role="checkbox" aria-checked="false"></span></td>
-            <td><div class="cell-entity"><span class="avatar" style="background:var(--s-crit-bg);color:var(--s-crit)">RH</span><div><a class="strong" href="employee-detail.html">Rizky Hakim</a><div class="sub">PG-0121</div></div></div></td>
-            <td>ROV Pilot</td><td>ROV</td><td><a href="project-detail.html">Project Bravo</a></td><td>Offshore Site</td>
-            <td><span class="chip crit sm"><span class="dot crit pulse"></span>Alert · SOS</span></td>
-            <td><span class="fresh live"><b>LIVE</b>21 sec ago</span></td>
-            <td class="num">15:41:52</td><td class="num">63%</td>
-            <td class="actions"><button class="icon-btn" aria-label="More"><i data-icon="more"></i></button></td>
-          </tr>
-          <tr>
-            <td><span class="checkbox" role="checkbox" aria-checked="false"></span></td>
-            <td><div class="cell-entity"><span class="avatar">AS</span><div><a class="strong" href="employee-detail.html">Agus Setiawan</a><div class="sub">PG-0098</div></div></div></td>
-            <td>Engineer</td><td>Engineering</td><td><a href="project-detail.html">Project Alpha</a></td><td>Warehouse · Base</td>
-            <td><span class="chip warn sm"><span class="dot warn"></span>Idle</span></td>
-            <td><span class="fresh recent"><b>RECENT</b>3 min ago</span></td>
-            <td class="num">15:39:04</td><td class="num">91%</td>
-            <td class="actions"><button class="icon-btn" aria-label="More"><i data-icon="more"></i></button></td>
-          </tr>
-          <tr>
-            <td><span class="checkbox" role="checkbox" aria-checked="false"></span></td>
-            <td><div class="cell-entity"><span class="avatar" style="background:var(--s-offline-bg);color:var(--s-offline)">BS</span><div><a class="strong" href="employee-detail.html">Budi Santoso</a><div class="sub">PG-0133</div></div></div></td>
-            <td>Technician</td><td>Maintenance</td><td><a href="project-detail.html">Project Charlie</a></td><td class="faint">—</td>
-            <td><span class="chip off sm"><span class="dot off"></span>Offline</span></td>
-            <td><span class="fresh offline"><b>OFFLINE</b>1h 22m</span></td>
-            <td class="num">14:20:11</td><td class="num faint">—</td>
-            <td class="actions"><button class="icon-btn" aria-label="More"><i data-icon="more"></i></button></td>
-          </tr>
-          <tr>
-            <td><span class="checkbox" role="checkbox" aria-checked="false"></span></td>
-            <td><div class="cell-entity"><span class="avatar">FS</span><div><a class="strong" href="employee-detail.html">Fahmi Syaban</a><div class="sub">PG-0142</div></div></div></td>
-            <td>Survey Engineer</td><td>Survey</td><td><a href="project-detail.html">Project Alpha</a></td><td>MV PAGEO 02</td>
-            <td><span class="chip ok sm"><span class="dot ok"></span>Active</span></td>
-            <td><span class="fresh live"><b>LIVE</b>12 sec ago</span></td>
-            <td class="num">15:42:16</td><td class="num">72%</td>
-            <td class="actions"><button class="icon-btn" aria-label="More"><i data-icon="more"></i></button></td>
-          </tr>
-          <tr>
-            <td><span class="checkbox" role="checkbox" aria-checked="false"></span></td>
-            <td><div class="cell-entity"><span class="avatar">DL</span><div><a class="strong" href="employee-detail.html">Dewi Lestari</a><div class="sub">PG-0156</div></div></div></td>
-            <td>Data Processor</td><td>Survey</td><td><a href="project-detail.html">Project Alpha</a></td><td>MV PAGEO 02</td>
-            <td><span class="chip ok sm"><span class="dot ok"></span>Active</span></td>
-            <td><span class="fresh live"><b>LIVE</b>30 sec ago</span></td>
-            <td class="num">15:41:58</td><td class="num">58%</td>
-            <td class="actions"><button class="icon-btn" aria-label="More"><i data-icon="more"></i></button></td>
-          </tr>
-          <tr>
-            <td><span class="checkbox" role="checkbox" aria-checked="false"></span></td>
-            <td><div class="cell-entity"><span class="avatar">HW</span><div><a class="strong" href="employee-detail.html">Hendra Wijaya</a><div class="sub">PG-0088</div></div></div></td>
-            <td>Party Chief</td><td>Survey</td><td><a href="project-detail.html">Project Bravo</a></td><td>MV PAGEO 01</td>
-            <td><span class="chip info sm"><span class="dot info"></span>Offshore</span></td>
-            <td><span class="fresh live"><b>LIVE</b>15 sec ago</span></td>
-            <td class="num">15:42:13</td><td class="num">77%</td>
-            <td class="actions"><button class="icon-btn" aria-label="More"><i data-icon="more"></i></button></td>
-          </tr>
-          <tr>
-            <td><span class="checkbox" role="checkbox" aria-checked="false"></span></td>
-            <td><div class="cell-entity"><span class="avatar">PR</span><div><a class="strong" href="employee-detail.html">Putri Ayu Rahmawati</a><div class="sub">PG-0171</div></div></div></td>
-            <td>QHSE Officer</td><td>QHSE</td><td><a href="project-detail.html">Project Charlie</a></td><td>Port Tanjung Priok</td>
-            <td><span class="chip info sm"><span class="dot info"></span>On Site</span></td>
-            <td><span class="fresh recent"><b>RECENT</b>2 min ago</span></td>
-            <td class="num">15:40:20</td><td class="num">88%</td>
-            <td class="actions"><button class="icon-btn" aria-label="More"><i data-icon="more"></i></button></td>
-          </tr>
-          <tr>
-            <td><span class="checkbox" role="checkbox" aria-checked="false"></span></td>
-            <td><div class="cell-entity"><span class="avatar" style="background:var(--s-crit-bg);color:var(--s-crit)">DP</span><div><a class="strong" href="employee-detail.html">Dimas Prasetyo</a><div class="sub">PG-0115</div></div></div></td>
-            <td>Survey Technician</td><td>Survey</td><td><a href="project-detail.html">Project Alpha</a></td><td>Outside work area</td>
-            <td><span class="chip crit sm"><span class="dot crit"></span>Alert · Zone</span></td>
-            <td><span class="fresh stale"><b>STALE</b>27 min ago</span></td>
-            <td class="num">15:15:40</td><td class="num">41%</td>
-            <td class="actions"><button class="icon-btn" aria-label="More"><i data-icon="more"></i></button></td>
-          </tr>
-          <tr>
-            <td><span class="checkbox" role="checkbox" aria-checked="false"></span></td>
-            <td><div class="cell-entity"><span class="avatar">YF</span><div><a class="strong" href="employee-detail.html">Yoga Firmansyah</a><div class="sub">PG-0163</div></div></div></td>
-            <td>ROV Technician</td><td>ROV</td><td><a href="project-detail.html">Project Bravo</a></td><td>MV PAGEO 01</td>
-            <td><span class="chip info sm"><span class="dot info"></span>Offshore</span></td>
-            <td><span class="fresh live"><b>LIVE</b>9 sec ago</span></td>
-            <td class="num">15:42:29</td><td class="num">69%</td>
-            <td class="actions"><button class="icon-btn" aria-label="More"><i data-icon="more"></i></button></td>
-          </tr>
-          <tr>
-            <td><span class="checkbox" role="checkbox" aria-checked="false"></span></td>
-            <td><div class="cell-entity"><span class="avatar">SN</span><div><a class="strong" href="employee-detail.html">Siti Nurhaliza</a><div class="sub">PG-0179</div></div></div></td>
-            <td>Logistics Coordinator</td><td>Logistics</td><td><a href="project-detail.html">Base Jakarta</a></td><td>PAGEO Base</td>
-            <td><span class="chip info sm"><span class="dot info"></span>On Site</span></td>
-            <td><span class="fresh recent"><b>RECENT</b>4 min ago</span></td>
-            <td class="num">15:38:33</td><td class="num">95%</td>
-            <td class="actions"><button class="icon-btn" aria-label="More"><i data-icon="more"></i></button></td>
-          </tr>
-          <tr>
-            <td><span class="checkbox" role="checkbox" aria-checked="false"></span></td>
-            <td><div class="cell-entity"><span class="avatar">RK</span><div><a class="strong" href="employee-detail.html">Rendi Kurniawan</a><div class="sub">PG-0124</div></div></div></td>
-            <td>Geotechnical Engineer</td><td>Engineering</td><td><a href="project-detail.html">Project Echo</a></td><td>Port Tanjung Priok</td>
-            <td><span class="chip transit sm"><span class="dot transit"></span>In Transit</span></td>
-            <td><span class="fresh recent"><b>RECENT</b>1 min ago</span></td>
-            <td class="num">15:41:10</td><td class="num">52%</td>
-            <td class="actions"><button class="icon-btn" aria-label="More"><i data-icon="more"></i></button></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="table-foot">
-      <span>Showing 1–12 of 128</span>
-      <div class="row s12">
-        <span>Rows <span class="strong">12</span></span>
-        <div class="pager"><button aria-label="Previous"><i data-icon="chevronleft" class="ic-14"></i></button><button class="active">1</button><button>2</button><button>3</button><button>…</button><button>11</button><button aria-label="Next"><i data-icon="chevronright" class="ic-14"></i></button></div>
-      </div>
-    </div>
-  </div>`;
-  }
-});
+// handwritten — Personnel registry (filterable, CRUD)
+(function () {
+  const STATUS = { ok: 'Active', info: 'On Site / Offshore', transit: 'In Transit', warn: 'Idle', off: 'Offline', crit: 'Alert' };
+  const reg = PN.registry({
+    coll: 'people', noun: 'people', eyebrow: 'People', title: 'Personnel', sub: 'Mobilization, presence and safety — click a summary card to filter',
+    newHref: 'personnel-form.html', newLabel: 'Add personnel', placeholder: 'Search name, ID or role',
+    kpis: [
+      { label: 'On operation', value: r => r.length, icon: 'users', iconKind: 'accent' },
+      { label: 'Active', value: r => r.filter(x => x.kind === 'ok').length, icon: 'checkcircle', iconKind: 'ok', filter: { key: 'kind', value: 'ok' }, filterLabel: 'Status' },
+      { label: 'On site / offshore', value: r => r.filter(x => x.kind === 'info').length, icon: 'waves', filter: { key: 'kind', value: 'info' }, filterLabel: 'Status' },
+      { label: 'In transit', value: r => r.filter(x => x.kind === 'transit').length, icon: 'truck', filter: { key: 'kind', value: 'transit' }, filterLabel: 'Status' },
+      { label: 'Offline', value: r => r.filter(x => x.kind === 'off').length, icon: 'wifioff', filter: { key: 'kind', value: 'off' }, filterLabel: 'Status' },
+      { label: 'Alert', value: r => r.filter(x => x.kind === 'crit').length, icon: 'siren', iconKind: 'crit', filter: { key: 'kind', value: 'crit' }, filterLabel: 'Status' }
+    ],
+    labelFor: (k, v) => k === 'kind' ? STATUS[v] || v : v,
+    search: (r, q) => (r.name + ' ' + r.id + ' ' + r.role + ' ' + r.location).toLowerCase().indexOf(q) >= 0,
+    filters: [{ key: 'project', label: 'Project', icon: 'clipboard' }, { key: 'dept', label: 'Department', icon: 'building' }, { key: 'location', label: 'Location', icon: 'pin' }],
+    cols: [
+      { key: 'name', label: 'Employee', render: r => C.entityCell({ avatar: C.initials(r.name), name: r.name, sub: r.id, href: 'employee-detail.html' }) },
+      { key: 'role', label: 'Role' }, { key: 'dept', label: 'Department' },
+      { key: 'project', label: 'Project', render: r => r.project === '—' ? '—' : '<a href="project-detail.html">Project ' + C.esc(r.project) + '</a>' },
+      { key: 'location', label: 'Location' },
+      { key: 'status', label: 'Status', render: r => C.chip(r.kind, r.status, { sm: true }) },
+      { key: 'fresh', label: 'Freshness', render: r => C.fresh(r.fresh[0], r.fresh[1]) },
+      { key: 'last', label: 'Last update', num: true },
+      { key: 'batt', label: 'Battery', num: true, render: r => r.batt == null ? '—' : '<span class="' + (r.batt < 20 ? 'crit' : '') + '">' + r.batt + '%</span>' }
+    ],
+    rowId: r => r.id, detailHref: () => 'employee-detail.html', editHref: r => 'personnel-form.html?id=' + r.id, deleteLabel: r => r.name,
+    extraMenu: (r, draw) => ({ icon: 'bell', label: 'Send check-in reminder', onClick: () => PN.toast('Reminder sent to ' + r.name, 'bell') })
+  });
+  PN.page('personnel', { title: 'Personnel', icon: 'users', nav: 'personnel', crumb: 'Global / People / Personnel', render: reg.render, after: reg.after });
+})();
 
 /* Converted from web/employee-detail.html — edit freely; delete "// converted" to mark as handwritten */
 // converted
@@ -2885,7 +3067,7 @@ PN.page("employee-detail", {
   <!-- Metadata, assets, device -->
   <div class="grid">
     <div class="c4 card">
-      <div class="card-head"><span class="card-title">Identity</span><button class="btn xs ghost"><i data-icon="pencil"></i>Edit</button></div>
+      <div class="card-head"><span class="card-title">Identity</span><a class="btn xs ghost" href="personnel-form.html?id=PG-0142"><i data-icon="pencil"></i>Edit</a></div>
       <div class="kv-grid" style="grid-template-columns:1fr 1fr">
         <div><div class="k">Employee ID</div><div class="v">PG-0142</div></div>
         <div><div class="k">Department</div><div class="v">Survey</div></div>
@@ -3573,191 +3755,37 @@ PN.page("muster", {
   }
 });
 
-/* Converted from web/assets.html — edit freely; delete "// converted" to mark as handwritten */
-// converted
-PN.page("assets", {
-  title: "Asset Registry",
-  icon: "diamond",
-  nav: "assets",
-  crumb: "Global / Assets / Asset Registry",
-  render() {
-    return `<div class="page-head">
-    <div class="titles">
-      <div class="eyebrow">Assets · Registry</div>
-      <h1>Asset Registry</h1>
-      <div class="sub">RFID equipment custody, mobilization and accountability — 684 registered</div>
-    </div>
-    <div class="actions">
-      <div class="seg sm"><button class="active"><i data-icon="list" class="ic-14"></i>Compact</button><button><i data-icon="menu" class="ic-14"></i>Comfortable</button></div>
-      <button class="btn ghost sm"><i data-icon="columns"></i>Columns</button>
-      <button class="btn ghost sm"><i data-icon="download"></i>Export</button>
-      <button class="btn primary sm"><i data-icon="plus"></i>Register asset</button>
-    </div>
-  </div>
-
-  <!-- KPI strip -->
-  <div class="grid kpis g16" style="grid-template-columns:repeat(7,minmax(0,1fr))">
-    <div class="card kpi compact p16"><div class="eyebrow">Total</div><div class="kpi-value">684</div><div class="kpi-lines"><span><span class="dot unknown"></span>&nbsp;All categories</span></div></div>
-    <div class="card kpi compact p16"><div class="eyebrow">Available</div><div class="kpi-value">481</div><div class="kpi-lines"><span><span class="dot ok"></span>&nbsp;Warehouse · workshop</span></div></div>
-    <div class="card kpi compact p16"><div class="eyebrow">Deployed</div><div class="kpi-value">142</div><div class="kpi-lines"><span><span class="dot info"></span>&nbsp;3 projects · 2 vessels</span></div></div>
-    <div class="card kpi compact p16"><div class="eyebrow">In transit</div><div class="kpi-value">27</div><div class="kpi-lines"><span><span class="dot transit"></span>&nbsp;Base ↔ port</span></div></div>
-    <div class="card kpi compact p16"><div class="eyebrow">Maintenance</div><div class="kpi-value">18</div><div class="kpi-lines"><span><span class="dot warn"></span>&nbsp;4 calibration due</span></div></div>
-    <div class="card kpi compact p16"><div class="eyebrow">Missing</div><div class="kpi-value" style="color:var(--s-crit)">3</div><div class="kpi-lines"><span><span class="dot crit"></span>&nbsp;Not seen &gt; 48 h</span></div></div>
-    <div class="card kpi compact p16"><div class="eyebrow">Unassigned</div><div class="kpi-value">13</div><div class="kpi-lines"><span><span class="dot unknown"></span>&nbsp;In project, no custodian</span></div></div>
-  </div>
-
-  <!-- Filters -->
-  <div class="filters">
-    <div class="input sm" style="width:260px"><i data-icon="search"></i><input type="search" placeholder="Search asset ID, description, RFID…" aria-label="Search assets"></div>
-    <div class="input sm"><i data-icon="layers"></i><select aria-label="Category"><option>Category · All</option><option>Survey</option><option>Positioning</option><option>ROV</option><option>Comms</option><option>IT</option><option>Power</option></select></div>
-    <div class="input sm"><i data-icon="clipboard"></i><select aria-label="Project"><option>Project · All</option><option>Project Alpha</option><option>Project Bravo</option><option>Project Charlie</option><option>Unassigned</option></select></div>
-    <div class="input sm"><i data-icon="pin"></i><select aria-label="Location"><option>Location · All</option><option>Warehouse</option><option>Workshop</option><option>Loading Area</option><option>Port Jetty 3</option><option>MV PAGEO 01</option><option>MV PAGEO 02</option><option>MV PAGEO 03</option><option>Offshore Site</option><option>Unknown</option></select></div>
-    <div class="input sm"><i data-icon="circledot"></i><select aria-label="Status"><option>Status · All</option><option>Available</option><option>Deployed</option><option>In transit</option><option>Maintenance</option><option>Missing / Alert</option><option>Unassigned</option></select></div>
-    <div class="input sm"><i data-icon="user"></i><select aria-label="Custodian"><option>Custodian · All</option><option>Fahmi Syaban</option><option>Andi Pratama</option><option>Rizky Hakim</option><option>Agus Setiawan</option><option>Budi Santoso</option><option>Warehouse</option></select></div>
-    <label class="row s8" style="font-size:13px;color:var(--text-2);margin-left:4px"><span class="switch" role="switch" aria-label="Calibration due"></span>Calibration due</label>
-    <span class="ml-auto t-caption">Showing all · sorted by last seen · updated 15:42</span>
-  </div>
-
-  <!-- Table -->
-  <div class="card p0">
-    <div class="table-wrap">
-      <table class="table">
-        <thead>
-          <tr>
-            <th style="width:36px"><span class="checkbox"></span></th>
-            <th class="sortable">Asset</th>
-            <th class="sortable">Category</th>
-            <th class="sortable">Project</th>
-            <th class="sortable">Location</th>
-            <th class="sortable">Custodian</th>
-            <th class="sortable">Last seen <i data-icon="arrowdown"></i></th>
-            <th class="sortable">Status</th>
-            <th class="sortable num">Calibration due</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><span class="checkbox"></span></td>
-            <td><div class="cell-entity"><span class="entity-tile" style="padding:0;border:0;background:none"><span class="sym dark" style="width:30px;height:30px"><i data-icon="diamond" class="ic-14"></i></span></span><div><a class="strong" href="asset-detail.html">MBES-001</a><div class="sub">Multibeam Echo Sounder · Kongsberg EM 2040C</div></div></div></td>
-            <td>Survey</td><td><a href="project-detail.html">Project Alpha</a></td><td>Vessel A · MV PAGEO 02</td><td>Andi Pratama</td>
-            <td><div class="num">15:41</div><div class="t-caption">RD-11 · Vessel Deck</div></td>
-            <td><span class="chip info sm"><span class="dot info"></span>Deployed</span></td>
-            <td class="num">18 Dec 2026</td>
-            <td class="actions"><button class="icon-btn" aria-label="More"><i data-icon="more"></i></button></td>
-          </tr>
-          <tr>
-            <td><span class="checkbox"></span></td>
-            <td><div class="cell-entity"><span class="entity-tile" style="padding:0;border:0;background:none"><span class="sym dark" style="width:30px;height:30px"><i data-icon="diamond" class="ic-14"></i></span></span><div><a class="strong" href="asset-detail.html">ROV-T27-04</a><div class="sub">ROV Tooling Skid · Inspection class</div></div></div></td>
-            <td>ROV</td><td><a href="project-detail.html">Project Bravo</a></td><td>Offshore Site · MV PAGEO 01</td><td>Dimas Saputra</td>
-            <td><div class="num">15:37</div><div class="t-caption">RD-21 · MV PAGEO 01 Deck</div></td>
-            <td><span class="chip info sm"><span class="dot info"></span>Deployed</span></td>
-            <td class="num muted">—</td>
-            <td class="actions"><button class="icon-btn" aria-label="More"><i data-icon="more"></i></button></td>
-          </tr>
-          <tr>
-            <td><span class="checkbox"></span></td>
-            <td><div class="cell-entity"><span class="entity-tile" style="padding:0;border:0;background:none"><span class="sym dark" style="width:30px;height:30px"><i data-icon="diamond" class="ic-14"></i></span></span><div><a class="strong" href="asset-detail.html">GPS-042</a><div class="sub">GNSS Receiver · Trimble R12i</div></div></div></td>
-            <td>Positioning</td><td class="muted">—</td><td>Warehouse · Rack B3</td><td class="muted">Warehouse</td>
-            <td><div class="num">15:22</div><div class="t-caption">RD-01 · Warehouse Gate A</div></td>
-            <td><span class="chip ok sm"><span class="dot ok"></span>Available</span></td>
-            <td class="num">02 Oct 2026</td>
-            <td class="actions"><button class="icon-btn" aria-label="More"><i data-icon="more"></i></button></td>
-          </tr>
-          <tr>
-            <td><span class="checkbox"></span></td>
-            <td><div class="cell-entity"><span class="entity-tile" style="padding:0;border:0;background:none"><span class="sym crit" style="width:30px;height:30px"><i data-icon="diamond" class="ic-14"></i></span></span><div><a class="strong" href="asset-detail.html">SONAR-012</a><div class="sub">Side Scan Sonar · EdgeTech 4125</div></div></div></td>
-            <td>Survey</td><td><a href="project-detail.html">Project Charlie</a></td><td class="crit">Unknown</td><td>Budi Santoso</td>
-            <td><div class="num crit">2 days</div><div class="t-caption">RD-02 · Dispatch Gate · 02 Sep 15:22</div></td>
-            <td><span class="chip crit sm"><span class="dot crit"></span>Alert</span></td>
-            <td class="num">30 Nov 2026</td>
-            <td class="actions"><a class="btn xs ghost" href="alerts.html">Open alert</a></td>
-          </tr>
-          <tr>
-            <td><span class="checkbox"></span></td>
-            <td><div class="cell-entity"><span class="entity-tile" style="padding:0;border:0;background:none"><span class="sym dark" style="width:30px;height:30px"><i data-icon="diamond" class="ic-14"></i></span></span><div><a class="strong" href="asset-detail.html">MBES-03</a><div class="sub">Multibeam Echo Sounder · Kongsberg EM 2040C</div></div></div></td>
-            <td>Survey</td><td><a href="project-detail.html">Project Alpha</a></td><td>MV PAGEO 02 · Deck</td><td>Fahmi Syaban</td>
-            <td><div class="num">15:37</div><div class="t-caption">RD-11 · Vessel Deck</div></td>
-            <td><span class="chip info sm"><span class="dot info"></span>Deployed</span></td>
-            <td class="num">18 Dec 2026</td>
-            <td class="actions"><button class="icon-btn" aria-label="More"><i data-icon="more"></i></button></td>
-          </tr>
-          <tr>
-            <td><span class="checkbox"></span></td>
-            <td><div class="cell-entity"><span class="entity-tile" style="padding:0;border:0;background:none"><span class="sym dark" style="width:30px;height:30px"><i data-icon="diamond" class="ic-14"></i></span></span><div><a class="strong" href="asset-detail.html">GPS-029</a><div class="sub">GNSS Receiver · Trimble R12i</div></div></div></td>
-            <td>Positioning</td><td><a href="project-detail.html">Project Alpha</a></td><td>MV PAGEO 02 · Deck</td><td>Andi Pratama</td>
-            <td><div class="num">15:41</div><div class="t-caption">RD-11 · Vessel Deck</div></td>
-            <td><span class="chip info sm"><span class="dot info"></span>Deployed</span></td>
-            <td class="num">14 Jan 2027</td>
-            <td class="actions"><button class="icon-btn" aria-label="More"><i data-icon="more"></i></button></td>
-          </tr>
-          <tr>
-            <td><span class="checkbox"></span></td>
-            <td><div class="cell-entity"><span class="entity-tile" style="padding:0;border:0;background:none"><span class="sym dark" style="width:30px;height:30px"><i data-icon="monitor" class="ic-14"></i></span></span><div><a class="strong" href="asset-detail.html">Laptop-SV029</a><div class="sub">Acquisition Laptop · Dell Precision 7680</div></div></div></td>
-            <td>IT</td><td><a href="project-detail.html">Project Alpha</a></td><td>MV PAGEO 02 · Survey room</td><td>Andi Pratama</td>
-            <td><div class="num">15:41</div><div class="t-caption">RD-11 · Vessel Deck</div></td>
-            <td><span class="chip info sm"><span class="dot info"></span>Deployed</span></td>
-            <td class="num muted">—</td>
-            <td class="actions"><button class="icon-btn" aria-label="More"><i data-icon="more"></i></button></td>
-          </tr>
-          <tr>
-            <td><span class="checkbox"></span></td>
-            <td><div class="cell-entity"><span class="entity-tile" style="padding:0;border:0;background:none"><span class="sym dark" style="width:30px;height:30px"><i data-icon="radio" class="ic-14"></i></span></span><div><a class="strong" href="asset-detail.html">Radio-012</a><div class="sub">VHF Handheld · Icom IC-M94D</div></div></div></td>
-            <td>Comms</td><td><a href="project-detail.html">Project Alpha</a></td><td>MV PAGEO 02 · Deck</td><td>Andi Pratama</td>
-            <td><div class="num">15:40</div><div class="t-caption">RD-11 · Vessel Deck</div></td>
-            <td><span class="chip info sm"><span class="dot info"></span>Deployed</span></td>
-            <td class="num muted">—</td>
-            <td class="actions"><button class="icon-btn" aria-label="More"><i data-icon="more"></i></button></td>
-          </tr>
-          <tr>
-            <td><span class="checkbox"></span></td>
-            <td><div class="cell-entity"><span class="entity-tile" style="padding:0;border:0;background:none"><span class="sym dark" style="width:30px;height:30px"><i data-icon="compass" class="ic-14"></i></span></span><div><a class="strong" href="asset-detail.html">Gyro-01</a><div class="sub">Gyrocompass · Teledyne TSS Meridian</div></div></div></td>
-            <td>Positioning</td><td><a href="project-detail.html">Project Charlie</a></td><td>MV PAGEO 03 · Deck</td><td>Agus Setiawan</td>
-            <td><div class="num">15:12</div><div class="t-caption">RD-31 · MV PAGEO 03 Deck</div></td>
-            <td><span class="chip info sm"><span class="dot info"></span>Deployed</span></td>
-            <td class="num">05 Feb 2027</td>
-            <td class="actions"><button class="icon-btn" aria-label="More"><i data-icon="more"></i></button></td>
-          </tr>
-          <tr>
-            <td><span class="checkbox"></span></td>
-            <td><div class="cell-entity"><span class="entity-tile" style="padding:0;border:0;background:none"><span class="sym dark" style="width:30px;height:30px"><i data-icon="diamond" class="ic-14"></i></span></span><div><a class="strong" href="asset-detail.html">SVP-07</a><div class="sub">Sound Velocity Profiler · Valeport SWiFT</div></div></div></td>
-            <td>Survey</td><td><a href="project-detail.html">Project Alpha</a></td><td>MV PAGEO 02 · Hold</td><td class="muted">—</td>
-            <td><div class="num">15:02</div><div class="t-caption">RD-12 · MV PAGEO 02 Hold</div></td>
-            <td><span class="chip unknown sm"><span class="dot unknown"></span>Unassigned</span></td>
-            <td class="num warn">22 Sep 2026</td>
-            <td class="actions"><a class="btn xs ghost" href="assignment.html">Assign</a></td>
-          </tr>
-          <tr>
-            <td><span class="checkbox"></span></td>
-            <td><div class="cell-entity"><span class="entity-tile" style="padding:0;border:0;background:none"><span class="sym dark" style="width:30px;height:30px"><i data-icon="diamond" class="ic-14"></i></span></span><div><a class="strong" href="asset-detail.html">MAG-02</a><div class="sub">Marine Magnetometer · Geometrics G-882</div></div></div></td>
-            <td>Survey</td><td><a href="project-detail.html">Project Alpha</a></td><td>MV PAGEO 02 · Hold</td><td class="muted">—</td>
-            <td><div class="num">15:02</div><div class="t-caption">RD-12 · MV PAGEO 02 Hold</div></td>
-            <td><span class="chip unknown sm"><span class="dot unknown"></span>Unassigned</span></td>
-            <td class="num">08 Mar 2027</td>
-            <td class="actions"><a class="btn xs ghost" href="assignment.html">Assign</a></td>
-          </tr>
-          <tr>
-            <td><span class="checkbox"></span></td>
-            <td><div class="cell-entity"><span class="entity-tile" style="padding:0;border:0;background:none"><span class="sym dark" style="width:30px;height:30px"><i data-icon="zap" class="ic-14"></i></span></span><div><a class="strong" href="asset-detail.html">Cable Set-07</a><div class="sub">Deck Cable Set 50 m · MBES + GNSS</div></div></div></td>
-            <td>Power</td><td><a href="project-detail.html">Project Charlie</a></td><td>Warehouse → Port Jetty 3</td><td class="muted">—</td>
-            <td><div class="num">14:05</div><div class="t-caption">RD-01 · Warehouse Gate A · <span class="warn">not seen at RD-02</span></div></td>
-            <td><span class="chip transit sm"><span class="dot transit"></span>In transit</span></td>
-            <td class="num muted">—</td>
-            <td class="actions"><button class="icon-btn" aria-label="More"><i data-icon="more"></i></button></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="table-foot">
-      <span>Showing 1–12 of 684 · 0 selected</span>
-      <div class="row s12">
-        <span class="row s8">Rows <div class="input sm" style="height:28px;width:70px;padding:0 8px"><select aria-label="Rows per page"><option>12</option><option>25</option><option>50</option></select></div></span>
-        <div class="pager"><button disabled><i data-icon="chevronleft" class="ic-14"></i></button><button class="active">1</button><button>2</button><button>3</button><button>4</button><button>…</button><button>57</button><button><i data-icon="chevronright" class="ic-14"></i></button></div>
-      </div>
-    </div>
-  </div>`;
-  }
-});
+// handwritten — Asset registry (filterable, CRUD)
+(function () {
+  const reg = PN.registry({
+    coll: 'assets', noun: 'assets', eyebrow: 'Assets', title: 'Asset Registry', sub: 'RFID equipment custody, mobilization and accountability — click a summary card to filter',
+    newHref: 'asset-form.html', newLabel: 'Register asset', placeholder: 'Search asset ID, description or RFID', emptyIcon: 'diamond',
+    kpis: [
+      { label: 'Registered', value: r => r.length, icon: 'diamond', iconKind: 'accent' },
+      { label: 'Available', value: r => r.filter(x => x.status === 'Available').length, icon: 'checkcircle', iconKind: 'ok', filter: { key: 'status', value: 'Available' }, filterLabel: 'Status' },
+      { label: 'Deployed', value: r => r.filter(x => x.status === 'Deployed').length, icon: 'waves', filter: { key: 'status', value: 'Deployed' }, filterLabel: 'Status' },
+      { label: 'In transit', value: r => r.filter(x => x.status === 'In Transit').length, icon: 'truck', filter: { key: 'status', value: 'In Transit' }, filterLabel: 'Status' },
+      { label: 'Maintenance', value: r => r.filter(x => x.status === 'Maintenance').length, icon: 'wrench', iconKind: 'warn', filter: { key: 'status', value: 'Maintenance' }, filterLabel: 'Status' },
+      { label: 'Alert / missing', value: r => r.filter(x => x.kind === 'crit').length, icon: 'warning', iconKind: 'crit', filter: { key: 'kind', value: 'crit' }, filterLabel: 'Status' }
+    ],
+    labelFor: (k, v) => k === 'kind' ? 'Alert' : v,
+    search: (r, q) => (r.id + ' ' + r.desc + ' ' + r.rfid + ' ' + r.custodian).toLowerCase().indexOf(q) >= 0,
+    filters: [{ key: 'cat', label: 'Category', icon: 'tag' }, { key: 'project', label: 'Project', icon: 'clipboard' }, { key: 'location', label: 'Location', icon: 'pin' }],
+    cols: [
+      { key: 'id', label: 'Asset', render: r => C.entityCell({ icon: 'diamond', name: r.id, sub: r.desc, href: 'asset-detail.html' }) },
+      { key: 'cat', label: 'Category' },
+      { key: 'project', label: 'Project', render: r => r.project === '—' ? '<span class="muted">—</span>' : '<a href="project-detail.html">Project ' + C.esc(r.project) + '</a>' },
+      { key: 'location', label: 'Location', render: r => r.location === 'Unknown' ? '<span class="crit">Unknown</span>' : C.esc(r.location) },
+      { key: 'custodian', label: 'Custodian' },
+      { key: 'last', label: 'Last seen', render: r => '<div>' + C.esc(r.last) + '<div class="t-caption">' + C.esc(r.reader) + '</div></div>' },
+      { key: 'status', label: 'Status', render: r => C.chip(r.kind, r.status, { sm: true }) },
+      { key: 'cal', label: 'Calibration due' }
+    ],
+    rowId: r => r.id, detailHref: () => 'asset-detail.html', editHref: r => 'asset-form.html?id=' + encodeURIComponent(r.id), deleteLabel: r => r.id,
+    extraMenu: (r, draw) => ({ icon: 'link', label: 'Reassign project', onClick: () => PN.route('assignment') })
+  });
+  PN.page('assets', { title: 'Asset Registry', icon: 'diamond', nav: 'assets', crumb: 'Global / Assets / Asset Registry', render: reg.render, after: reg.after });
+})();
 
 /* Converted from web/asset-detail.html — edit freely; delete "// converted" to mark as handwritten */
 // converted
@@ -3857,7 +3885,7 @@ PN.page("asset-detail", {
   <!-- Metadata + journey + custody -->
   <div class="grid">
     <div class="c4 card">
-      <div class="card-head"><span class="card-title">Metadata</span><button class="btn xs ghost"><i data-icon="pencil"></i>Edit</button></div>
+      <div class="card-head"><span class="card-title">Metadata</span><a class="btn xs ghost" href="asset-form.html?id=MBES-03"><i data-icon="pencil"></i>Edit</a></div>
       <div class="kv-grid" style="grid-template-columns:repeat(2,minmax(0,1fr))">
         <div><div class="k">Manufacturer</div><div class="v">Kongsberg</div></div>
         <div><div class="k">Model</div><div class="v">EM 2040C</div></div>
@@ -4731,187 +4759,52 @@ PN.page("vessels", {
   }
 });
 
-/* Converted from web/alerts.html — edit freely; delete "// converted" to mark as handwritten */
-// converted
-PN.page("alerts", {
-  title: "Alert Center",
-  icon: "bell",
-  nav: "alerts",
-  crumb: "Global / Operations / Alerts",
-  render() {
-    return `<div class="page-head">
-    <div class="titles">
-      <div class="eyebrow">Operations</div>
-      <h1>Alert Center</h1>
-      <div class="sub">People and assets · one queue, one severity scale</div>
-    </div>
-    <div class="actions">
-      <a class="btn ghost sm" href="admin.html"><i data-icon="settings"></i>Alert rules</a>
-      <button class="btn ghost sm"><i data-icon="download"></i>Export</button>
-    </div>
-  </div>
-
-  <!-- KPI strip -->
-  <div class="grid kpis" style="grid-template-columns:repeat(6,minmax(0,1fr))">
-    <div class="card kpi compact alert"><div class="eyebrow">Open</div><div class="kpi-value">3</div><div class="kpi-lines"><span>Requires acknowledgement</span></div></div>
-    <div class="card kpi compact"><div class="eyebrow">P1 critical</div><div class="kpi-value" style="color:var(--s-crit)">1</div><div class="kpi-lines"><span><span class="dot crit pulse"></span>&nbsp;SOS · 24 sec ago</span></div></div>
-    <div class="card kpi compact"><div class="eyebrow">P2 high</div><div class="kpi-value">0</div><div class="kpi-lines"><span>1 acknowledged today</span></div></div>
-    <div class="card kpi compact"><div class="eyebrow">P3 warning</div><div class="kpi-value">2</div><div class="kpi-lines"><span>1 person · 1 asset</span></div></div>
-    <div class="card kpi compact"><div class="eyebrow">Acknowledged today</div><div class="kpi-value">11</div><div class="kpi-lines"><span>48 resolved this week</span></div></div>
-    <div class="card kpi compact"><div class="eyebrow">Mean time to acknowledge</div><div class="kpi-value">4<small>min</small> 12<small>s</small></div><div class="kpi-lines"><span class="delta"><i data-icon="arrowdown" class="ic-14"></i>38 s faster than last week</span></div></div>
-  </div>
-
-  <!-- Tabs + filters -->
-  <div class="stack s12">
-    <div class="tabs">
-      <button class="tab active">Open <span class="badge">3</span></button>
-      <button class="tab">Acknowledged <span class="badge light">11</span></button>
-      <button class="tab">Resolved <span class="badge light">48</span></button>
-      <button class="tab">All</button>
-    </div>
-    <div class="filters">
-      <span class="t-caption">Severity</span>
-      <div class="seg sm"><button class="active">P1</button><button class="active">P2</button><button class="active">P3</button><button>P4</button></div>
-      <span class="t-caption">Type</span>
-      <div class="seg sm"><button class="active">All</button><button><i data-icon="user" class="ic-14"></i>Human</button><button><i data-icon="diamond" class="ic-14"></i>Asset</button></div>
-      <div class="input select sm" style="width:180px"><i data-icon="clipboard"></i><span>All projects</span><i data-icon="chevrondown" class="chev"></i></div>
-      <div class="input select sm" style="width:170px"><i data-icon="radio"></i><span>Any source</span><i data-icon="chevrondown" class="chev"></i></div>
-      <span class="ml-auto t-caption">Sorted by severity, then time</span>
-    </div>
-  </div>
-
-  <!-- List + detail -->
-  <div class="grid">
-    <div class="c5 stack s12">
-      <div class="alert-card p1 crit" style="outline:2px solid var(--accent);outline-offset:-1px">
-        <div class="a-head"><span class="sev p1">P1</span>Critical · Human<span class="when">24 sec ago</span></div>
-        <div class="a-title">SOS signal received</div>
-        <div class="a-meta"><span>Employee <b>Rizky Hakim</b> · ROV Pilot</span><span>Project Alpha · Restricted Zone · 15:38 WIB</span></div>
-        <div class="a-actions"><a class="btn xs primary" href="live-map.html">View location</a><button class="btn xs ghost" data-ack>Acknowledge</button></div>
-      </div>
-      <div class="alert-card p3">
-        <div class="a-head"><span class="sev p3">P3</span>Warning · Asset<span class="when">2 min ago</span></div>
-        <div class="a-title">Asset not seen for 2 days</div>
-        <div class="a-meta"><span><b>SONAR-012</b> · Side Scan Sonar · Project Charlie</span><span>Last reader: Gate 02 · 02 Sep 15:22</span></div>
-        <div class="a-actions"><a class="btn xs secondary" href="asset-detail.html">Open asset</a><button class="btn xs ghost" data-ack>Acknowledge</button></div>
-      </div>
-      <div class="alert-card p3">
-        <div class="a-head"><span class="sev p3">P3</span>Warning · Human<span class="when">11 min ago</span></div>
-        <div class="a-title">No location update &gt; 30 min</div>
-        <div class="a-meta"><span><b>Budi Santoso</b> · Technician · Project Charlie</span><span>Last position 14:20 · PAGEO Base · device offline</span></div>
-        <div class="a-actions"><a class="btn xs secondary" href="employee-detail.html">Open profile</a><button class="btn xs ghost" data-ack>Acknowledge</button></div>
-      </div>
-      <div class="alert-card p2" style="opacity:.75">
-        <div class="a-head"><span class="sev p2">P2</span>High · Human<span class="when">15:38</span></div>
-        <div class="a-title">Unauthorized personnel entered Restricted Zone</div>
-        <div class="a-meta"><span><b>Rizky Hakim</b> · Project Alpha · geofence Restricted Area</span><span>Acknowledged by <b>Maya Handayani</b> (QHSE) · 15:39 · escalated to P1 SOS</span></div>
-        <div class="row s8"><span class="chip neutral sm"><i data-icon="check" class="ic-14"></i>Acknowledged</span><span class="t-caption">Linked to SOS #A-2611</span></div>
-      </div>
-      <div class="alert-card p4">
-        <div class="a-head"><span class="sev p4">P4</span>Information · Asset<span class="when">08:00</span></div>
-        <div class="a-title">Calibration expiring — SVP-07 in 14 days</div>
-        <div class="a-meta"><span><b>SVP-07</b> · Sound velocity profiler · Warehouse</span><span>Due 18 Sep 2026 · vendor slot not booked</span></div>
-        <div class="a-actions"><a class="btn xs secondary" href="asset-detail.html">Open asset</a><button class="btn xs ghost">Snooze 7 d</button></div>
-      </div>
-      <div class="alert-card p4">
-        <div class="a-head"><span class="sev p4">P4</span>Information · Asset<span class="when">07:12</span></div>
-        <div class="a-title">RFID reader RD-07 offline</div>
-        <div class="a-meta"><span><b>RD-07</b> · Warehouse aisle C · Base Jakarta</span><span>Heartbeat missed 8 h 30 min · 3 other readers cover the zone</span></div>
-        <div class="a-actions"><a class="btn xs secondary" href="admin.html">Open device</a><button class="btn xs ghost" data-ack>Acknowledge</button></div>
-      </div>
-      <div class="row between" style="padding:0 4px"><span class="t-caption">6 shown · 3 open, 1 acknowledged, 2 informational</span><a class="link" href="#">Load older</a></div>
-    </div>
-
-    <div class="c7 card">
-      <div class="card-head">
-        <div class="row s8"><span class="sev p1">P1</span><span class="card-title">SOS signal received</span><span class="chip crit sm"><span class="dot crit pulse"></span>Open</span><span class="chip neutral sm">Human</span><span class="chip info sm">Project Alpha</span></div>
-        <span class="t-caption">Alert #A-2611 · 15:38:24 WIB</span>
-      </div>
-      <div class="map" data-map="coast" style="height:260px">
-        <div data-fence="62,18 92,12 94,56 66,62" data-kind="restricted" data-label="Restricted Zone"></div>
-        <div data-fence="30,50 54,42 60,74 36,84" data-label="Offshore Work Area — Alpha"></div>
-        <div class="mk person crit" style="left:78%;top:38%"><span class="accuracy" style="width:44px;height:44px;left:-9px;top:-9px;background:rgba(196,61,61,.12);border-color:rgba(196,61,61,.4)"></span><span class="sym"><i data-icon="user"></i></span><span class="lbl">Rizky Hakim<small>SOS · ± 11 m</small></span></div>
-        <div class="mk vessel" style="left:46%;top:60%"><span class="sym"><i data-icon="ship"></i></span><span class="lbl">MV PAGEO 02<small>1.8 km</small></span></div>
-        <div class="mk person" style="left:52%;top:56%"><span class="sym"><i data-icon="user"></i></span><span class="lbl">Andi Pratama<small>Supervisor</small></span></div>
-        <div class="map-ui bl"><span class="map-coords">-6.10320, 106.88110 · ± 11 m</span></div>
-        <div class="map-ui br"><div class="map-ctl"><button aria-label="Zoom in"><i data-icon="plus"></i></button><button aria-label="Zoom out"><i data-icon="minus"></i></button></div></div>
-      </div>
-      <div class="kv-grid">
-        <div><div class="k">Employee</div><div class="v"><a href="employee-detail.html">Rizky Hakim</a></div></div>
-        <div><div class="k">Role</div><div class="v">ROV Pilot</div></div>
-        <div><div class="k">Project</div><div class="v"><a href="project-detail.html">Project Alpha</a></div></div>
-        <div><div class="k">Position</div><div class="v">-6.1032, 106.8811</div></div>
-        <div><div class="k">Accuracy</div><div class="v">± 11 m</div></div>
-        <div><div class="k">Received</div><div class="v">15:38:24</div></div>
-        <div><div class="k">Device battery</div><div class="v">41%</div></div>
-        <div><div class="k">Supervisor</div><div class="v">Andi Pratama</div></div>
-      </div>
-      <div class="divider"></div>
-      <div class="row between"><span class="eyebrow">Escalation</span><span class="t-caption">Policy: SOS → QHSE + supervisor + vessel master</span></div>
-      <div class="timeline">
-        <div class="tl"><span class="time">15:38:24</span><span class="node"><span class="dot crit"></span></span><div class="body"><b>SOS received</b> from mobile app<div class="sub">Press-and-hold 2 s · position -6.1032, 106.8811 · ± 11 m</div></div></div>
-        <div class="tl"><span class="time">15:38:26</span><span class="node"><span class="dot ok"></span></span><div class="body">Push sent to <b>QHSE</b> + <b>supervisor</b><div class="sub">Maya Handayani · Andi Pratama · delivered</div></div></div>
-        <div class="tl"><span class="time">15:38:31</span><span class="node"><span class="dot ok"></span></span><div class="body">SMS fallback to <b>vessel master</b> MV PAGEO 02<div class="sub">Capt. Slamet Riyadi · delivered</div></div></div>
-        <div class="tl"><span class="time">15:38:40</span><span class="node"><span class="dot warn"></span></span><div class="body"><b>Acknowledge pending</b><div class="sub">Escalates to Operations Manager if not acknowledged by 15:43:24</div></div></div>
-        <div class="tl"><span class="time">—</span><span class="node"><span class="dot unknown"></span></span><div class="body"><span class="muted">Resolution</span><div class="sub">Awaiting response · location refreshes every 10 s while SOS is active</div></div></div>
-      </div>
-      <div class="divider"></div>
-      <div class="row s8 wrap">
-        <button class="btn sm secondary"><i data-icon="phone"></i>Call employee</button>
-        <button class="btn sm secondary"><i data-icon="ship"></i>Notify vessel master</button>
-        <span class="ml-auto"></span>
-        <button class="btn sm primary" data-ack>Acknowledge</button>
-        <button class="btn sm ghost">Resolve</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Catalogue -->
-  <div class="grid">
-    <div class="c12 card p0">
-      <div class="card-head"><span class="card-title">Alert catalogue</span><span class="t-caption">Default severity and routing · editable in Administration › Thresholds</span></div>
-      <div style="display:grid;grid-template-columns:1fr 1fr">
-        <div style="border-right:1px solid var(--border)">
-          <div class="row s8" style="padding:12px 20px 8px"><i data-icon="user" class="ic-16"></i><span class="eyebrow">Human alerts</span><span class="t-caption">7</span></div>
-          <div class="table-wrap">
-            <table class="table compact">
-              <thead><tr><th>Alert</th><th>Default severity</th><th>Trigger</th><th>Notify</th></tr></thead>
-              <tbody>
-                <tr><td><b>SOS</b></td><td><span class="sev p1">P1</span></td><td>Press-and-hold 2 s in mobile app</td><td>QHSE · Supervisor · Vessel master</td></tr>
-                <tr><td><b>Employee unexpectedly offline</b></td><td><span class="sev p3">P3</span></td><td>No heartbeat &gt; 30 min during active operation</td><td>Supervisor</td></tr>
-                <tr><td><b>Restricted zone entry</b></td><td><span class="sev p2">P2</span></td><td>Geofence enter without authorization</td><td>QHSE · Supervisor</td></tr>
-                <tr><td><b>Site departure</b></td><td><span class="sev p3">P3</span></td><td>Geofence exit during active shift</td><td>Supervisor</td></tr>
-                <tr><td><b>No location update</b></td><td><span class="sev p3">P3</span></td><td>&gt; 30 min without position</td><td>Supervisor</td></tr>
-                <tr><td><b>Operation anomaly</b></td><td><span class="sev p3">P3</span></td><td>Inactivity &gt; 45 min or shift overrun &gt; 12 h</td><td>Supervisor · Ops Manager</td></tr>
-                <tr><td><b>Muster not confirmed</b></td><td><span class="sev p2">P2</span></td><td>No check-in 10 min after muster call</td><td>QHSE</td></tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-        <div>
-          <div class="row s8" style="padding:12px 20px 8px"><i data-icon="diamond" class="ic-16"></i><span class="eyebrow">Asset alerts</span><span class="t-caption">8</span></div>
-          <div class="table-wrap">
-            <table class="table compact">
-              <thead><tr><th>Alert</th><th>Default severity</th><th>Trigger</th><th>Notify</th></tr></thead>
-              <tbody>
-                <tr><td><b>Asset removed from assigned area</b></td><td><span class="sev p2">P2</span></td><td>Exit read outside a dispatch</td><td>Asset Manager</td></tr>
-                <tr><td><b>Unauthorized movement</b></td><td><span class="sev p2">P2</span></td><td>Movement without active assignment</td><td>Asset Manager · QHSE</td></tr>
-                <tr><td><b>Asset not returned</b></td><td><span class="sev p3">P3</span></td><td>Past expected return date</td><td>Warehouse</td></tr>
-                <tr><td><b>Asset missing</b></td><td><span class="sev p2">P2</span></td><td>Not seen by any reader &gt; 48 h</td><td>Asset Manager</td></tr>
-                <tr><td><b>RFID reader offline</b></td><td><span class="sev p4">P4</span></td><td>Reader heartbeat missed &gt; 15 min</td><td>Asset Manager</td></tr>
-                <tr><td><b>Asset assigned to wrong project</b></td><td><span class="sev p3">P3</span></td><td>Read at a reader of another project</td><td>Project Manager</td></tr>
-                <tr><td><b>Calibration expiring</b></td><td><span class="sev p4">P4</span></td><td>&lt; 14 days to calibration due</td><td>Asset Manager</td></tr>
-                <tr><td><b>Maintenance due</b></td><td><span class="sev p4">P4</span></td><td>Maintenance schedule reached</td><td>Warehouse</td></tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-      <div class="card-foot row between"><span class="t-caption">Severity scale: P1 Critical · P2 High · P3 Warning · P4 Information</span><a class="link" href="admin.html">Edit thresholds <i data-icon="arrowright" class="ic-14"></i></a></div>
-    </div>
-  </div>`;
-  }
-});
+// handwritten — Alert center (filterable queue with acknowledge / resolve)
+(function () {
+  const SEV = { 1: 'Critical', 2: 'High', 3: 'Warning', 4: 'Information' };
+  const trend = C.card({ title: 'Alerts · last 7 days', body: C.areaChart({ h: 150, labels: ['29 Aug', '30', '31', '01 Sep', '02', '03', '04'], series: [{ label: 'P3–P4', values: [5, 7, 4, 6, 3, 8, 5], color: '#168FBF' }, { label: 'P1–P2', values: [1, 2, 0, 1, 1, 2, 2], color: '#C43D3D', fillOpacity: .08 }] }) });
+  const bySev = C.card({ title: 'Open by severity', body: C.donut({ size: 130, thickness: 18, centerLabel: 'open', parts: [{ label: 'P1 Critical', value: 1, color: '#C43D3D' }, { label: 'P2 High', value: 1, color: '#E0642F' }, { label: 'P3 Warning', value: 2, color: '#D89414' }, { label: 'P4 Information', value: 2, color: '#168FBF' }] }) });
+  const mtta = C.card({ title: 'Response', body: C.kvGrid([['Mean time to acknowledge', '4 min 12 s', 'big'], ['Acknowledged today', '11'], ['Resolved this week', '48'], ['SLA P1', '≤ 2 min · <span class="ok">met</span>']]) });
+  const reg = PN.registry({
+    coll: 'alerts', noun: 'alerts', eyebrow: 'Operations', title: 'Alert Center', sub: 'People and assets · one queue, one severity scale · P1 critical → P4 information',
+    placeholder: 'Search alert, person, asset or project', emptyIcon: 'bell',
+    actions: C.btn('Alert rules', 'ghost sm', 'settings') + C.btn('Acknowledge all', 'secondary sm', 'checkcircle', 'data-bound="1" id="ack-all"'),
+    extra: C.grid([C.col(6, trend), C.col(3, bySev), C.col(3, mtta)]),
+    kpis: [
+      { label: 'Open', value: r => r.filter(x => !x.acked).length, icon: 'bell', iconKind: 'crit', filter: { key: 'state', value: 'open' }, filterLabel: 'State' },
+      { label: 'P1 critical', value: r => r.filter(x => x.sev === 1).length, icon: 'siren', iconKind: 'crit', filter: { key: 'sev', value: '1' }, filterLabel: 'Severity' },
+      { label: 'P2 high', value: r => r.filter(x => x.sev === 2).length, icon: 'warning', iconKind: 'warn', filter: { key: 'sev', value: '2' }, filterLabel: 'Severity' },
+      { label: 'P3 warning', value: r => r.filter(x => x.sev === 3).length, icon: 'alert', iconKind: 'warn', filter: { key: 'sev', value: '3' }, filterLabel: 'Severity' },
+      { label: 'P4 information', value: r => r.filter(x => x.sev === 4).length, icon: 'info', filter: { key: 'sev', value: '4' }, filterLabel: 'Severity' },
+      { label: 'Acknowledged', value: r => r.filter(x => x.acked).length, icon: 'checkcircle', iconKind: 'ok', filter: { key: 'state', value: 'acked' }, filterLabel: 'State' }
+    ],
+    labelFor: (k, v) => k === 'sev' ? 'P' + v + ' ' + SEV[v] : v === 'open' ? 'Open' : 'Acknowledged',
+    search: (r, q) => (r.title + ' ' + r.who + ' ' + r.project + ' ' + r.type).toLowerCase().indexOf(q) >= 0,
+    filters: [{ key: 'type', label: 'Type', icon: 'layers', options: ['Human', 'Asset'] }, { key: 'project', label: 'Project', icon: 'clipboard' }],
+    cols: [
+      { key: 'sev', label: 'Sev', render: r => C.sev(r.sev), width: '60px' },
+      { key: 'title', label: 'Alert', render: r => '<div class="cell-entity"><div><span class="name">' + C.esc(r.title) + '</span><div class="sub">' + (r.meta || []).join(' · ') + '</div></div></div>' },
+      { key: 'type', label: 'Type', render: r => C.chip('neutral', r.type, { sm: true, dot: false }) },
+      { key: 'who', label: 'Subject' },
+      { key: 'project', label: 'Project' },
+      { key: 'time', label: 'Received', num: true, render: r => '<div>' + C.esc(r.time) + '<div class="t-caption">' + C.esc(r.when) + '</div></div>' },
+      { key: 'state', label: 'State', render: r => r.acked ? C.chip('ok', 'Acknowledged', { sm: true }) : C.chip('crit', 'Open', { sm: true }) },
+      { key: '_a', label: '', cls: 'actions', render: r => r.acked ? C.btn('Resolve', 'xs secondary', null, 'data-bound="1" data-resolve="' + r.id + '"') : C.btn('Acknowledge', 'xs primary', null, 'data-bound="1" data-ackid="' + r.id + '"') }
+    ],
+    rowId: r => r.id, detailHref: () => 'alerts.html', editHref: () => 'alerts.html', deleteLabel: r => r.title, deleteText: 'Deleting an alert removes it from the queue without a resolution note.',
+    extraMenu: (r, draw) => ({ icon: 'map', label: 'View on live map', onClick: () => PN.route('live-map') }),
+    after: function (root, draw) {
+      root.addEventListener('click', function (e) {
+        const a = e.target.closest('[data-ackid]'); if (a) { PN.store.update('alerts', a.getAttribute('data-ackid'), { acked: true, when: 'acknowledged 15:42' }); PN.toast('Acknowledged · 15:42:31 by Operations Manager'); draw(); return; }
+        const rs = e.target.closest('[data-resolve]'); if (rs) { const id = rs.getAttribute('data-resolve'); PN.modal({ title: 'Resolve alert', body: C.textInput({ name: 'note', label: 'Resolution note', textarea: true, placeholder: 'What was done? This note is kept with the alert history.', required: true }), actions: C.btn('Cancel', 'ghost', null, 'data-close') + C.btn('Resolve', 'primary', 'check', 'data-confirm'), onConfirm: function (ov) { const n = ov.querySelector('[name=note]').value.trim(); if (!n) { ov.querySelector('.field').classList.add('invalid'); return false; } PN.store.remove('alerts', id); PN.toast('Resolved · note saved to alert history'); draw(); } }); return; }
+        if (e.target.closest('#ack-all')) { PN.store.all('alerts').forEach(function (x) { if (!x.acked) PN.store.update('alerts', x.id, { acked: true }); }); PN.toast('All open alerts acknowledged'); draw(); }
+      });
+    }
+  });
+  // state is a derived field: expose it on records for the generic filter
+  const origAll = PN.store.all;
+  PN.page('alerts', { title: 'Alert Center', icon: 'bell', nav: 'alerts', crumb: 'Global / Operations / Alerts', render: function () { PN.store.all('alerts').forEach(function (a) { a.state = a.acked ? 'acked' : 'open'; }); return reg.render(); }, after: function (stage) { PN.store.all('alerts').forEach(function (a) { a.state = a.acked ? 'acked' : 'open'; }); const d = reg.after; d(stage); } });
+})();
 
 /* Converted from web/reports.html — edit freely; delete "// converted" to mark as handwritten */
 // converted
@@ -5469,6 +5362,130 @@ PN.page("states", {
   </div>`;
   }
 });
+
+// handwritten — Personnel create / edit
+(function () {
+  const KIND = { 'Active': 'ok', 'On Site': 'info', 'Offshore': 'info', 'In Transit': 'transit', 'Idle': 'warn', 'Offline': 'off', 'Alert': 'crit' };
+  const projects = () => PN.store.all('projects').map(p => [p.name.replace('Project ', '').replace('Base — Jakarta', 'Base'), p.name]);
+  const f = PN.form({
+    coll: 'people', noun: 'personnel', eyebrow: 'People · Personnel', backHref: 'personnel.html', backLabel: 'personnel',
+    newSub: 'Register an employee and assign them to a project. They sign in to the mobile app with the employee ID.',
+    editTitle: r => r.name, editSub: r => r.role + ' · ' + r.id,
+    label: r => r.name,
+    tips: ['Employee ID must match the HR system (format PG-0000).', 'Assigning a project makes the person visible on the project dashboard and muster list.', 'Status is normally updated by the mobile app — set it here only for manual corrections.'],
+    summary: r => [['Employee ID', r.id], ['Status', C.chip(r.kind, r.status, { sm: true })], ['Freshness', C.fresh(r.fresh[0], r.fresh[1])], ['Last update', r.last], ['Battery', (r.batt == null ? '—' : r.batt + '%')]],
+    side: r => r ? C.card({ title: 'Assigned assets', link: { label: 'Assignment', href: 'assignment.html' }, body: '<div class="stack s4">' + PN.store.all('assets').filter(a => a.custodian === r.name).map(a => C.entity({ icon: 'diamond', symCls: 'dark', title: a.id, sub: a.desc, right: C.chip(a.kind, a.status, { sm: true }) })).join('') + '</div>' || C.empty({ icon: 'diamond', title: 'No assets in custody', text: '' }) }) : '',
+    sections: [
+      { title: 'Identity', fields: [
+        { name: 'name', label: 'Full name', required: true, icon: 'user', placeholder: 'e.g. Andi Pratama' },
+        { name: 'id', label: 'Employee ID', required: true, placeholder: 'PG-0000', help: 'Used to sign in to the mobile app' },
+        { name: 'role', label: 'Job role', required: true, placeholder: 'Survey Engineer' },
+        { name: 'dept', label: 'Department', type: 'select', options: ['Survey', 'Subsea', 'Equipment', 'Operations', 'QHSE', 'Logistics', 'Engineering', 'Maintenance'], placeholder: 'Choose department' },
+        { name: 'contact', label: 'Contact', placeholder: '+62 812 ···', icon: 'phone' },
+        { name: 'emergency', label: 'Emergency contact', placeholder: 'Name · +62 ···', icon: 'lifebuoy' }
+      ] },
+      { title: 'Assignment', fields: [
+        { name: 'project', label: 'Project', type: 'select', options: projects(), placeholder: 'Unassigned', icon: 'clipboard' },
+        { name: 'supervisor', label: 'Supervisor', placeholder: 'Andi Pratama' },
+        { name: 'location', label: 'Current location', placeholder: 'PAGEO Base', icon: 'pin' },
+        { name: 'muster', label: 'Muster point', placeholder: 'B · Deck 2', icon: 'flag' },
+        { name: 'status', label: 'Status', type: 'select', options: Object.keys(KIND), placeholder: 'Choose status' },
+        { name: 'cert', label: 'Certifications', placeholder: 'BOSIET · valid to 2027', span2: false }
+      ] },
+      { title: 'Notes', fields: [{ name: 'notes', label: 'Notes', type: 'textarea', span2: true, placeholder: 'Medical restrictions, shift pattern, cabin allocation…' }] }
+    ],
+    toRecord: (v, ex) => Object.assign({}, ex || { fresh: ['live', 'just now'], last: '15:42:00', batt: 100, acc: 8 }, {
+      name: v.name, id: v.id.toUpperCase(), role: v.role, dept: v.dept || (ex && ex.dept) || 'Survey', project: v.project || '—', location: v.location || (ex && ex.location) || 'PAGEO Base',
+      status: v.status || (ex && ex.status) || 'Active', kind: KIND[v.status || (ex && ex.status) || 'Active'] || 'ok', supervisor: v.supervisor, contact: v.contact, emergency: v.emergency, muster: v.muster, cert: v.cert, notes: v.notes
+    })
+  });
+  PN.page('personnel-form', { title: 'Personnel form', icon: 'user', nav: 'personnel', crumb: 'Global / People / Personnel / Form', render: f.render, after: f.after, note: 'CRUD' });
+})();
+
+// handwritten — Asset create / edit
+(function () {
+  const KIND = { 'Available': 'ok', 'Deployed': 'info', 'In Transit': 'transit', 'Maintenance': 'warn', 'Missing': 'crit', 'Alert': 'crit', 'Unassigned': 'unknown' };
+  const projects = () => PN.store.all('projects').map(p => [p.name.replace('Project ', '').replace('Base — Jakarta', 'Base'), p.name]);
+  const people = () => PN.store.all('people').map(p => p.name);
+  const f = PN.form({
+    coll: 'assets', noun: 'asset', eyebrow: 'Assets · Registry', backHref: 'assets.html', backLabel: 'registry',
+    newSub: 'Register equipment with its RFID tag so readers can track custody and movement.',
+    editTitle: r => r.id, editSub: r => r.desc + ' · ' + r.cat,
+    label: r => r.id,
+    tips: ['Asset ID is the printed label on the equipment (e.g. MBES-04).', 'RFID EPC is read from the tag with the mobile app or a desk reader.', 'Calibration due dates drive P4 “calibration expiring” alerts 14 days ahead.'],
+    summary: r => [['RFID', '<span class="mono">' + C.esc(r.rfid) + '</span>'], ['Status', C.chip(r.kind, r.status, { sm: true })], ['Last seen', r.last + ' · ' + r.reader], ['Custodian', r.custodian], ['Calibration', r.cal]],
+    side: r => r ? C.card({ title: 'Journey', link: { label: 'Movement', href: 'asset-movement.html' }, body: C.timeline([{ time: 'Sep 01', kind: 'unknown', text: 'Warehouse · RD-01' }, { time: 'Sep 03', kind: 'transit', text: 'Loading Area · RD-04' }, { time: 'Sep 03', kind: 'info', text: 'Vessel PAGEO-02 · RD-11' }, { time: 'Sep 04', kind: 'ok', text: r.location + ' · ' + r.reader.split(' ')[0] }]) }) : '',
+    sections: [
+      { title: 'Identification', fields: [
+        { name: 'id', label: 'Asset ID', required: true, placeholder: 'MBES-04', icon: 'diamond' },
+        { name: 'rfid', label: 'RFID EPC', required: true, placeholder: 'E280-11-0000000', icon: 'nfc', help: 'Scan with the mobile app or type the EPC' },
+        { name: 'desc', label: 'Description', required: true, placeholder: 'Multibeam Echo Sounder', span2: true },
+        { name: 'cat', label: 'Category', type: 'select', options: ['Survey', 'Positioning', 'ROV', 'Comms', 'IT', 'Power'], placeholder: 'Choose category', icon: 'tag' },
+        { name: 'model', label: 'Manufacturer · model', placeholder: 'Kongsberg EM 2040C' },
+        { name: 'serial', label: 'Serial number', placeholder: '20401183' },
+        { name: 'purchase', label: 'Purchase date', type: 'date' }
+      ] },
+      { title: 'Custody & status', fields: [
+        { name: 'project', label: 'Assigned project', type: 'select', options: projects(), placeholder: 'Unassigned', icon: 'clipboard' },
+        { name: 'custodian', label: 'Custodian', type: 'select', options: people(), placeholder: 'Warehouse', icon: 'user' },
+        { name: 'location', label: 'Current location', placeholder: 'Warehouse · Rack B3', icon: 'pin' },
+        { name: 'status', label: 'Status', type: 'select', options: Object.keys(KIND), placeholder: 'Choose status' }
+      ] },
+      { title: 'Calibration & maintenance', fields: [
+        { name: 'cal', label: 'Calibration valid to', placeholder: '18 Dec 2026', icon: 'calendar' },
+        { name: 'maint', label: 'Next maintenance', placeholder: '02 Nov 2026', icon: 'wrench' },
+        { name: 'notes', label: 'Notes', type: 'textarea', span2: true, placeholder: 'Known issues, accessories included, handling instructions…' }
+      ] }
+    ],
+    toRecord: (v, ex) => Object.assign({}, ex || { last: '15:42', reader: 'RD-01 Warehouse Gate A' }, {
+      id: v.id, rfid: v.rfid.toUpperCase(), desc: v.desc, cat: v.cat || (ex && ex.cat) || 'Survey', project: v.project || '—', custodian: v.custodian || 'Warehouse', location: v.location || (ex && ex.location) || 'Warehouse',
+      status: v.status || (ex && ex.status) || 'Available', kind: KIND[v.status || (ex && ex.status) || 'Available'] || 'ok', cal: v.cal || (ex && ex.cal) || '—', model: v.model, serial: v.serial, purchase: v.purchase, maint: v.maint, notes: v.notes
+    })
+  });
+  PN.page('asset-form', { title: 'Asset form', icon: 'diamond', nav: 'assets', crumb: 'Global / Assets / Registry / Form', render: f.render, after: f.after, note: 'CRUD' });
+})();
+
+// handwritten — Project create / edit
+(function () {
+  const KIND = { 'Planned': 'unknown', 'Mobilizing': 'warn', 'Offshore': 'info', 'Onshore': 'ok', 'Demobilizing': 'transit', 'Closed': 'off' };
+  const pms = () => PN.store.all('people').filter(p => /Manager|Chief|Supervisor/.test(p.role)).map(p => p.name).concat(['Dimas Prasetyo', 'Rina Kartika', 'Sari Dewi', 'Yoga Hartono']).filter((v, i, a) => a.indexOf(v) === i);
+  const f = PN.form({
+    coll: 'projects', noun: 'project', eyebrow: 'Operations · Projects', backHref: 'projects.html', backLabel: 'projects',
+    newSub: 'Create the project first — personnel, assets, vessel and geofences are then assigned to it.',
+    editTitle: r => r.name, editSub: r => r.type + ' · ' + r.status,
+    label: r => r.name,
+    tips: ['A project needs a site or a vessel before mobilization can start.', 'Expected personnel is used for muster accountability (expected vs. safe).', 'Changing status to Offshore starts offshore-hours accounting for assigned personnel.'],
+    summary: r => [['Status', C.chip(r.kind, r.status, { sm: true })], ['Personnel', r.people[0] + ' / ' + r.people[1]], ['Assets', r.assets], ['Open alerts', r.alerts], ['Schedule', r.start + ' – ' + r.end]],
+    side: r => r ? C.card({ title: 'Stage', body: C.flow([{ label: 'Prepare', state: 'done' }, { label: 'Mobilize', state: r.status === 'Planned' ? '' : 'done' }, { label: 'Operate', state: r.status === 'Offshore' || r.status === 'Onshore' ? 'current' : '' }, { label: 'Demob', state: r.status === 'Demobilizing' ? 'current' : '' }, { label: 'Close', state: r.status === 'Closed' ? 'done' : '' }]) }) : '',
+    sections: [
+      { title: 'Project', fields: [
+        { name: 'name', label: 'Project name', required: true, placeholder: 'Project Hotel', icon: 'clipboard' },
+        { name: 'type', label: 'Type of work', required: true, type: 'select', options: ['Offshore Construction Survey', 'Pipeline Inspection ROV', 'Port Bathymetry', 'Geotechnical Site Investigation', 'Cable Route Survey', 'Jetty Positioning', 'Subsea Inspection'], placeholder: 'Choose type' },
+        { name: 'client', label: 'Client', placeholder: 'PT …', icon: 'building' },
+        { name: 'pm', label: 'Project manager', type: 'select', options: pms(), placeholder: 'Assign later', icon: 'user' },
+        { name: 'status', label: 'Status', type: 'select', options: Object.keys(KIND), placeholder: 'Planned' },
+        { name: 'expected', label: 'Expected personnel', type: 'number', placeholder: '12', icon: 'users' }
+      ] },
+      { title: 'Location & schedule', fields: [
+        { name: 'vessel', label: 'Vessel', type: 'select', options: ['MV PAGEO 01', 'MV PAGEO 02', 'MV PAGEO 03', 'Client vessel', '—'], placeholder: 'No vessel', icon: 'ship' },
+        { name: 'site', label: 'Site / work area', placeholder: 'Natuna Block B', icon: 'pin' },
+        { name: 'start', label: 'Start', placeholder: '08 Sep', icon: 'calendar' },
+        { name: 'end', label: 'End', placeholder: '30 Sep', icon: 'calendar' },
+        { name: 'notes', label: 'Scope notes', type: 'textarea', span2: true, placeholder: 'Survey lines, ROV dives, deliverables…' }
+      ] }
+    ],
+    toRecord: (v, ex) => {
+      const status = v.status || (ex && ex.status) || 'Planned';
+      return Object.assign({}, ex || { people: [0, 0], assets: 0, alerts: 0, last: '15:42' }, {
+        id: ex ? ex.id : v.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^project-/, '').replace(/^-|-$/g, ''),
+        name: v.name, type: v.type || (ex && ex.type) || 'Offshore Construction Survey', client: v.client, pm: v.pm || (ex && ex.pm) || '—', status: status, kind: KIND[status] || 'unknown',
+        vessel: v.vessel || '—', site: v.site || (ex && ex.site) || '—', start: v.start || (ex && ex.start) || '—', end: v.end || (ex && ex.end) || '—',
+        people: [ex ? ex.people[0] : 0, v.expected ? +v.expected : (ex ? ex.people[1] : 0)], notes: v.notes
+      });
+    }
+  });
+  PN.page('project-form', { title: 'Project form', icon: 'clipboard', nav: 'projects', crumb: 'Global / Operations / Projects / Form', render: f.render, after: f.after, note: 'CRUD' });
+})();
 
 /* Web Command Center — app bootstrap */
 PN.app({ kind: 'web', home: 'overview', title: 'PAGEO Command Center' });

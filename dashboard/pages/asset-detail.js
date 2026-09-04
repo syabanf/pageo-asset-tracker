@@ -96,7 +96,7 @@ PN.page("asset-detail", {
   <!-- Metadata + journey + custody -->
   <div class="grid">
     <div class="c4 card">
-      <div class="card-head"><span class="card-title">Metadata</span><button class="btn xs ghost"><i data-icon="pencil"></i>Edit</button></div>
+      <div class="card-head"><span class="card-title">Metadata</span><a class="btn xs ghost" href="asset-form.html?id=MBES-03"><i data-icon="pencil"></i>Edit</a></div>
       <div class="kv-grid" style="grid-template-columns:repeat(2,minmax(0,1fr))">
         <div><div class="k">Manufacturer</div><div class="v">Kongsberg</div></div>
         <div><div class="k">Model</div><div class="v">EM 2040C</div></div>

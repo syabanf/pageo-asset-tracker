@@ -641,7 +641,7 @@
       b.addEventListener('click', function () { const n = b.textContent.trim(); if (!/^\d+$/.test(n)) { PN.toast('Loading next page…', 'chevronright'); return; } b.parentElement.querySelectorAll('button').forEach(function (o) { o.classList.remove('active'); }); b.classList.add('active'); PN.toast('Page ' + n, 'list'); });
     });
     // Search inputs filter the first table on the page
-    root.querySelectorAll('.input input[type="search"], .filters .input input, .search input').forEach(function (inp) {
+    root.querySelectorAll('.input input[type="search"]:not([data-custom]), .filters .input input:not([data-custom]), .search input:not([data-custom])').forEach(function (inp) {
       inp.addEventListener('input', function () {
         const q = inp.value.trim().toLowerCase();
         const table = (inp.closest('.page, .screen') || root).querySelector('.table tbody'); if (!table) return;
@@ -686,6 +686,7 @@
   };
   PN.paintMap = paintMap;
   PN.renderIcons = renderIcons;
+  PN.bind = bindBehaviors;
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', function () { if (!window.PN_MANUAL_INIT) PN.init(document.body); });
   else if (!window.PN_MANUAL_INIT) PN.init(document.body);

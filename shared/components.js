@@ -86,7 +86,7 @@
   };
   C.kpi = function (o) {
     const lines = (o.lines || []).map(function (l) { return '<span>' + C.dot(l.kind) + '&nbsp;<span class="num">' + l.num + '</span>' + esc(l.text) + '</span>'; }).join('');
-    return '<div class="card kpi' + (o.compact ? ' compact' : '') + (o.alert ? ' alert' : '') + (o.cls ? ' ' + o.cls : '') + '">' +
+    return '<div class="card kpi' + (o.compact ? ' compact' : '') + (o.alert ? ' alert' : '') + (o.cls ? ' ' + o.cls : '') + '"' + (o.attr ? ' ' + o.attr : '') + '>' +
       (o.icon ? '<span class="kpi-icon ' + (o.iconKind || '') + '">' + icon(o.icon) + '</span>' : '') +
       C.eyebrow(o.label) + '<div class="kpi-value">' + o.value + (o.unit ? '<small>' + esc(o.unit) + '</small>' : '') + '</div>' +
       (lines ? '<div class="kpi-lines">' + lines + '</div>' : '') +
@@ -209,4 +209,116 @@
   M.progress = function (pct, kind) { return '<div class="m-progress ' + (kind || '') + '"><i style="width:' + pct + '%"></i></div>'; };
   M.sheet = function (inner) { return '<div class="m-sheet"><div class="grab"></div>' + inner + '</div>'; };
   M.sos = function () { return '<div class="sos-hold"><div class="ring"></div><div class="inner"><b>SOS</b><span>Hold 2 seconds</span></div></div>'; };
+})();
+
+/* ---------- Mobile v3 additions: hero, quick actions, stat tiles, colored list icons ---------- */
+(function () {
+  const C = window.C, M = window.M, esc = C.esc, icon = C.icon;
+  M.hero = function (o) {
+    o = o || {};
+    const stats = o.stats ? '<div class="m-hero-stats">' + o.stats.map(function (s) { return '<div class="hs"><b>' + s[1] + '</b><span>' + esc(s[0]) + '</span></div>'; }).join('') + '</div>' : '';
+    return '<div class="m-hero ' + (o.kind || '') + '">' + (o.top || '') + (o.eyebrow ? '<div class="eyebrow">' + esc(o.eyebrow) + '</div>' : '') + (o.title ? '<div class="m-hero-title">' + esc(o.title) + '</div>' : '') + (o.sub ? '<div class="m-hero-sub">' + o.sub + '</div>' : '') + (o.body || '') + stats + (o.actions ? '<div class="m-hero-actions">' + o.actions + '</div>' : '') + '</div>';
+  };
+  M.actions = function (items) {
+    return '<div class="m-actions">' + items.map(function (a) { return '<a href="' + (a.href || '#') + '"><span class="ai ' + (a.kind || 'ocean') + '">' + icon(a.icon) + '</span><span>' + esc(a.label) + '</span></a>'; }).join('') + '</div>';
+  };
+  M.tiles = function (items) {
+    return '<div class="m-tiles">' + items.map(function (t) { return '<div class="tile' + (t.kind ? ' ' + t.kind : '') + '">' + (t.icon ? '<span class="ti">' + icon(t.icon) + '</span>' : '') + '<b>' + t.value + '</b><span>' + esc(t.label) + '</span></div>'; }).join('') + '</div>';
+  };
+  M.ringStat = function (pct, kind, label, sub) {
+    return '<div class="m-ringstat">' + C.ring(pct, kind, true) + '<div><div class="m-h3">' + label + '</div>' + (sub ? '<div class="m-caption">' + esc(sub) + '</div>' : '') + '</div></div>';
+  };
+  M.avatars = function (list, more) { return '<div class="m-avatar-row">' + list.map(function (a) { return C.avatar(a); }).join('') + (more ? C.avatar('+' + more, 'dark') : '') + '</div>'; };
+  M.greeting = function (title, date) { return '<div class="m-greeting"><div class="m-caption">' + esc(date) + '</div><div class="m-h1">' + title + '</div></div>'; };
+})();
+
+/* ---------- Charts (SVG, no dependencies) · Modal · Popover menu ---------- */
+(function () {
+  const C = window.C, PN = window.PN, esc = C.esc;
+  function niceMax(v) { if (!(v > 0)) return 1; const p = Math.pow(10, Math.floor(Math.log10(v))); const f = v / p; const n = f <= 1 ? 1 : f <= 2 ? 2 : f <= 2.5 ? 2.5 : f <= 5 ? 5 : 10; return n * p; }
+  C.areaChart = function (o) {
+    const series = o.series || [{ values: o.values, color: o.color || '#168FBF', label: o.label }];
+    const n = series[0].values.length, w = o.w || 600, h = o.h || 190, L = 38, R = 14, T = 16, B = 30;
+    const max = niceMax(Math.max.apply(null, series.map(s => Math.max.apply(null, s.values))) * 1.08);
+    const px = i => L + i * (w - L - R) / Math.max(1, n - 1), py = v => T + (h - T - B) * (1 - v / max);
+    let s = '<svg viewBox="0 0 ' + w + ' ' + h + '" class="chart-svg" role="img" aria-label="' + esc(o.label || 'chart') + '">';
+    const steps = 4;
+    for (let i = 0; i <= steps; i++) { const v = max * i / steps, y = py(v); s += '<line x1="' + L + '" x2="' + (w - R) + '" y1="' + y.toFixed(1) + '" y2="' + y.toFixed(1) + '" stroke="#E6EAED" stroke-width="1"/><text x="' + (L - 8) + '" y="' + (y + 4).toFixed(1) + '" text-anchor="end" font-size="11" fill="#667078" font-family="Inter,sans-serif">' + (Number.isInteger(v) ? v : v.toFixed(1)) + '</text>'; }
+    series.forEach(function (sr) {
+      const pts = sr.values.map((v, i) => [px(i), py(v)]);
+      const d = pts.map((p, i) => (i ? 'L' : 'M') + p[0].toFixed(1) + ',' + p[1].toFixed(1)).join(' ');
+      if (sr.area !== false) s += '<path d="' + d + ' L' + pts[pts.length - 1][0].toFixed(1) + ',' + py(0) + ' L' + pts[0][0].toFixed(1) + ',' + py(0) + ' Z" fill="' + sr.color + '" fill-opacity="' + (sr.fillOpacity != null ? sr.fillOpacity : .10) + '"/>';
+      s += '<path d="' + d + '" fill="none" stroke="' + sr.color + '" stroke-width="2.25" stroke-linejoin="round" stroke-linecap="round"' + (sr.dash ? ' stroke-dasharray="5 4"' : '') + '/>';
+      if (o.dots !== false) pts.forEach((p, i) => { if (i === pts.length - 1 || o.allDots) s += '<circle cx="' + p[0].toFixed(1) + '" cy="' + p[1].toFixed(1) + '" r="3.5" fill="#fff" stroke="' + sr.color + '" stroke-width="2"/>'; });
+      if (o.valueLabels) pts.forEach((p, i) => { s += '<text x="' + p[0].toFixed(1) + '" y="' + (p[1] - 8).toFixed(1) + '" text-anchor="middle" font-size="10" fill="#24292D" font-family="Inter,sans-serif">' + sr.values[i] + '</text>'; });
+    });
+    if (o.labels) { const stride = Math.ceil(o.labels.length / (o.maxLabels || 8)); o.labels.forEach((l, i) => { if (i % stride === 0 || i === o.labels.length - 1) s += '<text x="' + px(i).toFixed(1) + '" y="' + (h - 8) + '" text-anchor="middle" font-size="11" fill="#667078" font-family="Inter,sans-serif">' + esc(l) + '</text>'; }); }
+    s += '</svg>';
+    return '<div class="chart">' + s + (series.length > 1 || o.legend ? C.legend(series.map(sr => ({ label: sr.label, color: sr.color }))) : '') + '</div>';
+  };
+  C.barChart = function (o) {
+    const vals = o.values, n = vals.length, w = o.w || 600, h = o.h || 180, L = 36, R = 10, T = 18, B = 28;
+    const max = niceMax(Math.max.apply(null, vals) * 1.1), bw = (w - L - R) / n, gap = Math.min(10, bw * .3);
+    const py = v => T + (h - T - B) * (1 - v / max);
+    let s = '<svg viewBox="0 0 ' + w + ' ' + h + '" class="chart-svg">';
+    for (let i = 0; i <= 4; i++) { const y = py(max * i / 4); s += '<line x1="' + L + '" x2="' + (w - R) + '" y1="' + y.toFixed(1) + '" y2="' + y.toFixed(1) + '" stroke="#E6EAED"/><text x="' + (L - 8) + '" y="' + (y + 4).toFixed(1) + '" text-anchor="end" font-size="11" fill="#667078" font-family="Inter,sans-serif">' + Math.round(max * i / 4) + '</text>'; }
+    vals.forEach((v, i) => { const x = L + i * bw + gap / 2, y = py(v), col = (o.colors && o.colors[i]) || o.color || '#168FBF'; s += '<rect x="' + x.toFixed(1) + '" y="' + y.toFixed(1) + '" width="' + (bw - gap).toFixed(1) + '" height="' + (py(0) - y).toFixed(1) + '" rx="4" fill="' + col + '"/>'; if (o.valueLabels) s += '<text x="' + (x + (bw - gap) / 2).toFixed(1) + '" y="' + (y - 5).toFixed(1) + '" text-anchor="middle" font-size="10" fill="#24292D" font-family="Inter,sans-serif">' + v + '</text>'; if (o.labels) s += '<text x="' + (x + (bw - gap) / 2).toFixed(1) + '" y="' + (h - 8) + '" text-anchor="middle" font-size="11" fill="#667078" font-family="Inter,sans-serif">' + esc(o.labels[i]) + '</text>'; });
+    return '<div class="chart">' + s + '</svg></div>';
+  };
+  C.donut = function (o) {
+    const parts = o.parts, total = parts.reduce((a, p) => a + p.value, 0), size = o.size || 150, th = o.thickness || 20, r = (size - th) / 2, circ = 2 * Math.PI * r;
+    let off = 0, s = '<svg viewBox="0 0 ' + size + ' ' + size + '" class="donut-svg" style="width:' + size + 'px;height:' + size + 'px">';
+    s += '<circle cx="' + size / 2 + '" cy="' + size / 2 + '" r="' + r + '" fill="none" stroke="#EEF2F4" stroke-width="' + th + '"/>';
+    parts.forEach(p => { const len = total ? circ * p.value / total : 0; s += '<circle cx="' + size / 2 + '" cy="' + size / 2 + '" r="' + r + '" fill="none" stroke="' + p.color + '" stroke-width="' + th + '" stroke-dasharray="' + Math.max(0, len - 2).toFixed(2) + ' ' + (circ - Math.max(0, len - 2)).toFixed(2) + '" stroke-dashoffset="' + (-off).toFixed(2) + '" transform="rotate(-90 ' + size / 2 + ' ' + size / 2 + ')" stroke-linecap="butt"/>'; off += len; });
+    s += '<text x="' + size / 2 + '" y="' + (size / 2 - 2) + '" text-anchor="middle" font-size="26" font-weight="700" fill="#1E2327" font-family="Inter,sans-serif">' + (o.center != null ? o.center : total) + '</text><text x="' + size / 2 + '" y="' + (size / 2 + 16) + '" text-anchor="middle" font-size="11" fill="#667078" font-family="Inter,sans-serif">' + esc(o.centerLabel || 'total') + '</text></svg>';
+    const legend = '<div class="donut-legend">' + parts.map(p => '<div class="dl' + (p.href ? ' link' : '') + '"' + (p.href ? ' data-go-href="' + p.href + '"' : '') + '><i style="background:' + p.color + '"></i><span class="l">' + esc(p.label) + '</span><b>' + p.value + '</b><small>' + (total ? Math.round(100 * p.value / total) : 0) + '%</small></div>').join('') + '</div>';
+    return '<div class="donut">' + s + legend + '</div>';
+  };
+  C.hstack = function (rows, o) {
+    o = o || {};
+    const max = o.max || Math.max.apply(null, rows.map(r => r.parts.reduce((a, p) => a + p.value, 0)));
+    return '<div class="hstack">' + rows.map(r => { const tot = r.parts.reduce((a, p) => a + p.value, 0); return '<div class="hs-row"><span class="hs-l">' + esc(r.label) + '</span><div class="hs-track">' + r.parts.map(p => '<i style="width:' + (100 * p.value / max).toFixed(1) + '%;background:' + p.color + '" title="' + esc(p.label) + ' ' + p.value + '"></i>').join('') + '</div><b>' + tot + '</b></div>'; }).join('') + '</div>' + (o.legend ? C.legend(o.legend) : '');
+  };
+  C.selectNative = function (o) {
+    const opts = (o.options || []).map(function (op) { const v = typeof op === 'string' ? op : op[0], l = typeof op === 'string' ? op : op[1]; return '<option value="' + esc(v) + '"' + (o.value === v ? ' selected' : '') + '>' + esc(l) + '</option>'; }).join('');
+    const box = '<div class="input' + (o.sm ? ' sm' : '') + ' has-select"' + (o.style ? ' style="' + o.style + '"' : '') + '>' + (o.icon ? C.icon(o.icon) : '') + '<select name="' + esc(o.name || '') + '"' + (o.attr ? ' ' + o.attr : '') + '>' + (o.placeholder ? '<option value="">' + esc(o.placeholder) + '</option>' : '') + opts + '</select>' + C.icon('chevrondown', 'chev ic-16') + '</div>';
+    return o.label ? '<div class="field"><label>' + esc(o.label) + '</label>' + box + (o.help ? '<div class="help">' + esc(o.help) + '</div>' : '') + '</div>' : box;
+  };
+  C.textInput = function (o) {
+    const box = '<div class="input' + (o.sm ? ' sm' : '') + (o.textarea ? ' textarea' : '') + '">' + (o.icon ? C.icon(o.icon) : '') + (o.textarea ? '<textarea name="' + esc(o.name) + '" rows="3" placeholder="' + esc(o.placeholder || '') + '">' + esc(o.value || '') + '</textarea>' : '<input name="' + esc(o.name) + '" type="' + (o.type || 'text') + '" value="' + esc(o.value || '') + '" placeholder="' + esc(o.placeholder || '') + '"' + (o.required ? ' required' : '') + (o.attr ? ' ' + o.attr : '') + '>') + '</div>';
+    return o.label ? '<div class="field' + (o.error ? ' invalid' : '') + '"><label>' + esc(o.label) + (o.required ? ' <span class="crit">*</span>' : '') + '</label>' + box + (o.help ? '<div class="help">' + esc(o.help) + '</div>' : '') + (o.error ? '<div class="err">' + C.icon('alert', 'ic-14') + esc(o.error) + '</div>' : '') + '</div>' : box;
+  };
+
+  /* Modal + confirm */
+  PN.modal = function (o) {
+    const ov = document.createElement('div'); ov.className = 'pn-overlay';
+    ov.innerHTML = '<div class="modal" role="dialog" aria-modal="true">' + (o.title ? '<div class="row between"><div class="t-h3">' + o.title + '</div><button class="icon-btn" data-close aria-label="Close">' + PN.icon('x') + '</button></div>' : '') + (o.body || '') + (o.actions ? '<div class="row end s8">' + o.actions + '</div>' : '') + '</div>';
+    document.body.appendChild(ov); PN.renderIcons(ov);
+    function close() { ov.classList.remove('show'); setTimeout(function () { ov.remove(); }, 160); }
+    requestAnimationFrame(function () { ov.classList.add('show'); });
+    ov.addEventListener('click', function (e) { if (e.target === ov) close(); });
+    ov.querySelectorAll('[data-close]').forEach(function (b) { b.addEventListener('click', close); });
+    const c = ov.querySelector('[data-confirm]'); if (c && o.onConfirm) c.addEventListener('click', function () { if (o.onConfirm(ov) !== false) close(); });
+    return { close: close, el: ov };
+  };
+  PN.confirm = function (o) {
+    return PN.modal({ title: o.title, body: '<p class="t-body muted">' + o.text + '</p>' + (o.body || ''), actions: C.btn('Cancel', 'ghost', null, 'data-close') + C.btn(o.confirmLabel || 'Delete', o.danger === false ? 'primary' : 'destructive solid', o.icon || (o.danger === false ? 'check' : 'trash'), 'data-confirm'), onConfirm: o.onConfirm });
+  };
+  /* Popover menu anchored to an element */
+  PN.menu = function (anchor, items) {
+    document.querySelectorAll('.pn-menu').forEach(function (m) { m.remove(); });
+    const m = document.createElement('div'); m.className = 'pn-menu';
+    m.innerHTML = items.map(function (it, i) { return it === '-' ? '<div class="sep"></div>' : '<button type="button" class="' + (it.danger ? 'danger' : '') + '" data-i="' + i + '">' + PN.icon(it.icon || 'circle', 'ic-16') + esc(it.label) + '</button>'; }).join('');
+    document.body.appendChild(m);
+    const r = anchor.getBoundingClientRect(); const mw = 180;
+    m.style.top = Math.min(window.innerHeight - m.offsetHeight - 8, r.bottom + 6) + 'px';
+    m.style.left = Math.max(8, Math.min(window.innerWidth - mw - 8, r.right - mw)) + 'px';
+    function close() { m.remove(); document.removeEventListener('click', onDoc, true); }
+    function onDoc(e) { if (!m.contains(e.target)) close(); }
+    setTimeout(function () { document.addEventListener('click', onDoc, true); }, 0);
+    m.querySelectorAll('button[data-i]').forEach(function (b) { b.addEventListener('click', function (e) { e.stopPropagation(); const it = items[+b.getAttribute('data-i')]; close(); if (it.onClick) it.onClick(); else if (it.href && PN.route) PN.route(it.href.replace(/\.html/, '')); }); });
+    return m;
+  };
+  /* Init a freshly rendered fragment (icons + behaviors) */
+  PN.initFragment = function (el) { PN.renderIcons(el); el.querySelectorAll('.map[data-map]').forEach(PN.paintMap); PN.bind(el); };
 })();

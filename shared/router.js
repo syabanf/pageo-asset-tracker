@@ -14,14 +14,19 @@
     if (!href || /^(https?:|mailto:|tel:)/.test(href) || href === '#') return null;
     if (href.charAt(0) === '#') return href.slice(1) || null;
     if (href.indexOf('/') >= 0) return null;
-    if (/\.html$/.test(href)) return href.replace(/\.html$/, '');
+    if (/\.html(\?.*)?$/.test(href)) return href.replace(/\.html(\?.*)?$/, '$1');
     return null;
   }
 
   PN.route = function (id, opts) {
     opts = opts || {};
+    let qs = ''; const qi = (id || '').indexOf('?');
+    if (qi >= 0) { qs = id.slice(qi + 1); id = id.slice(0, qi); }
+    const params = {}; if (qs) { qs.split('&').forEach(function (kv) { const p = kv.split('='); params[decodeURIComponent(p[0])] = decodeURIComponent(p[1] || ''); }); }
+    PN.params = params;
     if (!PN.pages[id]) id = cfg.home;
     const def = PN.pages[id];
+    const full = id + (qs ? '?' + qs : '');
     const stage = document.getElementById('stage');
     Array.prototype.slice.call(stage.attributes).forEach(function (a) { if (a.name.indexOf('data-') === 0) stage.removeAttribute(a.name); });
     stage.className = cfg.kind;
@@ -30,14 +35,14 @@
     if (cfg.kind === 'mobile') {
       stage.innerHTML = '<div class="phone" data-mnav="' + (def.nav || 'none') + '" data-time="' + (def.time || '15:42') + '"' + (def.offline ? ' data-offline' : '') + (def.lowbatt ? ' data-lowbatt' : '') + '><div class="screen' + (def.dark ? ' dark' : '') + '">' + def.render() + '</div></div>';
     } else {
-      stage.innerHTML = '<main class="page' + (def.pageCls ? ' ' + def.pageCls : '') + '" id="page">' + def.render() + '</main>';
+      stage.innerHTML = '<main class="page' + (def.pageCls ? ' ' + def.pageCls : '') + '" id="page">' + def.render(params) + '</main>';
     }
-    current = id;
+    current = full;
     PN.init(stage);
     if (def.after) def.after(stage);
     stage.scrollTop = 0;
     document.title = def.title + ' · ' + cfg.title;
-    if (location.hash !== '#' + id) { if (opts.replace) history.replaceState(null, '', '#' + id); else history.pushState(null, '', '#' + id); }
+    if (location.hash !== '#' + full) { if (opts.replace) history.replaceState(null, '', '#' + full); else history.pushState(null, '', '#' + full); }
     if (cfg.onRoute) cfg.onRoute(id, def);
   };
   PN.current = function () { return current; };

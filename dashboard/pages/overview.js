@@ -1,6 +1,7 @@
 // handwritten — Command Center, fully data-driven (Template A: KPI + Map + Alerts + Activity)
 PN.page('overview', {
   title: 'Command Center', icon: 'grid', nav: 'overview', crumb: 'Global / Operations / Overview',
+  after(stage) { stage.querySelectorAll('[data-go-href]').forEach(function (el) { el.addEventListener('click', function () { PN.route(el.getAttribute('data-go-href').replace(/\.html/, '')); }); }); },
   render() {
     const D = window.DATA, K = D.kpis;
     const kpis = [
@@ -28,7 +29,12 @@ PN.page('overview', {
     return [
       C.pageHead({ eyebrow: 'Operations Command Center', title: 'One operational picture', sub: 'People, equipment, projects, vessels and safety · ' + K.projects.active + ' active projects · ' + K.projects.offshore + ' offshore',
         actions: C.select('All projects', { icon: 'clipboard', sm: true, style: 'width:200px' }) + C.btn('Export', 'ghost sm', 'download') + C.btn('Start muster', 'primary sm', 'siren') }),
-      C.grid(kpis, { cls: 'kpis', style: 'grid-template-columns:repeat(5,minmax(0,1fr))' }),
+      C.grid(kpis.map(function (k, i) { return '<a href="' + ['personnel.html', 'personnel.html?kind=info', 'assets.html', 'assets.html?status=In%20Transit', 'alerts.html'][i] + '" style="color:inherit;display:block">' + k + '</a>'; }), { cls: 'kpis', style: 'grid-template-columns:repeat(5,minmax(0,1fr))' }),
+      C.grid([
+        C.col(4, C.card({ title: 'Personnel status', link: { label: 'Personnel', href: 'personnel.html' }, body: C.donut({ size: 140, thickness: 18, centerLabel: 'on operation', parts: [{ label: 'On site', value: 55, color: '#168FBF', href: 'personnel.html?kind=info' }, { label: 'Offshore', value: 41, color: '#08698F', href: 'personnel.html?kind=info' }, { label: 'In transit', value: 12, color: '#4FB7D9', href: 'personnel.html?kind=transit' }, { label: 'Idle', value: 11, color: '#D89414', href: 'personnel.html?kind=warn' }, { label: 'Offline', value: 7, color: '#7C858A', href: 'personnel.html?kind=off' }, { label: 'Alert', value: 2, color: '#C43D3D', href: 'personnel.html?kind=crit' }] }) })),
+        C.col(4, C.card({ title: 'Assets by status', link: { label: 'Registry', href: 'assets.html' }, body: C.donut({ size: 140, thickness: 18, centerLabel: 'registered', parts: [{ label: 'Available', value: K.assets.available, color: '#17875D', href: 'assets.html?status=Available' }, { label: 'Deployed', value: K.assets.deployed, color: '#168FBF', href: 'assets.html?status=Deployed' }, { label: 'In transit', value: K.assets.transit, color: '#4FB7D9', href: 'assets.html?status=In%20Transit' }, { label: 'Maintenance', value: K.assets.maintenance, color: '#D89414', href: 'assets.html?status=Maintenance' }, { label: 'Unassigned', value: K.assets.unassigned, color: '#B1B8BC' }, { label: 'Missing', value: K.assets.missing, color: '#C43D3D', href: 'assets.html?kind=crit' }] }) })),
+        C.col(4, C.card({ title: 'Alerts · last 7 days', body: C.areaChart({ h: 160, labels: ['29 Aug', '30', '31', '01 Sep', '02', '03', '04'], series: [{ label: 'P3–P4', values: [5, 7, 4, 6, 3, 8, 5], color: '#168FBF' }, { label: 'P1–P2', values: [1, 2, 0, 1, 1, 2, 2], color: '#C43D3D', fillOpacity: .08 }] }) + '<div class="row s16 t-caption"><span>Open now <b class="crit">3</b></span><span>Acknowledged today <b>11</b></span><span>MTTA <b>4 min 12 s</b></span></div>' }))
+      ]),
       C.grid([
         C.col(8, '<div class="card p0"><div class="card-head">' + mapHead + '</div>' + map + '</div>'),
         C.col(4, C.stack([
@@ -43,7 +49,7 @@ PN.page('overview', {
       ]),
       C.grid([
         C.col(8, C.card({ cls: 'p0', title: 'Recent activity', right: C.seg(['All', 'People', 'Assets', 'Alerts'], 0, { sm: true }), body: '<div style="padding:4px 20px">' + C.feed(D.activity) + '</div>', foot: '<div class="row between"><span class="t-caption">Showing ' + D.activity.length + ' of 312 events today</span>' + C.link('Full movement log', 'asset-movement.html') + '</div>' })),
-        C.col(4, C.card({ title: 'Personnel accounted', right: '<span class="t-caption">Last 12 h</span>', body: C.bars([62, 66, 74, 80, 88, 92, 95, 97, 96, 94, 95, 95], ['04', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14', '15'], { seq: true }) + C.divider() + C.kv([['Peak accounted', '124 · 11:00'], ['Current', K.people.accounted + ' / ' + K.people.onOperation], ['Freshness policy', 'Live &lt; 1 min · Offline &gt; 30 min']]) }))
+        C.col(4, C.card({ title: 'Personnel accounted', right: '<span class="t-caption">Last 12 h</span>', body: C.areaChart({ h: 150, values: [62, 66, 74, 80, 88, 92, 95, 97, 96, 94, 95, 95], labels: ['04:00', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14', '15:00'], color: '#17875D', maxLabels: 6 }) + C.divider() + C.kv([['Peak accounted', '124 · 11:00'], ['Current', K.people.accounted + ' / ' + K.people.onOperation], ['Freshness policy', 'Live &lt; 1 min · Offline &gt; 30 min']]) }))
       ])
     ].join('');
   }

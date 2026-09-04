@@ -68,7 +68,7 @@ PN.page("employee-detail", {
   <!-- Metadata, assets, device -->
   <div class="grid">
     <div class="c4 card">
-      <div class="card-head"><span class="card-title">Identity</span><button class="btn xs ghost"><i data-icon="pencil"></i>Edit</button></div>
+      <div class="card-head"><span class="card-title">Identity</span><a class="btn xs ghost" href="personnel-form.html?id=PG-0142"><i data-icon="pencil"></i>Edit</a></div>
       <div class="kv-grid" style="grid-template-columns:1fr 1fr">
         <div><div class="k">Employee ID</div><div class="v">PG-0142</div></div>
         <div><div class="k">Department</div><div class="v">Survey</div></div>
