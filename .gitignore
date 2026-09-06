@@ -1,2 +1,5 @@
+deck/node_modules/
+deck/*.pptx
+deck/*.pdf
+deck/*.jpg
 .DS_Store
-node_modules/
